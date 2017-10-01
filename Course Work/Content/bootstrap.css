@@ -6821,14 +6821,10 @@ td.visible-print {
   }
 }
 
-.address {
-    display: inline-block;
-}
-
 .Cont_map {
-    float: right;
+    float:right;
 }
 
 .address-words {
-    float:left;
+    text-align:left;
 }

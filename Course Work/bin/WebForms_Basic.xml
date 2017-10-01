@@ -37,42 +37,6 @@ Course Work
  Returns the Asp log object.
  </summary>
 </member>
-<member name="F:Course_Work._Default._tb_username">
-<summary>
-tb_username control.
-</summary>
-<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member>
-<member name="F:Course_Work._Default._tb_password">
-<summary>
-tb_password control.
-</summary>
-<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member>
-<member name="F:Course_Work._Default._B_Login">
-<summary>
-B_Login control.
-</summary>
-<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member>
-<member name="F:Course_Work._Default._h_register">
-<summary>
-h_register control.
-</summary>
-<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member>
 <member name="F:Course_Work.Login._form1">
 <summary>
 form1 control.
