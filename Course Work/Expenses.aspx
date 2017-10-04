@@ -2,5 +2,6 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div>This is where the expenses will be.</div>
-
+    <asp:TextBox ID="testbox" runat="server"></asp:TextBox>
+    <br />
 </asp:Content> 
