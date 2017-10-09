@@ -1,5 +1,4 @@
-﻿
-﻿Imports System.Data.OleDb
+﻿﻿Imports System.Data.OleDb
 Public Class Expenses
     Inherits System.Web.UI.Page
     Public dataQueries As New DataSet1TableAdapters.CarsTableAdapter
