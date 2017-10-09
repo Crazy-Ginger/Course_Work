@@ -1,3 +1,4 @@
+﻿
 ﻿Imports System.Data.OleDb
 Public Class Expenses
     Inherits System.Web.UI.Page
@@ -22,5 +23,4 @@ Public Class Expenses
     Private Function ddlMake() As Object
         Throw New NotImplementedException
     End Function
-
 End Class
