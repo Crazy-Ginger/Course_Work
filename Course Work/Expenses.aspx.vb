@@ -1,7 +1,7 @@
 ﻿﻿Imports System.Data.OleDb
 Public Class Expenses
     Inherits System.Web.UI.Page
-    Public dataQueries As New DataSet1TableAdapters.CarsTableAdapter
+    Public dataQueries As New DataSet1TableAdapters.TableAdapter
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'Dim testExpenses As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source= W:\6th Form\Year 2\Computer Science\Course_Work\Course Work\User Details.accdb")

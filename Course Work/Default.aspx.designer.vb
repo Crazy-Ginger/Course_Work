@@ -12,4 +12,40 @@ Option Explicit On
 
 
 Partial Public Class _Default
+    
+    '''<summary>
+    '''Tb_username control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Tb_username As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Tb_password control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Tb_password As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''B_Login control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents B_Login As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''h_register control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents h_register As Global.System.Web.UI.WebControls.HyperLink
 End Class

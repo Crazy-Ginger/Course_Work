@@ -5,10 +5,10 @@
     <div class="login">
 
         User Name:&emsp;
-        <asp:TextBox ID="tb_username" runat="server" Width="145px"></asp:TextBox>
+        <asp:TextBox ID="Tb_username" runat="server" Width="145px"></asp:TextBox>
         <br />
         Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="tb_password" runat="server" Width="145px"></asp:TextBox>
+        <asp:TextBox ID="Tb_password" runat="server" Width="145px"></asp:TextBox>
         <br />
 
         <asp:Button ID="B_Login" runat="server" Text="Login" />
