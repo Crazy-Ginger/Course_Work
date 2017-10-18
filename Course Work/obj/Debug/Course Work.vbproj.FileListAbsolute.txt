@@ -403,3 +403,10 @@ W:\6th Form\Year 2\Computer Science\Course_Work\Course Work\obj\Debug\Course Wor
 W:\6th Form\Year 2\Computer Science\Course_Work\Course Work\obj\Debug\Course Work.dll
 W:\6th Form\Year 2\Computer Science\Course_Work\Course Work\obj\Debug\WebForms_Basic.xml
 W:\6th Form\Year 2\Computer Science\Course_Work\Course Work\obj\Debug\Course Work.pdb
+\\server2012\staff data$\awardle\My Documents\Matthew\Course_Work\Course Work\obj\Debug\Course Work.vbprojResolveAssemblyReference.cache
+\\server2012\staff data$\awardle\My Documents\Matthew\Course_Work\Course Work\obj\Debug\Course_Work.Resources.resources
+\\server2012\staff data$\awardle\My Documents\Matthew\Course_Work\Course Work\obj\Debug\Course Work.vbproj.GenerateResource.Cache
+\\server2012\staff data$\awardle\My Documents\Matthew\Course_Work\Course Work\obj\Debug\Course Work.vbproj.CoreCompileInputs.cache
+\\server2012\staff data$\awardle\My Documents\Matthew\Course_Work\Course Work\obj\Debug\Course Work.dll
+\\server2012\staff data$\awardle\My Documents\Matthew\Course_Work\Course Work\obj\Debug\WebForms_Basic.xml
+\\server2012\staff data$\awardle\My Documents\Matthew\Course_Work\Course Work\obj\Debug\Course Work.pdb
