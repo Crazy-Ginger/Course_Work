@@ -11,6 +11,6 @@
             <asp:BoundField DataField="Gross_Profit" HeaderText="Gross_Profit" SortExpression="Gross_Profit" />
         </Columns>
 </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT [Expenses], [Net Profit] AS Net_Profit, [Wage], [Gross Profit] AS Gross_Profit FROM [Money]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:User-Expenses %>" ProviderName="<%$ ConnectionStrings:User-Expenses.ProviderName %>" SelectCommand="SELECT [Expenses], [Net Profit] AS Net_Profit, [Wage], [Gross Profit] AS Gross_Profit FROM [Money]"></asp:SqlDataSource>
     <br />
 </asp:Content> 
