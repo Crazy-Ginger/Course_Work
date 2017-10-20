@@ -11,23 +11,23 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class _Default
+Partial Public Class Expenses
     
     '''<summary>
-    '''testbox control.
+    '''Expenses_gv control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents testbox As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents Expenses_gv As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
-    '''TextBox1 control.
+    '''SqlDataSource2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox1 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents SqlDataSource2 As Global.System.Web.UI.WebControls.SqlDataSource
 End Class

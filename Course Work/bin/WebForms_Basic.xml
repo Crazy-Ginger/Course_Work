@@ -37,18 +37,79 @@ Course Work
  Returns the Asp log object.
  </summary>
 </member>
-<member name="F:Course_Work._Default._testbox">
+<member name="T:Course_Work.My.Resources.Resources">
 <summary>
-testbox control.
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Course_Work.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Course_Work.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="F:Course_Work.Expenses._Expenses_gv">
+<summary>
+Expenses_gv control.
 </summary>
 <remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:Course_Work.Login._form1">
+<member name="F:Course_Work.Expenses._SqlDataSource2">
+<summary>
+SqlDataSource2 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:Course_Work.index._form1">
 <summary>
 form1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:Course_Work.Login._Tb_username">
+<summary>
+Tb_username control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:Course_Work.Login._Tb_password">
+<summary>
+Tb_password control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:Course_Work.Login._B_Login">
+<summary>
+B_Login control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:Course_Work.Login._h_register">
+<summary>
+h_register control.
 </summary>
 <remarks>
 Auto-generated field.

@@ -1,6 +1,6 @@
 ﻿
 Namespace DataSet1TableAdapters
-    Public Class CarsTableAdapter
+    Public Class TableAdapter
 
     End Class
 End Namespace
