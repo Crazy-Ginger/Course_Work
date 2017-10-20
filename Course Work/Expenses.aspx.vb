@@ -1,4 +1,4 @@
-﻿﻿Imports System.Data.OleDb
+﻿Imports System.Data.OleDb
 Public Class Expenses
     Inherits System.Web.UI.Page
     Public dataQueries As New DataSet1TableAdapters.TableAdapter
@@ -15,11 +15,7 @@ Public Class Expenses
 
         '#id = id & CStr(reader["ID"]) & "  "
         'End While
-        Dim NET As String = ddlMake.SelectedItem.Text
-        Session("Make") = NET
+        'Dim NET As String = ddlMake.SelectedItem.Text
+        'Session("Make") = NET
     End Sub
-
-    Private Function ddlMake() As Object
-        Throw New NotImplementedException
-    End Function
 End Class

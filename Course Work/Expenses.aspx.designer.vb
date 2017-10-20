@@ -11,8 +11,8 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class _Default
-
+Partial Public Class Expenses
+    
     '''<summary>
     '''Expenses_gv control.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class _Default
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Expenses_gv As Global.System.Web.UI.WebControls.GridView
-
+    
     '''<summary>
     '''SqlDataSource1 control.
     '''</summary>
