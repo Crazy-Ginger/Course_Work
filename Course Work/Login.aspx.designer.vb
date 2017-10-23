@@ -41,6 +41,15 @@ Partial Public Class Login
     Protected WithEvents B_Login As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
+    '''L_Incorrect control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents L_Incorrect As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''h_register control.
     '''</summary>
     '''<remarks>

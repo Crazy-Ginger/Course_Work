@@ -13,7 +13,10 @@
 
         <asp:Button ID="B_Login" runat="server" Text="Login" />
         <br />
-        Dont have an account?
+        <asp:Label ID="L_Incorrect" runat="server" ForeColor="Red" Text="Incorrect password for username"></asp:Label><br />
+        <br />
+
+        Dont have an account? 
         <asp:HyperLink ID="h_register" runat="server">Click here</asp:HyperLink>
 &nbsp;to register</div>
 
