@@ -17,5 +17,8 @@ Public Class Expenses
         'End While
         'Dim NET As String = ddlMake.SelectedItem.Text
         'Session("Make") = NET
+        Dim executable As String = System.Reflection.Assembly.GetExecutingAssembly().Location
+        Dim path As String = (System.IO.Path.GetDirectoryName(executable))
+        AppDomain.CurrentDomain.SetData("Datadirectory", path)
     End Sub
 End Class
