@@ -62,9 +62,9 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:Course_Work.Expenses._SqlDataSource2">
+<member name="F:Course_Work.Expenses._Db_Money">
 <summary>
-SqlDataSource2 control.
+Db_Money control.
 </summary>
 <remarks>
 Auto-generated field.
