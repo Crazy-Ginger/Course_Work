@@ -13,7 +13,7 @@
 
         <asp:Button ID="B_Login" runat="server" Text="Login" />
         <br />
-        <asp:Label ID="L_Incorrect" runat="server" ForeColor="Red" Text="Incorrect password for username"></asp:Label><br />
+        <asp:Label ID="L_Incorrect" runat="server" ForeColor="Red" Text="Incorrect password for username" Visible="False"></asp:Label><br />
         <br />
 
         Dont have an account? 
