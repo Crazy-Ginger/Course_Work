@@ -1,5 +1,4 @@
-﻿
-Namespace DataSet1TableAdapters
+﻿Namespace DataSet1TableAdapters
     Public Class TableAdapter
 
     End Class
