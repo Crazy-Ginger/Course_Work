@@ -4,6 +4,7 @@ Public Class Expenses
     Public dataQueries As New DataSet1TableAdapters.TableAdapter
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
         'Dim testExpenses As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source= W:\6th Form\Year 2\Computer Science\Course_Work\Course Work\User Details.accdb")
         'testExpenses.Open()
         'Dim query1 As String = "SELECT * FROM *"
