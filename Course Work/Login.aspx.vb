@@ -17,7 +17,6 @@ Public Class Login
     Protected Sub B_Login_Click(sender As Object, e As EventArgs) Handles B_Login.Click
         Dim Login As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|Datadirectory|User details.accdb")
         Login.Open()
-
         Dim command As New OleDbCommand("SELECT COUNT(*) FROM users WHERE username=@username AND password=@password", Login)
         command.Parameters.AddWithValue("@username", Tb_username)
         command.Parameters.AddWithValue("@password", Tb_password)
