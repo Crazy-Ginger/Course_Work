@@ -14,6 +14,7 @@
         <asp:Button ID="B_Login" runat="server" Text="Login" />
         <br />
         <asp:Label ID="L_Incorrect" runat="server" ForeColor="Red" Text="Incorrect password for username" Visible="False"></asp:Label><br />
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
         <br />
 
         Dont have an account? 
