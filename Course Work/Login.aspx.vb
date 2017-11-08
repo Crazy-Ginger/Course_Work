@@ -3,7 +3,6 @@ Public Class Login
     Inherits System.Web.UI.Page
     Public dataQueries As New DataSet1TableAdapters.TableAdapter
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        AppDomain.CurrentDomain.SetData("DataDirectory", "\App_Data")
         'Dim Login As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|Datadirectory|/User details.accdb")
         'Login.Open()
         'Dim username_query As String = "SELECT username FROM users"
@@ -12,7 +11,7 @@ Public Class Login
         'Dim passwords As New OleDbCommand(password_query, Login)
         'Dim reader_pass As OleDbDataReader = passwords.ExecuteReader()
         'Dim reader_user As OleDbDataReader = usernames.ExecuteReader()
-        Dim Login As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\User details.accdb")
+        Dim Login As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|User details.accdb")
         Login.Open()
         Dim commandstring As New OleDbCommand("SELECT Username FROM users WHERE ID=3", Login)
         Dim reader As OleDbDataReader = (commandstring.ExecuteReader())
@@ -20,7 +19,7 @@ Public Class Login
     End Sub
 
     Protected Sub B_Login_Click(sender As Object, e As EventArgs) Handles B_Login.Click
-        Dim Login As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\User details.accdb")
+        Dim Login As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|User details.accdb")
         Login.Open()
         Dim commandstring As New OleDbCommand("SELECT Username FROM users WHERE ID=3", Login)
         Dim reader As OleDbDataReader = (commandstring.ExecuteReader())
