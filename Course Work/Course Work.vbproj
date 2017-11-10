@@ -152,6 +152,7 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\User Details.accdb" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -168,6 +169,17 @@
     </Content>
     <Content Include="Map.aspx" />
     <Content Include="Weekly Summary.aspx" />
+    <Content Include="Database Dataset.xsc">
+      <DependentUpon>Database Dataset.xsd</DependentUpon>
+    </Content>
+    <None Include="Database Dataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Database Dataset.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Database Dataset.xss">
+      <DependentUpon>Database Dataset.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -213,6 +225,11 @@
     <Compile Include="Contact.aspx.vb">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Database Dataset.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database Dataset.xsd</DependentUpon>
     </Compile>
     <Compile Include="Expenses.aspx.designer.vb">
       <DependentUpon>Expenses.aspx</DependentUpon>
@@ -316,9 +333,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

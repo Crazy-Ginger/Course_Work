@@ -6,8 +6,7 @@ Public Class Login
         'Dim executable As String = System.Reflection.Assembly.GetExecutingAssembly().Location
         'Dim datapath As String = (System.IO.Path.GetDirectoryName(executable))
         'AppDomain.CurrentDomain.SetData("DataDirectory", datapath)
-        ' Dim Login As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|User details.accdb")
-        Dim Login As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=W:\6th Form\Year 2\Computer Science\Course_Work\Course Work\App_Data\User details.accdb")
+        Dim Login As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|User details.accdb")
         Login.Open()
         Dim commandstring As New OleDbCommand("SELECT Username FROM users", Login)
         Dim reader As OleDbDataReader = (commandstring.ExecuteReader())
@@ -15,8 +14,7 @@ Public Class Login
     End Sub
 
     Protected Sub B_Login_Click(sender As Object, e As EventArgs) Handles B_Login.Click
-        'Dim Login As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|User details.accdb")
-        Dim Login As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=W:\6th Form\Year 2\Computer Science\Course_Work\Course Work\App_Data\User details.accdb")
+        Dim Login As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|User details.accdb")
         Login.Open()
         Dim commandstring As New OleDbCommand("SELECT Username FROM users WHERE ID=3", Login)
         Dim reader As OleDbDataReader = (commandstring.ExecuteReader())
