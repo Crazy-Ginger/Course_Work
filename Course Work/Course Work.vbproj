@@ -168,6 +168,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Map.aspx" />
+    <Content Include="Register_user.aspx" />
     <Content Include="Weekly Summary.aspx" />
     <Content Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
@@ -273,6 +274,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Register_user.aspx.designer.vb">
+      <DependentUpon>Register_user.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Register_user.aspx.vb">
+      <DependentUpon>Register_user.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Site.Master.designer.vb">
       <DependentUpon>Site.Master</DependentUpon>
