@@ -6829,3 +6829,10 @@ td.visible-print {
 .address-words {
     text-align:left;
 }
+.reg_user {
+   float:left;
+
+}
+.reg_truck{
+    float:right;
+}

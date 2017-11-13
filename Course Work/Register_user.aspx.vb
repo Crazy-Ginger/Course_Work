@@ -5,4 +5,11 @@
 
     End Sub
 
+    Protected Sub TextBox1_TextChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Protected Sub TextBox4_TextChanged(sender As Object, e As EventArgs)
+
+    End Sub
 End Class
