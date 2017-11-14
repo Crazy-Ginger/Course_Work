@@ -14,56 +14,101 @@ Option Explicit On
 Partial Public Class Register
     
     '''<summary>
-    '''TextBox1 control.
+    '''tx_truckbrand control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox1 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tx_truckbrand As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''TextBox2 control.
+    '''tx_truckmodel control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox2 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tx_truckmodel As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''TextBox3 control.
+    '''tx_truckage control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox3 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tx_truckage As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''TextBox4 control.
+    '''tx_lastMOT control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox4 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tx_lastMOT As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''TextBox5 control.
+    '''tx_nextMOT control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox5 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tx_nextMOT As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Button1 control.
+    '''tx_fname control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents tx_fname As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''tx_lname control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tx_lname As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''tx_uname control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tx_uname As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''tx_password control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tx_password As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''tx_email control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tx_email As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''next1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents next1 As Global.System.Web.UI.WebControls.Button
 End Class
