@@ -50,6 +50,15 @@ Partial Public Class Register
     Protected WithEvents tx_password As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
+    '''tx_passwordcon control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tx_passwordcon As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
     '''tx_email control.
     '''</summary>
     '''<remarks>
@@ -104,11 +113,11 @@ Partial Public Class Register
     Protected WithEvents tx_nextMOT As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''nextut control.
+    '''Button1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents nextut As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
 End Class
