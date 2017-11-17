@@ -3107,7 +3107,7 @@ Namespace DataSet1TableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(1) {}
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT ID, Username, [Password], [Date of Employment], email, [Hours operated thi"& _ 
@@ -3115,12 +3115,19 @@ Namespace DataSet1TableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        COUNT(*) AS result, Username, [Password]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Users"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GR"& _ 
-                "OUP BY Username, [Password]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (COUNT(*) = 1) AND (Username = ?) AND"& _ 
-                " ([Password] = ?)"
+            Me._commandCollection(1).CommandText = "SELECT        COUNT(*) AS Expr1, Username, email"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Users"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY"& _ 
+                " Username, email"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (Username = ?) AND (email = ?)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Username", Global.System.Data.OleDb.OleDbType.WChar, 255, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Username", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Password", Global.System.Data.OleDb.OleDbType.WChar, 255, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Password", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("email", Global.System.Data.OleDb.OleDbType.WChar, 255, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "email", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT        COUNT(*) AS result, Username, [Password]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Users"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GR"& _ 
+                "OUP BY Username, [Password]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (COUNT(*) = 1) AND (Username = ?) AND"& _ 
+                " ([Password] = ?)"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Username", Global.System.Data.OleDb.OleDbType.WChar, 255, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Username", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Password", Global.System.Data.OleDb.OleDbType.WChar, 255, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Password", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3302,8 +3309,44 @@ Namespace DataSet1TableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Login(ByVal Username As String, ByVal Password As String) As Global.System.Nullable(Of Integer)
+        Public Overloads Overridable Function dupeCheck(ByVal Username As String, ByVal email As String) As Global.System.Nullable(Of Integer)
             Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(1)
+            If (Username Is Nothing) Then
+                command.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(0).Value = CType(Username,String)
+            End If
+            If (email Is Nothing) Then
+                command.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(1).Value = CType(email,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Object
+            Try 
+                returnValue = command.ExecuteScalar
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            If ((returnValue Is Nothing)  _
+                        OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
+                Return New Global.System.Nullable(Of Integer)()
+            Else
+                Return New Global.System.Nullable(Of Integer)(CType(returnValue,Integer))
+            End If
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Login(ByVal Username As String, ByVal Password As String) As Global.System.Nullable(Of Integer)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(2)
             If (Username Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else
