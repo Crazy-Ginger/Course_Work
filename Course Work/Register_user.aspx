@@ -18,14 +18,6 @@
 <br />
         <asp:TextBox ID="tx_email" runat="server" TextMode="Email" placeholder="Email"></asp:TextBox>
             <br />
-            Admin<br />
-            <asp:DropDownList ID="Dd_Admins" runat="server" DataSourceID="Database" DataTextField="Username" placeholder="Admins" DataValueField="Username" Height="16px" Width="125px">
-            </asp:DropDownList>
-            <asp:SqlDataSource ID="Database" runat="server" ConnectionString="<%$ ConnectionStrings:Dropdown_Admins %>" ProviderName="<%$ ConnectionStrings:Dropdown_Admins.ProviderName %>" SelectCommand="SELECT [Username] FROM [Users] WHERE ([Admin] = ?)">
-                <SelectParameters>
-                    <asp:Parameter DefaultValue="True" Name="Admin" Type="Boolean" />
-                </SelectParameters>
-            </asp:SqlDataSource>
     <br />
         </div>
         

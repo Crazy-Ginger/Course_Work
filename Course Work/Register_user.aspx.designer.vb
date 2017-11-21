@@ -68,24 +68,6 @@ Partial Public Class Register
     Protected WithEvents tx_email As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Dd_Admins control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Dd_Admins As Global.System.Web.UI.WebControls.DropDownList
-    
-    '''<summary>
-    '''Database control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Database As Global.System.Web.UI.WebControls.SqlDataSource
-    
-    '''<summary>
     '''tx_truckbrand control.
     '''</summary>
     '''<remarks>
