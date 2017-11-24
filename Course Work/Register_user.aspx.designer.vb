@@ -41,6 +41,15 @@ Partial Public Class Register
     Protected WithEvents tx_uname As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
+    '''L_username control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents L_username As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''tx_password control.
     '''</summary>
     '''<remarks>
@@ -59,6 +68,15 @@ Partial Public Class Register
     Protected WithEvents tx_passwordcon As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
+    '''L_password_match control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents L_password_match As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''tx_email control.
     '''</summary>
     '''<remarks>
@@ -66,6 +84,15 @@ Partial Public Class Register
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents tx_email As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''L_email control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents L_email As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''tx_truckbrand control.
