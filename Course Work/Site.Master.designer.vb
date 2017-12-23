@@ -12,7 +12,16 @@ Option Explicit On
 
 
 Partial Public Class SiteMaster
-
+    
+    '''<summary>
+    '''Logo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Logo As Global.System.Web.UI.WebControls.Image
+    
     '''<summary>
     '''MainContent control.
     '''</summary>

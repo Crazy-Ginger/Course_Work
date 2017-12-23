@@ -13,7 +13,7 @@ Public Class Login
         'End While      this code does succesfully access the database and pull a user name from the users databased
         Dim strings As String = Session("logged_in")
         If strings = "in" Then
-            Response.Redirect("Expenses.aspx")
+            Response.Redirect("Map.aspx")
         End If
     End Sub
 

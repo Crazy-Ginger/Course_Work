@@ -1,8 +1,11 @@
 ﻿<%@ Page Title="Login" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.vb" Inherits="Course_Work.Login" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="Spaces"><br/></div>
+    <div class="Spaces"><br/>
+    </div>
+
     <div class="login">
+        <img alt="" src="" />
 
         User Name:&emsp;
         <asp:TextBox ID="Tb_username" runat="server" Width="145px"></asp:TextBox>
