@@ -21,7 +21,7 @@
         <asp:TextBox ID="tx_email" runat="server" TextMode="Email" placeholder="Email"></asp:TextBox>
             <br />
             <asp:Label ID="L_email" runat="server" ForeColor="Red" Text="You need a unique email" Visible="False"></asp:Label>
-    <br />
+            <br />
         </div>
         
         <div class="reg_truck">
