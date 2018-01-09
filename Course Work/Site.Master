@@ -5,8 +5,8 @@
 <html lang="en">
 <head runat="server">
     <%--this adds the aspects for the mapbox--%>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.js'></script>            
-    <link href='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css' rel='stylesheet' /> <%--../mapbox-gl.css  add this to the reference--%>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.js'></script>            <%--~/App_Data/mapbox-gl.js--%>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css' rel='stylesheet' /> <%--../mapbox-gl.css ~/App_Data/mapbox-gl.css add this to the reference--%>
 
     <%--this adds the style sheet and scripts for leaflet--%>
     <link rel="stylesheet" href="leaflet/leaflet.css" />
@@ -56,7 +56,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <asp:Image ImageURL="~/App_Data/Logo.png" runat="server" ID="Logo" ImageAlign="Left" Height="59" ValidateRequestMode="Inherit" Width="174" />
+                    <%--<asp:Image ImageURL="~/App_Data/Logo.png" runat="server" ID="Logo" ImageAlign="Left" Height="59" ValidateRequestMode="Inherit" Width="174" />--%>
+                    <img src="~/Images/Logo.jpg" width="174" height="59" ID="Logo" />
                     <a class="navbar-brand" runat="server" href="~/Map">Map</a>
                 </div>
                 <div class="navbar-collapse collapse">
