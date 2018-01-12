@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class SiteMaster
-
+    
     '''<summary>
     '''MainContent control.
     '''</summary>
