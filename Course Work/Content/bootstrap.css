@@ -6842,8 +6842,9 @@ td.visible-print {
     margin-right: 50px;
 }
 
-/*.Map_Map {
-
-    width: 800px;
-    height: 800px;
-}*/
+#map{
+    position:absolute;
+    top:0;
+    bottom:0;
+    width:100%;
+}
