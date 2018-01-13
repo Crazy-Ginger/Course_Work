@@ -6,20 +6,9 @@
         <div id='map' class="Map_Map" style='position:relative;width: 1050px; height: 800px; align-content:center'>
 
         </div>
-        <style type="text/css">
-            #info {
-                display:block;
-                position:relative;
-                margin:0px auto;
-                width: 50%;
-                padding:10px;
-                border:none;
-                border-radius:3px;
-                font-size:12px;
-                color:#222;
-                background:#fff;
-            }
-        </style>
+        
+        <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.js'></script>
+        <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.css' type='text/css' />
         <script>
             //var bounds = [
             //    [20.434570, 36.949892], [-18.500977, 62.714462]   commented as it breaks the map, dont know why
@@ -28,15 +17,17 @@
 
             var map = new mapboxgl.Map({
                 container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v10',
+                style: 'mapbox://styles/mapbox/streets-v9',
                 //maxBounds: bounds,
                 //zoom: 13,
                 //center: [0, 54.098060]    this dont work for some reason
             });
+            
+
             map.addControl(new mapboxgl.NavigationControl());
             //https://www.mapbox.com/mapbox-gl-js/example/mapbox-gl-directions/ add this at a later date (driving directions)
             //https://www.mapbox.com/mapbox-gl-js/example/mapbox-gl-geocoder/ geocoder
-
+            map.addControl(new MapboxDirections({accessToken: mapboxgl.accessToken}), 'top-left');
         </script>
     </div>
 </asp:Content>
