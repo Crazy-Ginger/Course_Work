@@ -5,13 +5,11 @@
     </div>
 
     <div class="login">
-        <img alt="" src="" />
-
-        User Name:&emsp;
-        <asp:TextBox ID="Tb_username" runat="server" Width="145px"></asp:TextBox>
+        User Name:&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="Tb_username" runat="server" Width="150px"></asp:TextBox>
         <br />
         Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="Tb_password" runat="server" Width="145px"></asp:TextBox>
+        <asp:TextBox ID="Tb_password" runat="server" Width="150px"></asp:TextBox>
         <br />
 
         <asp:Button ID="B_Login" runat="server" Text="Login" />

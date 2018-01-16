@@ -6822,9 +6822,9 @@ td.visible-print {
   }
 }
 
-.Cont_map {
+/*#map {
     float:right;
-}
+}*/
 
 .address-words {
     text-align:left;
@@ -6840,11 +6840,4 @@ td.visible-print {
 
 .reg_user {
     margin-right: 50px;
-}
-
-#map{
-    position:absolute;
-    top:0;
-    bottom:0;
-    width:100%;
 }
