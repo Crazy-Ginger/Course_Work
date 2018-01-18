@@ -4,7 +4,7 @@
     <h2><%: Title %></h2>
 
     <%--<iframe class="Cont_map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1181.8192193945974!2d-1.8240724916383704!3d53.671245984000315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bdce435863ad9%3A0x41e2d54f3c40f42f!2sGrimescar+Rd%2C+Huddersfield+HD2+2EB!5e0!3m2!1sen!2suk!4v1506872212219" width="600" height="600"  style="border:0"></iframe>--%>
-    <div id='map' class="Map_cont" ><%--style='width: 600px; height: 600px; float:right;'--%>
+    <div id='map' class="Map_cont" style='width: 800px; height: 400px; float:right;'>
 
         </div>
         <script>
