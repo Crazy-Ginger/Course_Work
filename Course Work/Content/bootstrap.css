@@ -6841,3 +6841,6 @@ td.visible-print {
 .reg_user {
     margin-right: 50px;
 }
+#ToRight {
+    float:right;
+}
