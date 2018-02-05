@@ -154,8 +154,6 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\Logo.jpg" />
-    <Content Include="Images\Logo.png" />
     <Content Include="App_Data\mapbox-gl.css" />
     <Content Include="App_Data\mapbox-gl.js" />
     <Content Include="App_Data\User Details.accdb" />
@@ -175,6 +173,8 @@
     <Content Include="Map.aspx" />
     <Content Include="Register_confirm.aspx" />
     <Content Include="Register_user.aspx" />
+    <Content Include="Traveling Salesman .js" />
+    <Content Include="Traveling Salesman BruteForce.cpp" />
     <Content Include="Weekly Summary.aspx" />
     <Content Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
@@ -253,7 +253,7 @@
     </Compile>
     <Compile Include="Map.aspx.vb">
       <DependentUpon>Map.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -347,7 +347,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

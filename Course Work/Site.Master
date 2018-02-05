@@ -7,10 +7,16 @@
     <%--this adds the aspects for the mapbox--%>
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.js'></script>            <%--~/App_Data/mapbox-gl.js--%>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css' rel='stylesheet' /> <%--../mapbox-gl.css ~/App_Data/mapbox-gl.css add this to the reference--%>
+    <link href='//mapbox.com/base/latest/base.css' rel='stylesheet' /> <%--may add css for the maps--%>
 
     <%--this adds the style sheet and scripts for leaflet--%>
     <link rel="stylesheet" href="leaflet/leaflet.css" />
     <script src="leaflet/leaflet.js"></script>
+    <%--This should be for leaflet with multiple directions--%>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -57,7 +63,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <%--<asp:Image ImageURL="~/App_Data/Logo.png" runat="server" ID="Logo" ImageAlign="Left" Height="59" ValidateRequestMode="Inherit" Width="174" />--%>
-                    <img src="~/Images/Logo.jpg" width="174" height="59" ID="Logo" />
+                   <%-- <img src="~/Images/Logo.jpg" width="174" height="59" ID="Logo" />--%>
                     <a class="navbar-brand" runat="server" href="~/Map">Map</a>
                 </div>
                 <div class="navbar-collapse collapse">
