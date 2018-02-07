@@ -4,14 +4,14 @@
     <div class="jumbotron">
         <%--<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4855861.9722248465!2d-2.456570850324048!3d54.73551770561395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2suk!4v1508513543217" width="800" height="600" style="border:0"></iframe>--%>
 
-        <asp:TextBox ID="Start" runat="server" Width="205px"></asp:TextBox><div id="ToRight"></div><asp:TextBox ID="End" runat="server" Width="205px"></asp:TextBox>
+        <asp:TextBox ID="Start" runat="server" Width="205px"></asp:TextBox><div id="ToRight"><asp:TextBox ID="End" runat="server" Width="205px"></asp:TextBox></div>
         <br />
-        <asp:TextBox ID="Tx_Destinations" runat="server"></asp:TextBox>
-        <asp:Button ID="AddDestination" runat="server" Text="AddDestination" Font-Size="Medium" Height="40px" /></div>
-
+        <asp:Button ID="AddDestination" runat="server" Text="AddDestination" Font-Size="Medium" Height="40px" />
+        <asp:Panel ID="P_Dest_cont" runat="server"></asp:Panel>
         
         <div id='map' class="mainMap" style='position:relative;width: 1050px; height: 800px; align-content:center'> 
         </div>
+        
         
         <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.js'></script>
         <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.css' type='text/css' />

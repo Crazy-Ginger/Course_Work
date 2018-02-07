@@ -32,15 +32,6 @@ Partial Public Class Map
     Protected WithEvents [End] As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Tx_Destinations control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Tx_Destinations As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
     '''AddDestination control.
     '''</summary>
     '''<remarks>
@@ -48,4 +39,13 @@ Partial Public Class Map
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents AddDestination As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''P_Dest_cont control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents P_Dest_cont As Global.System.Web.UI.WebControls.Panel
 End Class
