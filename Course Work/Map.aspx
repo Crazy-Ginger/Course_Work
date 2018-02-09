@@ -1,14 +1,20 @@
-﻿<%@ Page Title="Map" Language="VB" Masterpagefile="~/Site.Master" AutoEventWireup="true" CodeBehind="Map.aspx.vb" Inherits="Course_Work.Map" %>
+﻿<%@ Page Title="Map" Language="VB" Masterpagefile="~/Site.Master" AutoEventWireup="true" CodeBehind="Map.aspx.vb" Inherits="Course_Work.Map"%>
 
-<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent" EnableEventValidation="true">
     <div class="jumbotron">
         <%--<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4855861.9722248465!2d-2.456570850324048!3d54.73551770561395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2suk!4v1508513543217" width="800" height="600" style="border:0"></iframe>--%>
 
-        <asp:TextBox ID="Start" runat="server" Width="205px"></asp:TextBox><div id="ToRight"></div><asp:TextBox ID="End" runat="server" Width="205px"></asp:TextBox>
+        <asp:TextBox ID="Start" runat="server" Width="205px" Text="Start Location"></asp:TextBox><div id="ToRight"><asp:TextBox ID="End" runat="server" Width="300px" Text="Final Destination (optional)"></asp:TextBox></div>
         <br />
-        <asp:Button ID="AddDestination" runat="server" Text="AddDestination" Font-Size="Medium" Height="40px" /></div>
-
         
+        <asp:Button ID="AddDestination" runat="server" Text="AddDestination" Font-Size="Medium" Height="40px" />
+        <asp:Panel ID="P_Dest_cont" runat="server"></asp:Panel>
+        
+
+        <br />
+        <asp:TextBox ID="BoxNumVal" runat="server" Width="205px"></asp:TextBox>
+
+
         <div id='map' class="mainMap" style='position:relative;width: 1050px; height: 800px; align-content:center'> 
         </div>
         

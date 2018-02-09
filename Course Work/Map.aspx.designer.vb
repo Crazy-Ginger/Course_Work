@@ -39,4 +39,22 @@ Partial Public Class Map
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents AddDestination As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''P_Dest_cont control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents P_Dest_cont As Global.System.Web.UI.WebControls.Panel
+    
+    '''<summary>
+    '''BoxNumVal control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents BoxNumVal As Global.System.Web.UI.WebControls.TextBox
 End Class
