@@ -4,7 +4,9 @@
 
 function solution(destinaitions) {
     if (destinations.length < 7) {
-        for (i = 0;)
+        for (i = 0; i < 10; i++){
+
+        }
     }
 }
 
@@ -18,7 +20,7 @@ function permute(input) {
         j += 1;
         ch = input.splice(i, 1)[0];
         usedChars.push(ch);
-        if (input.length == 0) {
+        if (input.length === 0) {
             permArr.push(usedChars.slice());
         }
         permute(input);
