@@ -31,7 +31,6 @@ int s_word_count(string s);
 
 
 int main()
-
 //    MAIN is the main program for TSP_BRUTE.
 {
 	double *distance;
@@ -50,7 +49,6 @@ int main()
 	double total_max;
 	double total_min;
 
-	
 	//  Get the distance table.
 	cout << "\n";
 	cout << "  Enter the name of the file containing\n";
@@ -441,7 +439,6 @@ void perm_next3(int n, int p[], bool &more)
 		}
 		more = true;
 		rank = 1;
-
 		nfact = 1;
 		for (i = 1; i <= n; i++)
 		{
@@ -458,20 +455,16 @@ void perm_next3(int n, int p[], bool &more)
 		{
 			q = m2 % n2;
 			t = m2 % (2 * n2);
-
 			if (q != 0)
 			{
 				break;
 			}
-
 			if (t == 0)
 			{
 				s = s - 1;
 			}
-
 			m2 = m2 / n2;
 			n2 = n2 - 1;
-
 		}
 
 		if (q == t)
@@ -482,19 +475,15 @@ void perm_next3(int n, int p[], bool &more)
 		{
 			s = s + q - n2;
 		}
-
 		temp = p[s - 1];
 		p[s - 1] = p[s];
 		p[s] = temp;
-
 		rank = rank + 1;
-
 		if (rank == nfact)
 		{
 			more = false;
 		}
 	}
-
 	return;
 }
 
