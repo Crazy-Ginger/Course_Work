@@ -19,10 +19,8 @@
     <MyType>Custom</MyType>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication>
-    </IISExpressAnonymousAuthentication>
-    <IISExpressWindowsAuthentication>
-    </IISExpressWindowsAuthentication>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -173,7 +171,6 @@
     <Content Include="Map.aspx" />
     <Content Include="Register_confirm.aspx" />
     <Content Include="Register_user.aspx" />
-    <Content Include="Traveling Salesman .js" />
     <Content Include="Traveling Salesman BruteForce.cpp" />
     <Content Include="Weekly Summary.aspx" />
     <Content Include="DataSet1.xsc">
@@ -225,7 +222,6 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
-    <Compile Include="CarsTableAdapter.vb" />
     <Compile Include="Contact.aspx.designer.vb">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
