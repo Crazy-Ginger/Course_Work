@@ -8,12 +8,16 @@
         End Get
     End Property
 
-    Public Sub New(ByVal startpoint As Node, ByVal endpoint As Node)
+    Public Sub New(ByVal startpoint As Node, ByVal endpoint As Node, ByVal points As Node)
         privateRouteNodes = plotRoute(startpoint, endpoint)
     End Sub
 
     Private Function plotRoute(ByVal startpoint As Node, ByVal endpoint As Node) As Node()
         'Traveling salesman code goes here
+    End Function
+
+    Public Function coordinate(ByVal Location As String)
+
     End Function
 End Class
 

@@ -50,11 +50,11 @@ Partial Public Class Map
     Protected WithEvents P_Dest_cont As Global.System.Web.UI.WebControls.Panel
     
     '''<summary>
-    '''BoxNumVal control.
+    '''RouteCalc control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents BoxNumVal As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents RouteCalc As Global.System.Web.UI.WebControls.Button
 End Class

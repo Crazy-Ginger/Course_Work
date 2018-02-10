@@ -1,32 +1,89 @@
 ﻿Imports travelingSalesman
+Imports System.IO
+Imports System.Net
+Imports System.Text
+Imports System.Data
+Imports System.Threading
 
 Public Class Map
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        BoxNumVal.Text = BoxNum
         If BoxNum <> 0 Then
             For i As Integer = 1 To (BoxNum)
                 Dim testBox As New TextBox
+                testBox.ID = "testbox_" & i
                 P_Dest_cont.Controls.Add(testBox)
             Next
         End If
-
-        'Dim start As Node
-        'start.X = 12
-        'start.Y = 54
-        'Dim ending As Node
-        'ending.X = 321
-        'ending.Y = -1234
-
-        'Dim currentRoute As New Route(start, ending)
-        'plot(currentRoute.routeNodes)
     End Sub
 
     Protected Sub AddDestination_Click(sender As Object, e As EventArgs) Handles AddDestination.Click
         BoxNum += 1
     End Sub
+
+
+    Protected Sub RouteCalc_Click(sender As Object, e As EventArgs) Handles RouteCalc.Click
+        Dim starts As Node
+        starts.X = FindLat(Start.Text)
+        starts.Y = FindLng(Start.Text)
+        For i As Integer = 1 To (BoxNum - 1)
+            Dim point As Node
+            Dim currentbox As Object = "testbox_" & i
+            If currentbox = "" Then
+                Exit For
+            End If
+            point.X = FindLat(currentbox.text)
+            point.Y = FindLng(currentbox.text)
+            Console.WriteLine(point.X & vbTab & point.Y)
+
+        Next
+
+        'Dim currentRoute As New Route(start, ending,)
+        'plot(currentRoute.routeNodes)
+    End Sub
+
+
+
+    Protected Function FindLat(ByVal destination As String)
+        'https://www.aspsnippets.com/Articles/Find-Co-ordinates-Latitude-And-Longitude-of-an-Address-Location-using-Google-Geocoding-API-in-ASPNet-using-C-And-VBNet.aspx
+        Dim url As String = "http://maps.google.com/maps/api/geocode/xml?address=" + destination + "&sensor=false"
+        Dim request As WebRequest = WebRequest.Create(url)
+        Using response As WebResponse = DirectCast(request.GetResponse(), HttpWebResponse)
+            Using reader As New StreamReader(response.GetResponseStream(), Encoding.UTF8)
+                Dim dsResult As New DataSet()
+                dsResult.ReadXml(reader)
+                Dim dtCoordinates As New DataTable()
+                dtCoordinates.Columns.AddRange(New DataColumn(3) {New DataColumn("Id", GetType(Integer)), New DataColumn("Address", GetType(String)), New DataColumn("Latitude", GetType(String)), New DataColumn("Longitude", GetType(String))})
+                Dim geometry_id As String = dsResult.Tables("geometry").[Select]("result_id = " + ("result_id").ToString())(0)("geometry_id").ToString()
+                Dim location As DataRow = dsResult.Tables("location").[Select](Convert.ToString("geometry_id = ") & geometry_id)(0)
+                'dtCoordinates.Rows.Add(row("result_id"), row("formatted_address"), location("lat"), location("lng"))
+                Return location("Lat")
+            End Using
+        End Using
+    End Function
+
+    Protected Function FindLng(ByVal destination As String)
+        'https://www.aspsnippets.com/Articles/Find-Co-ordinates-Latitude-and-Longitude-of-an-Address-Location-using-Google-Geocoding-API-in-ASPNet-using-C-and-VBNet.aspx
+        Dim url As String = "http://maps.google.com/maps/api/geocode/xml?address=" + destination + "&sensor=false"
+        Dim request As WebRequest = WebRequest.Create(url)
+        Using response As WebResponse = DirectCast(request.GetResponse(), HttpWebResponse)
+            Using reader As New StreamReader(response.GetResponseStream(), Encoding.UTF8)
+                Dim dsResult As New DataSet()
+                dsResult.ReadXml(reader)
+                Dim dtCoordinates As New DataTable()
+                dtCoordinates.Columns.AddRange(New DataColumn(3) {New DataColumn("Id", GetType(Integer)), New DataColumn("Address", GetType(String)), New DataColumn("Latitude", GetType(String)), New DataColumn("Longitude", GetType(String))})
+                Dim geometry_id As String = dsResult.Tables("geometry").[Select]("result_id = " + ("result_id").ToString())(0)("geometry_id").ToString()
+                Dim location As DataRow = dsResult.Tables("location").[Select](Convert.ToString("geometry_id = ") & geometry_id)(0)
+                'dtCoordinates.Rows.Add(row("result_id"), row("formatted_address"), location("lat"), location("lng"))
+                Return location("lng")
+            End Using
+        End Using
+    End Function
+
 End Class
+
+
 
 Public Module globalVariables
     Private priBoxNum As Int32 = 0
@@ -39,4 +96,3 @@ Public Module globalVariables
         End Set
     End Property
 End Module
-
