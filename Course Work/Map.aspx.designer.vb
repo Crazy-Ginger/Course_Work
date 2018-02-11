@@ -50,6 +50,15 @@ Partial Public Class Map
     Protected WithEvents P_Dest_cont As Global.System.Web.UI.WebControls.Panel
     
     '''<summary>
+    '''Testing control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Testing As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
     '''RouteCalc control.
     '''</summary>
     '''<remarks>
