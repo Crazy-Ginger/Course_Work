@@ -9,27 +9,34 @@ Public Class Map
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        If BoxNum <> 0 Then
-            For i As Integer = 1 To (BoxNum)
-                Dim testBox As New TextBox
-                testBox.ID = "testbox_" & i
-                P_Dest_cont.Controls.Add(testBox)
+        Dim boxes As Integer = Session("boxes")
+        If boxes <> 0 Then
+            For i As Integer = 1 To (boxes)
+                Dim tb_dest As New TextBox
+                tb_dest.ID = "tb_dest_" & i
+                tb_dest.Width = 200
+                P_Dest_cont.Controls.Add(tb_dest)
             Next
         End If
+        Testing.Text = boxes
+        boxes += 1
     End Sub
 
     Protected Sub AddDestination_Click(sender As Object, e As EventArgs) Handles AddDestination.Click
-        BoxNum += 1
+        Session("boxes") += 1
     End Sub
 
 
     Protected Sub RouteCalc_Click(sender As Object, e As EventArgs) Handles RouteCalc.Click
+        If Start.Text = "" Then
+
+        End If
         Dim starts As Node
         starts.X = FindLat(Start.Text)
         starts.Y = FindLng(Start.Text)
-        For i As Integer = 1 To (BoxNum - 1)
-            Dim point As Node
-            Dim currentbox As Object = "testbox_" & i
+        For i As Integer = 1 To ((Session("boxes")) - 1)
+            Dim (point & i) As Node
+            Dim currentbox As Object = "tb_dest_" & i
             If currentbox = "" Then
                 Exit For
             End If
@@ -82,17 +89,3 @@ Public Class Map
     End Function
 
 End Class
-
-
-
-Public Module globalVariables
-    Private priBoxNum As Int32 = 0
-    Property BoxNum As Int32
-        Get
-            Return priBoxNum
-        End Get
-        Set(value As Int32)
-            priBoxNum = value
-        End Set
-    End Property
-End Module
