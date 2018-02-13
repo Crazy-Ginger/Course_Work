@@ -10,14 +10,14 @@ Public Class Map
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Dim boxes As Integer = Session("boxes")
-        If boxes <> 0 Then
-            For i As Integer = 1 To (boxes)
-                Dim tb_dest As New TextBox
-                tb_dest.ID = "tb_dest_" & i
-                tb_dest.Width = 200
-                P_Dest_cont.Controls.Add(tb_dest)
-            Next
-        End If
+        For i As Integer = 1 To (boxes)
+            Dim tb_dest As New TextBox
+            tb_dest.ID = "tb_dest_" & i
+            tb_dest.AutoCompleteType = AutoCompleteType.HomeZipCode
+            tb_dest.Width = 200
+            P_Dest_cont.Controls.Add(tb_dest)
+
+        Next
         Testing.Text = boxes
         boxes += 1
     End Sub
@@ -31,18 +31,17 @@ Public Class Map
         If Start.Text = "" Then
 
         End If
-        Dim starts As Node
-        starts.X = FindLat(Start.Text)
-        starts.Y = FindLng(Start.Text)
+        Dim points(Session("boxes") - 1, 1) As Integer
+        points(0, 0) = FindLat(Start.Text)
+        points(0, 1) = FindLng(Start.Text)
         For i As Integer = 1 To ((Session("boxes")) - 1)
-            Dim (point & i) As Node
             Dim currentbox As Object = "tb_dest_" & i
-            If currentbox = "" Then
+            If currentbox = "" Or currentbox = Nothing Then
                 Exit For
             End If
-            point.X = FindLat(currentbox.text)
-            point.Y = FindLng(currentbox.text)
-            Console.WriteLine(point.X & vbTab & point.Y)
+            points(i, 0) = FindLat(currentbox.text)
+            points(i, 1) = FindLng(currentbox.text)
+            Console.WriteLine(points(i, 0) & vbTab & points(i, 1))
 
         Next
 
