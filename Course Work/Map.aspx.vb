@@ -35,7 +35,7 @@ Public Class Map
         starts.X = FindLat(Start.Text)
         starts.Y = FindLng(Start.Text)
         For i As Integer = 1 To ((Session("boxes")) - 1)
-            Dim point As Node
+            Dim (point & i) As Node
             Dim currentbox As Object = "tb_dest_" & i
             If currentbox = "" Then
                 Exit For
