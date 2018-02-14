@@ -10,16 +10,16 @@ Public Class Map
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Dim boxes As Integer = Session("boxes")
+        Dim numboxes As Integer = boxes
         If boxes <> 0 Then
-            For i As Integer = 1 To (boxes)
+            For i As Integer = 1 To (numboxes)
                 Dim tb_dest As New TextBox
                 tb_dest.ID = "tb_dest_" & i
                 tb_dest.Width = 200
                 P_Dest_cont.Controls.Add(tb_dest)
             Next
         End If
-        Testing.Text = boxes
-        boxes += 1
+        Testing.Text = numboxes
     End Sub
 
     Protected Sub AddDestination_Click(sender As Object, e As EventArgs) Handles AddDestination.Click
