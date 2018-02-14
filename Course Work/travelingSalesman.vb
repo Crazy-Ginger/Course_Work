@@ -1,9 +1,14 @@
-﻿Public Function Start()
-    Dim nodes As New List(Of Integer)
-Dim numNodes As Integer
-numNodes = Console.ReadLine()
-    For i As Integer = 1 To numNodes
-        nodes.Add(i)
-    Next
-    Permute(nodes, numNodes)
-End Sub
+﻿Public Class plot
+    Public Sub Decisions(ByRef nodes As Object, ByVal numNodes As Integer)
+        numNodes = Console.ReadLine()
+        If numNodes < 10 Then
+            Permute(nodes, numNodes)
+        End If
+
+    End Sub
+
+    Private Function Permute(ByVal nodes As Object, ByVal numNodes As Integer)
+        Return Nothing
+    End Function
+
+End Class

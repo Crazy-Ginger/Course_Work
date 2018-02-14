@@ -1,4 +1,4 @@
-﻿Imports travelingSalesman
+﻿Imports plot
 Imports System.IO
 Imports System.Net
 Imports System.Text
@@ -10,6 +10,10 @@ Public Class Map
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Dim boxes As Integer = Session("boxes")
+        If boxes < 21 Then
+            boxes = 21
+            lb_toomany.Visible = True
+        End If
         For i As Integer = 1 To (boxes)
             Dim tb_dest As New TextBox
             tb_dest.ID = "tb_dest_" & i
@@ -18,32 +22,47 @@ Public Class Map
             P_Dest_cont.Controls.Add(tb_dest)
 
         Next
-        Testing.Text = boxes
+        tb_DestNum.Text = boxes
         boxes += 1
     End Sub
 
-    Protected Sub AddDestination_Click(sender As Object, e As EventArgs) Handles AddDestination.Click
+    Protected Sub AddDestination_Click(sender As Object, e As EventArgs) Handles b_AddDestination.Click
         Session("boxes") += 1
     End Sub
 
 
-    Protected Sub RouteCalc_Click(sender As Object, e As EventArgs) Handles RouteCalc.Click
-        If Start.Text = "" Then
-
-        End If
-        Dim points(Session("boxes") - 1, 1) As Integer
-        points(0, 0) = FindLat(Start.Text)
-        points(0, 1) = FindLng(Start.Text)
-        For i As Integer = 1 To ((Session("boxes")) - 1)
-            Dim currentbox As Object = "tb_dest_" & i
-            If currentbox = "" Or currentbox = Nothing Then
-                Exit For
+    Protected Sub RouteCalc_Click(sender As Object, e As EventArgs) Handles b_RouteCalc.Click
+        If tb_Start.Text = "" Or tb_Start.Text = Nothing Then
+            lb_noStart.Visible = True
+        Else
+            If tb_End.Text = "" Or tb_End.Text = Nothing Then
+                Dim points(Session("boxes"), 1) As Integer
+                points(0, 0) = FindLat(tb_Start.Text)
+                points(0, 1) = FindLng(tb_Start.Text)
+                For i As Integer = 1 To ((Session("boxes")) - 1)
+                    Dim currentbox As Object = "tb_dest_" & i
+                    If currentbox = "" Or currentbox = Nothing Then
+                        Exit For
+                    End If
+                    points(i, 0) = FindLat(currentbox.text)
+                    points(i, 1) = FindLng(currentbox.text)
+                    Console.WriteLine(points(i, 0) & vbTab & points(i, 1))
+                Next
+            Else
+                Dim points(Session("boxes") + 1, 1) As Integer
+                points(0, 0) = FindLat(tb_Start.Text)
+                points(0, 1) = FindLng(tb_Start.Text)
+                For i As Integer = 1 To ((Session("boxes")) - 1)
+                    Dim currentbox As Object = "tb_dest_" & i
+                    If currentbox = "" Or currentbox = Nothing Then
+                        Exit For
+                    End If
+                    points(i, 0) = FindLat(currentbox.text)
+                    points(i, 1) = FindLng(currentbox.text)
+                    Console.WriteLine(points(i, 0) & vbTab & points(i, 1))
+                Next
             End If
-            points(i, 0) = FindLat(currentbox.text)
-            points(i, 1) = FindLng(currentbox.text)
-            Console.WriteLine(points(i, 0) & vbTab & points(i, 1))
-
-        Next
+        End If
 
         'Dim currentRoute As New Route(start, ending,)
         'plot(currentRoute.routeNodes)
