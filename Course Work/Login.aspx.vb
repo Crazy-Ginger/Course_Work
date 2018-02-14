@@ -13,7 +13,7 @@ Public Class Login
         'End While      this code does succesfully access the database and pull a user name from the users databased
         Dim strings As String = Session("logged_in")
         If strings = "in" Then
-            Response.Redirect("Map.aspx")
+            Response.Redirect("Map.aspx") 'use response.readirect to remove this page from the memory
         End If
     End Sub
 
@@ -22,7 +22,7 @@ Public Class Login
             L_Incorrect.Visible = True
         Else
             Session("logged_in") = "in"
-            Server.Transfer("Weekly Summary.aspx", True)
+            Response.Redirect("Weekly Summary.aspx", True) 'used response.redirect as apposed to Server.transfer to minimise the size of the website in memory
         End If
     End Sub
 End Class
