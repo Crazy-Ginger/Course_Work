@@ -31,20 +31,20 @@ Public Class Map
         If Start.Text = "" Then
 
         End If
-        Dim starts As Node
-        starts.X = FindLat(Start.Text)
-        starts.Y = FindLng(Start.Text)
-        For i As Integer = 1 To ((Session("boxes")) - 1)
-            Dim (point & i) As Node
-            Dim currentbox As Object = "tb_dest_" & i
-            If currentbox = "" Then
-                Exit For
-            End If
-            point.X = FindLat(currentbox.text)
-            point.Y = FindLng(currentbox.text)
-            Console.WriteLine(point.X & vbTab & point.Y)
+        'Dim starts As Node
+        'starts.X = FindLat(Start.Text)
+        'starts.Y = FindLng(Start.Text)
+        'For i As Integer = 1 To ((Session("boxes")) - 1)
+        '    Dim (point & i) As Node
+        '    Dim currentbox As Object = "tb_dest_" & i
+        '    If currentbox = "" Then
+        '        Exit For
+        '    End If
+        '    point.X = FindLat(currentbox.text)
+        '    point.Y = FindLng(currentbox.text)
+        '    Console.WriteLine(point.X & vbTab & point.Y)
 
-        Next
+        'Next
 
         'Dim currentRoute As New Route(start, ending,)
         'plot(currentRoute.routeNodes)
