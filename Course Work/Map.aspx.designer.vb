@@ -14,31 +14,40 @@ Option Explicit On
 Partial Public Class Map
     
     '''<summary>
-    '''Start control.
+    '''tb_Start control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Start As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tb_Start As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''End control.
+    '''lb_noStart control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents [End] As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents lb_noStart As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''AddDestination control.
+    '''tb_End control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents AddDestination As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents tb_End As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''b_AddDestination control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents b_AddDestination As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
     '''P_Dest_cont control.
@@ -50,20 +59,29 @@ Partial Public Class Map
     Protected WithEvents P_Dest_cont As Global.System.Web.UI.WebControls.Panel
     
     '''<summary>
-    '''Testing control.
+    '''tb_DestNum control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Testing As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tb_DestNum As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''RouteCalc control.
+    '''lb_toomany control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RouteCalc As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents lb_toomany As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''b_RouteCalc control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents b_RouteCalc As Global.System.Web.UI.WebControls.Button
 End Class
