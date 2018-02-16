@@ -1,12 +1,13 @@
-﻿Public Class TSP
-    Public Sub Decision(ByRef points() As Object, ByVal numNodes As Integer)
+﻿Public Class plot
+    Public Sub Decisions(ByRef nodes As Object, ByVal numNodes As Integer)
+        numNodes = Console.ReadLine()
         If numNodes < 10 Then
-            Permutation(points, numNodes)
+            Permute(nodes, numNodes)
         End If
 
     End Sub
 
-    Public Function Permutation(ByVal points() As Object, ByVal numNodes As Integer)
+    Private Function Permute(ByVal nodes As Object, ByVal numNodes As Integer)
         Return Nothing
     End Function
 End Class
