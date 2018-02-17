@@ -10,8 +10,8 @@ Public Class Map
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Dim boxes As Integer = Session("boxes")
-        If boxes < 21 Then
-            boxes = 21
+        If boxes > 20 Then
+            boxes = 20
             lb_toomany.Visible = True
         End If
         For i As Integer = 1 To (boxes)
@@ -22,7 +22,7 @@ Public Class Map
             P_Dest_cont.Controls.Add(tb_dest)
 
         Next
-        tb_DestNum.Text = boxes
+
         boxes += 1
     End Sub
 

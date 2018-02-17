@@ -59,15 +59,6 @@ Partial Public Class Map
     Protected WithEvents P_Dest_cont As Global.System.Web.UI.WebControls.Panel
     
     '''<summary>
-    '''tb_DestNum control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents tb_DestNum As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
     '''lb_toomany control.
     '''</summary>
     '''<remarks>
