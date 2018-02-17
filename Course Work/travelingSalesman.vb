@@ -10,5 +10,4 @@
     Private Function Permute(ByVal nodes As Object, ByVal numNodes As Integer)
         Return Nothing
     End Function
-
 End Class

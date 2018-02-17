@@ -63,7 +63,7 @@ body {
 }
 
 pre{
-    background:"lightgray";
+    background:lightgray;
     width:500px;
 }
 
@@ -6843,4 +6843,11 @@ td.visible-print {
 }
 #ToRight {
     float:right;
+}
+
+
+
+.d_Boxes {
+    border: 1px black;
+    border-radius:2px;
 }
