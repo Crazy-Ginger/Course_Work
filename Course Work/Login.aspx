@@ -22,5 +22,6 @@
         <asp:HyperLink ID="h_register" runat="server" href="Register_user.aspx">Click here</asp:HyperLink>
 &nbsp;to register</div>
     <%-- This is to test git gui and I hope it recognises this change --%>
+    <asp:TextBox ID="TEst" runat="server">To really test if this is working</asp:TextBox>
 
 </asp:Content>
