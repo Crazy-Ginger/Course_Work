@@ -21,7 +21,7 @@
 
         <div id='map' class="mainMap" style='position:relative;width: 1050px; height: 800px; align-content:center'> 
         </div>
-        
+        <%-- Change --%>
         <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.js'></script>
         <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.css' type='text/css' />
         <script>
