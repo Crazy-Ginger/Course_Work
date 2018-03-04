@@ -9,12 +9,13 @@ Public Class Map
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Dim boxes As Integer = Session("boxes")
-        If boxes > 20 Then
-            boxes = 20
+
+        Session("boxes") = 2
+        If Session("boxes") > 20 Then
+            Session("boxes") = 20
             lb_toomany.Visible = True
         End If
-        For i As Integer = 1 To (boxes)
+        For i As Integer = 1 To (Session("boxes"))
             Dim tb_dest As New TextBox
             tb_dest.ID = "tb_dest_" & i
             tb_dest.AutoCompleteType = AutoCompleteType.HomeZipCode
@@ -23,11 +24,11 @@ Public Class Map
 
         Next
 
-        boxes += 1
+
     End Sub
 
     Protected Sub AddDestination_Click(sender As Object, e As EventArgs) Handles b_AddDestination.Click
-        Session("boxes") += 1
+        Session("boxes") = Session("boxes") + 1
     End Sub
 
 
