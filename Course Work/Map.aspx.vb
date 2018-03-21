@@ -10,30 +10,40 @@ Public Class Shorter
     Public nodes As New List(Of Integer)
 End Class
 
+Public Class destinations
+    Public numb As Integer
+End Class
+
 Public Class Map
     Inherits System.Web.UI.Page
+    Dim boxes As New destinations
+
     Public shortest As New Shorter
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         shortest.distance = 2147483646
-        Dim boxes As Integer = Session("boxes")
-        If boxes > 20 Then
-            boxes = 20
-            lb_toomany.Visible = True
-        End If
-        For i As Integer = 1 To (boxes)
+        'If boxes.numb > 20 Then
+        '    boxes.numb = 20
+        '    lb_toomany.Visible = True
+        'End If
+        For i As Integer = 1 To boxes.numb
             Dim tb_dest As New TextBox
             tb_dest.ID = "tb_dest_" & i
             tb_dest.AutoCompleteType = AutoCompleteType.HomeZipCode
             tb_dest.Width = 200
             P_Dest_cont.Controls.Add(tb_dest)
         Next
-        boxes += 1
+        Distance.Text = boxes.numb
     End Sub
 
 
     Protected Sub AddDestination_Click(sender As Object, e As EventArgs) Handles b_AddDestination.Click
-        Session("boxes") += 1
+        boxes.numb += 1
+    End Sub
+
+
+    Protected Sub RemoveDestination_Clicker(sender As Object, e As EventArgs) Handles b_RemoveDestination.Click
+        boxes.numb -= 1
     End Sub
 
 

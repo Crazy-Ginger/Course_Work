@@ -3,5 +3,5 @@
     <p>
         &nbsp;</p>
     <p>
-        &nbsp;Registered and logged in.</p>
+        &nbsp;You have now been registered. You will have to await authentication.</p>
 </asp:Content>
