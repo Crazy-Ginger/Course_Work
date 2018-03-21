@@ -75,4 +75,13 @@ Partial Public Class Map
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents b_RouteCalc As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''T_route_order control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents T_route_order As Global.System.Web.UI.WebControls.Table
 End Class
