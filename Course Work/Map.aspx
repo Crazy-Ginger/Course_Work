@@ -12,12 +12,14 @@
         <asp:Button ID="b_AddDestination" runat="server" Text="AddDestination" Font-Size="Medium" Height="40px" />
         <asp:Panel ID="P_Dest_cont" runat="server"></asp:Panel>
         </div>
+        
         <br />
         
         <asp:Label ID="lb_toomany" runat="server" ForeColor="Red" Text="Only 20 destinations are supported" Visible="False"></asp:Label>
         <br />
         <asp:Button ID="b_RouteCalc" runat="server" Width="180px" Height="40px" Text="Calculate Route" Font-Size="Medium" />
-
+        <br />
+        <asp:Table ID="T_route_order" runat="server"></asp:Table>
 
         <div id='map' class="mainMap" style='position:relative;width: 1050px; height: 800px; align-content:center'> 
         </div>

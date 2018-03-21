@@ -64,7 +64,7 @@ Public Class Map
 
             'removes spaces from the addresses in the nodes
             Dim spacereplace As String
-            For i As Integer = 0 To nodes.Count()
+            For i As Integer = 0 To nodes.Count() - 1
                 spacereplace = nodes.Item(i)
                 spacereplace = spacereplace.Replace(" ", "%20")
                 nodes.Item(i) = spacereplace
@@ -219,6 +219,7 @@ Public Class Map
         Next
         Console.WriteLine()
         Console.WriteLine("Dist converter: " & dist_converter)
+
         Dim distance As Integer = CInt(dist_converter)
 
         'finds the time length of the journey
