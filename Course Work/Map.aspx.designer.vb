@@ -50,6 +50,15 @@ Partial Public Class Map
     Protected WithEvents b_AddDestination As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
+    '''b_RemoveDestination control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents b_RemoveDestination As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
     '''P_Dest_cont control.
     '''</summary>
     '''<remarks>
@@ -84,4 +93,22 @@ Partial Public Class Map
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents T_route_order As Global.System.Web.UI.WebControls.Table
+    
+    '''<summary>
+    '''URL control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents URL As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Distance control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Distance As Global.System.Web.UI.WebControls.TextBox
 End Class
