@@ -10,14 +10,13 @@ Public Class Shorter
     Public nodes As New List(Of Integer)
 End Class
 
-Public Class destinations
+Public Class Destinations
     Public numb As Integer
 End Class
 
 Public Class Map
     Inherits System.Web.UI.Page
-    Dim boxes As New destinations
-
+    Dim boxes As New Destinations
     Public shortest As New Shorter
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -114,7 +113,7 @@ Public Class Map
         Do While Not Last
             'outputs the pointers and destinations in order
             Sort_array(P, length, nodes, End_dest)
-            count = count + 1
+            count += 1
             Last = True
             initial_comp = length - 2
             'finds the largest pointer out of place (from the back)
@@ -141,10 +140,10 @@ Public Class Map
             rearrange = length - 1
             'finds the pointer to be swapped with the out of place pointer
             While P(rearrange) > P(initial_comp)
-                rearrange = rearrange - 1
+                rearrange -= 1
             End While
 
-            rearrange = rearrange + 1
+            rearrange += 1
 
             'makes the swap to place the large number in front
             swapper = P(initial_comp)
