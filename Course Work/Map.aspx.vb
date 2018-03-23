@@ -30,7 +30,7 @@ Public Class Map
             tb_dest.ID = "tb_dest_" & i
             tb_dest.AutoCompleteType = AutoCompleteType.HomeZipCode
             tb_dest.Width = 200
-            P_Dest_cont.Controls.Add(tb_dest)
+            p_Dest_cont.Controls.Add(tb_dest)
         Next
         Distance.Text = boxes.numb
     End Sub
@@ -48,14 +48,14 @@ Public Class Map
 
     Protected Sub RouteCalc_Click(sender As Object, e As EventArgs) Handles b_RouteCalc.Click
         If tb_Start.Text = "" Or tb_Start.Text = Nothing Or Session("boxes") = 0 Then   'if there is no start destination the algorithm doesn't run
-            lb_noStart.Visible = True
+            l_noStart.Visible = True
         Else
 
             Dim last As Boolean = True
             Dim nodes As New List(Of String)    'will contain the addresses so it can be passed between subs
             nodes.Add(tb_Start.Text)    'adds the first destination
             Dim current_box As String = ""
-            For Each tb As TextBox In P_Dest_cont.Controls.OfType(Of TextBox)() 'cycles through the text boxes created and adds their text to the node list
+            For Each tb As TextBox In p_Dest_cont.Controls.OfType(Of TextBox)() 'cycles through the text boxes created and adds their text to the node list
                 If tb.Text = "" Or tb.Text = Nothing Or tb.Text = " " Then
                     'stops a blank address being added and posisbly causing problem
                 Else

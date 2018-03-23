@@ -4,33 +4,33 @@
     <div class="jumbotron">
         <%--<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4855861.9722248465!2d-2.456570850324048!3d54.73551770561395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2suk!4v1508513543217" width="800" height="600" style="border:0"></iframe>--%>
         <div class="d_Boxes">
-        <div id="Left" class="Left">
-            <asp:TextBox ID="tb_Start" runat="server" Width="200px" Placeholder="Start Location" AutoCompleteType="HomeZipCode"></asp:TextBox>
-        <asp:Label ID="lb_noStart" runat="server" width="200px" ForeColor="Red" Text="The route needs a Start" Visible="False"></asp:Label>
+            <div id="Left" class="Left">
+                <asp:TextBox ID="tb_Start" runat="server" Width="200px" Placeholder="Start Location" AutoCompleteType="HomeZipCode"></asp:TextBox>
+                <asp:Label ID="l_noStart" runat="server" Width="200px" ForeColor="Red" Text="The route needs a Start" Visible="False"></asp:Label>
+            </div>
+
+            <div id="ToRight" class="ToRight">
+                <asp:TextBox ID="tb_End" runat="server" Width="300px" Placeholder="Final Destination (optional)" AutoCompleteType="HomeZipCode"></asp:TextBox>
+            </div>
+            <br />
+
+            <asp:Button ID="b_AddDestination" runat="server" Text="Add a Destination" Font-Size="Medium" Height="40px" />
+            <asp:Button ID="b_RemoveDestination" runat="server" Text="Remove a Destination" Font-Size="Medium" Height="40px" />
+            <asp:Panel ID="p_Dest_cont" runat="server"></asp:Panel>
         </div>
 
-        <div id="ToRight" class="ToRight">
-            <asp:TextBox ID="tb_End" runat="server" Width="300px" Placeholder="Final Destination (optional)" AutoCompleteType="HomeZipCode"></asp:TextBox>
-        </div>
         <br />
-        
-        <asp:Button ID="b_AddDestination" runat="server" Text="Add a Destination" Font-Size="Medium" Height="40px" />
-            <asp:Button ID="b_RemoveDestination" runat="server" Text="Remove a Destination" Font-Size="Medium" Height="40px" />
-        <asp:Panel ID="P_Dest_cont" runat="server"></asp:Panel>
-        </div>
-        
-        <br />
-        
+
         <asp:Label ID="lb_toomany" runat="server" ForeColor="Red" Text="Only 20 destinations are supported" Visible="False"></asp:Label>
         <br />
         <asp:Button ID="b_RouteCalc" runat="server" Width="180px" Height="40px" Text="Calculate Route" Font-Size="Medium" />
         <br />
 
-        <asp:Table ID="T_route_order" runat="server"></asp:Table>
-        <asp:TextBox ID="URL" runat ="server"></asp:TextBox>
-        <asp:TextBox ID="Distance" runat="server"></asp:TextBox>
-        
-        <div id='map' class="mainMap" style='position:relative;width: 1050px; height: 800px; align-content:center'> 
+        <asp:Table ID="t_route_order" runat="server"></asp:Table>
+        <asp:TextBox ID="tb_URL" runat="server"></asp:TextBox>
+        <asp:TextBox ID="tb_Distance" runat="server"></asp:TextBox>
+
+        <div id='map' class="mainMap" style='position: relative; width: 1050px; height: 800px; align-content: center'>
         </div>
         <%-- Change --%>
         <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.js'></script>
@@ -49,7 +49,7 @@
                 //center: [0, 54.098060]    this dont work for some reason
                 //https://api.mapbox.com base url for referencing
             });
-            
+
 
             map.addControl(new mapboxgl.NavigationControl());
             //https://www.mapbox.com/mapbox-gl-js/example/mapbox-gl-directions/ add this at a later date (driving directions)

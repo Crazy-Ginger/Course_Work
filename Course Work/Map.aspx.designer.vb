@@ -23,13 +23,13 @@ Partial Public Class Map
     Protected WithEvents tb_Start As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''lb_noStart control.
+    '''l_noStart control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lb_noStart As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents l_noStart As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''tb_End control.
@@ -59,13 +59,13 @@ Partial Public Class Map
     Protected WithEvents b_RemoveDestination As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''P_Dest_cont control.
+    '''p_Dest_cont control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents P_Dest_cont As Global.System.Web.UI.WebControls.Panel
+    Protected WithEvents p_Dest_cont As Global.System.Web.UI.WebControls.Panel
     
     '''<summary>
     '''lb_toomany control.
@@ -86,29 +86,29 @@ Partial Public Class Map
     Protected WithEvents b_RouteCalc As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''T_route_order control.
+    '''t_route_order control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents T_route_order As Global.System.Web.UI.WebControls.Table
+    Protected WithEvents t_route_order As Global.System.Web.UI.WebControls.Table
     
     '''<summary>
-    '''URL control.
+    '''tb_URL control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents URL As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tb_URL As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Distance control.
+    '''tb_Distance control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Distance As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tb_Distance As Global.System.Web.UI.WebControls.TextBox
 End Class

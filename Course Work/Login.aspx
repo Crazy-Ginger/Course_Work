@@ -6,15 +6,15 @@
 
     <div class="login">
         User Name:&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="Tb_username" runat="server" Width="150px"></asp:TextBox>
+        <asp:TextBox ID="tb_username" runat="server" Width="150px"></asp:TextBox>
         <br />
         Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="Tb_password" runat="server" Width="150px"></asp:TextBox>
+        <asp:TextBox ID="tb_password" runat="server" Width="150px"></asp:TextBox>
         <br />
 
-        <asp:Button ID="B_Login" runat="server" Text="Login" />
+        <asp:Button ID="b_Login" runat="server" Text="Login" />
         <br />
-        <asp:Label ID="L_Incorrect" runat="server" ForeColor="Red" Text="Incorrect password or username" Visible="False"></asp:Label><br />
+        <asp:Label ID="l_Incorrect" runat="server" ForeColor="Red" Text="Incorrect password or username" Visible="False"></asp:Label><br />
         
         <br />
 

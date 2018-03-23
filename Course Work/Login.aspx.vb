@@ -18,8 +18,8 @@ Public Class Login
     End Sub
 
     Protected Sub B_Login_Click(sender As Object, e As EventArgs) Handles B_Login.Click
-        If myConnection.Login(Tb_username.Text, Tb_password.Text) Is Nothing Then
-            L_Incorrect.Visible = True
+        If myConnection.Login(tb_username.Text, tb_password.Text) Is Nothing Then
+            l_Incorrect.Visible = True
         Else
             Session("logged_in") = True
             Response.Redirect("Map.aspx", True) 'used response.redirect as apposed to Server.transfer to minimise the size of the website in memory
