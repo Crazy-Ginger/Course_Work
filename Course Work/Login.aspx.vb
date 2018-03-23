@@ -9,13 +9,8 @@ Public Class Login
         End If
     End Sub
 
-<<<<<<< HEAD
-    Protected Sub B_Login_Click(sender As Object, e As EventArgs) Handles B_Login.Click
-        If myConnection.Login(tb_username.Text, tb_password.Text) Is Nothing Then
-=======
     Protected Sub B_Login_Click(sender As Object, e As EventArgs) Handles b_Login.Click
         If Connection.Login(tb_username.Text, tb_password.Text) Is Nothing Then
->>>>>>> 44046c4ff4a78c5e89859c627c45eb7bebb924db
             l_Incorrect.Visible = True
         Else
             Session("logged_in") = True

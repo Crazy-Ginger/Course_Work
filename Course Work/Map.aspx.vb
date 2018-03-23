@@ -28,7 +28,7 @@ Public Class Map
             tb_dest.Width = 200
             p_Dest_cont.Controls.Add(tb_dest)
         Next
-        Distance.Text = Session("boxes")
+        tb_Distance.Text = Session("boxes")
     End Sub
 
 
@@ -191,7 +191,7 @@ Public Class Map
             request_url += "via:" & nodes.Item(array(t)) & "|"
         Next
         request_url += "&key=" & waypointkey
-        URL.Text = request_url
+        tb_URL.Text = request_url
         'pulls the GEOJSON data and puts it into a string
         'Console.WriteLine(request_url)
 

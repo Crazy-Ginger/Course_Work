@@ -68,13 +68,13 @@ Partial Public Class Register
     Protected WithEvents tb_passwordcon As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''l_password_match control.
+    '''l_passwordmatch control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents l_password_match As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents l_passwordmatch As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''tb_email control.
@@ -95,31 +95,40 @@ Partial Public Class Register
     Protected WithEvents l_email As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''tb_truckbrand control.
+    '''tb_vehiclemake control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tb_truckbrand As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tb_vehiclemake As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''tb_truckmodel control.
+    '''tb_vehiclemodel control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tb_truckmodel As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tb_vehiclemodel As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''tb_truckage control.
+    '''tb_vehicleage control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tb_truckage As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tb_vehicleage As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''tb_license control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tb_license As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''tb_lastMOT control.
