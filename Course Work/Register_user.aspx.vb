@@ -1,28 +1,30 @@
 ﻿Public Class Register
     Inherits System.Web.UI.Page
-    Public regconnection As New DataSet1TableAdapters.UsersTableAdapter
-    Public truckreg As New DataSet1TableAdapters.TrucksTableAdapter
+    Public User_reg As New DataSet1TableAdapters.UsersTableAdapter
+    Public Truck_reg As New DataSet1TableAdapters.TrucksTableAdapter
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        If Session("logged_in") = True Then
+            Response.Redirect("Stopover.aspx")
+        End If
     End Sub
 
     Protected Sub b_Register_Click(sender As Object, e As EventArgs) Handles b_Register.Click
         Dim today As DateTime = DateTime.Today
-        Dim username As String = tx_uname.Text
-        Dim email As String = tx_email.Text
-        If regconnection.dupeCheck(username, email) Is Nothing And tx_password.Text = tx_passwordcon.Text Then
-            regconnection.addUserDetails(tx_uname.Text, tx_password.Text, tx_email.Text, tx_fname.Text, tx_lname.Text, today.ToString("d"))
-            truckreg.addTruckDetails(CInt(tx_truckage.Text), tx_lastMOT.Text, tx_nextMOT.Text, tx_truckbrand.Text, tx_truckmodel.Text)
+        Dim username As String = tb_uname.Text
+        Dim email As String = tb_email.Text
+        If User_reg.dupe_Check(username, email) Is Nothing And tb_password.Text = tb_passwordcon.Text Then
+            User_reg.add_User_Details(tb_uname.Text, tb_password.Text, today.ToString("d"), tb_email.Text, 0, False, tb_fname.Text, tb_lname.Text, False)
+            Truck_reg.add_truck_details(CInt(tb_truckage.Text), tb_lastMOT.Text, tb_nextMOT.Text, tb_truckbrand.Text, tb_truckmodel.Text)
             Server.Transfer("Register_confirm.aspx", True)
-        ElseIf tx_password.Text <> tx_passwordcon.Text Then
-            L_password_match.Visible = True
-        ElseIf regconnection.dupeCheck(username, email) > 0 Then
-            L_username.Visible = True
-            L_email.Visible = True
-        ElseIf regconnection.dupeEmail(email) > 0 Then
-            L_email.Visible = True
-        ElseIf regconnection.dupeUsername(username) > 0 Then
-            L_username.Visible = True
+        ElseIf tb_password.Text <> tb_passwordcon.Text Then
+            l_password_match.Visible = True
+        ElseIf User_reg.dupe_Check(username, email) > 0 Then
+            l_username.Visible = True
+            l_email.Visible = True
+        ElseIf User_reg.dupe_Email(email) > 0 Then
+            l_email.Visible = True
+        ElseIf User_reg.dupe_Username(username) > 0 Then
+            l_username.Visible = True
         End If
     End Sub
 End Class

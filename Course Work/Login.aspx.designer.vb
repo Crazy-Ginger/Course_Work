@@ -14,40 +14,40 @@ Option Explicit On
 Partial Public Class Login
     
     '''<summary>
-    '''Tb_username control.
+    '''tb_username control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Tb_username As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tb_username As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Tb_password control.
+    '''tb_password control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Tb_password As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tb_password As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''B_Login control.
+    '''b_Login control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents B_Login As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents b_Login As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''L_Incorrect control.
+    '''l_Incorrect control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents L_Incorrect As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents l_Incorrect As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''h_register control.
@@ -57,13 +57,4 @@ Partial Public Class Login
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents h_register As Global.System.Web.UI.WebControls.HyperLink
-    
-    '''<summary>
-    '''TEst control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents TEst As Global.System.Web.UI.WebControls.TextBox
 End Class
