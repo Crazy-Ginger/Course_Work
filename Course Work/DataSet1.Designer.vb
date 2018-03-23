@@ -367,11 +367,9 @@ Partial Public Class DataSet1
         
         Private columnTruck As Global.System.Data.DataColumn
         
-        Private columnProfit As Global.System.Data.DataColumn
+        Private columnMoney As Global.System.Data.DataColumn
         
         Private columnUser As Global.System.Data.DataColumn
-        
-        Private columnProfit1 As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -426,9 +424,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property ProfitColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property MoneyColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnProfit
+                Return Me.columnMoney
             End Get
         End Property
         
@@ -437,14 +435,6 @@ Partial Public Class DataSet1
         Public ReadOnly Property UserColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnUser
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property Profit1Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnProfit1
             End Get
         End Property
         
@@ -485,9 +475,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddMainRow(ByVal parentTrucksRowByTrucksMain As TrucksRow, ByVal Profit As Integer, ByVal parentUsersRowByUsersMain As UsersRow, ByVal Profit1() As Byte) As MainRow
+        Public Overloads Function AddMainRow(ByVal parentTrucksRowByTrucksMain As TrucksRow, ByVal Money As Integer, ByVal parentUsersRowByUsersMain As UsersRow) As MainRow
             Dim rowMainRow As MainRow = CType(Me.NewRow,MainRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, Profit, Nothing, Profit1}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, Money, Nothing}
             If (Not (parentTrucksRowByTrucksMain) Is Nothing) Then
                 columnValuesArray(1) = parentTrucksRowByTrucksMain(0)
             End If
@@ -524,9 +514,8 @@ Partial Public Class DataSet1
         Friend Sub InitVars()
             Me.columnID = MyBase.Columns("ID")
             Me.columnTruck = MyBase.Columns("Truck")
-            Me.columnProfit = MyBase.Columns("Profit")
+            Me.columnMoney = MyBase.Columns("Money")
             Me.columnUser = MyBase.Columns("User")
-            Me.columnProfit1 = MyBase.Columns("Profit1")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -536,20 +525,16 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnID)
             Me.columnTruck = New Global.System.Data.DataColumn("Truck", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTruck)
-            Me.columnProfit = New Global.System.Data.DataColumn("Profit", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnProfit)
+            Me.columnMoney = New Global.System.Data.DataColumn("Money", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMoney)
             Me.columnUser = New Global.System.Data.DataColumn("User", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnUser)
-            Me.columnProfit1 = New Global.System.Data.DataColumn("Profit1", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnProfit1)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AutoIncrementSeed = -1
             Me.columnID.AutoIncrementStep = -1
             Me.columnID.AllowDBNull = false
             Me.columnID.Unique = true
-            Me.columnProfit1.ReadOnly = true
-            Me.columnProfit1.Caption = "Profit"
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -701,6 +686,12 @@ Partial Public Class DataSet1
         
         Private columnAdmin As Global.System.Data.DataColumn
         
+        Private columnFirst_Name As Global.System.Data.DataColumn
+        
+        Private columnLast_Name As Global.System.Data.DataColumn
+        
+        Private columnAuthneticated As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -793,6 +784,30 @@ Partial Public Class DataSet1
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property First_NameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFirst_Name
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Last_NameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLast_Name
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property AuthneticatedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAuthneticated
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -829,9 +844,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddUsersRow(ByVal Username As String, ByVal Password As String, ByVal Date_of_Employment As Date, ByVal email As String, ByVal Hours_operated_this_week As Integer, ByVal Admin As Boolean) As UsersRow
+        Public Overloads Function AddUsersRow(ByVal Username As String, ByVal Password As String, ByVal Date_of_Employment As Date, ByVal email As String, ByVal Hours_operated_this_week As Integer, ByVal Admin As Boolean, ByVal First_Name As String, ByVal Last_Name As String, ByVal Authneticated As Boolean) As UsersRow
             Dim rowUsersRow As UsersRow = CType(Me.NewRow,UsersRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Username, Password, Date_of_Employment, email, Hours_operated_this_week, Admin}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Username, Password, Date_of_Employment, email, Hours_operated_this_week, Admin, First_Name, Last_Name, Authneticated}
             rowUsersRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowUsersRow)
             Return rowUsersRow
@@ -867,6 +882,9 @@ Partial Public Class DataSet1
             Me.columnemail = MyBase.Columns("email")
             Me.columnHours_operated_this_week = MyBase.Columns("Hours operated this week")
             Me.columnAdmin = MyBase.Columns("Admin")
+            Me.columnFirst_Name = MyBase.Columns("First Name")
+            Me.columnLast_Name = MyBase.Columns("Last Name")
+            Me.columnAuthneticated = MyBase.Columns("Authneticated")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -886,6 +904,12 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnHours_operated_this_week)
             Me.columnAdmin = New Global.System.Data.DataColumn("Admin", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAdmin)
+            Me.columnFirst_Name = New Global.System.Data.DataColumn("First Name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFirst_Name)
+            Me.columnLast_Name = New Global.System.Data.DataColumn("Last Name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLast_Name)
+            Me.columnAuthneticated = New Global.System.Data.DataColumn("Authneticated", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAuthneticated)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AutoIncrementSeed = -1
@@ -895,6 +919,8 @@ Partial Public Class DataSet1
             Me.columnUsername.MaxLength = 255
             Me.columnPassword.MaxLength = 255
             Me.columnemail.MaxLength = 255
+            Me.columnFirst_Name.MaxLength = 255
+            Me.columnLast_Name.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1042,9 +1068,11 @@ Partial Public Class DataSet1
         
         Private columnNext_MOT As Global.System.Data.DataColumn
         
-        Private columnBrand As Global.System.Data.DataColumn
+        Private columnMake As Global.System.Data.DataColumn
         
         Private columnModel As Global.System.Data.DataColumn
+        
+        Private columnLicense_Plate As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -1123,9 +1151,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property BrandColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property MakeColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnBrand
+                Return Me.columnMake
             End Get
         End Property
         
@@ -1134,6 +1162,14 @@ Partial Public Class DataSet1
         Public ReadOnly Property ModelColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnModel
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property License_PlateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLicense_Plate
             End Get
         End Property
         
@@ -1174,9 +1210,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddTrucksRow(ByVal Age As Integer, ByVal Needs_fixing As Boolean, ByVal Last_MOT As Date, ByVal Next_MOT As Date, ByVal Brand As String, ByVal Model As String) As TrucksRow
+        Public Overloads Function AddTrucksRow(ByVal Age As Integer, ByVal Needs_fixing As Boolean, ByVal Last_MOT As Date, ByVal Next_MOT As Date, ByVal Make As String, ByVal Model As String, ByVal License_Plate As String) As TrucksRow
             Dim rowTrucksRow As TrucksRow = CType(Me.NewRow,TrucksRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Age, Needs_fixing, Last_MOT, Next_MOT, Brand, Model}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Age, Needs_fixing, Last_MOT, Next_MOT, Make, Model, License_Plate}
             rowTrucksRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowTrucksRow)
             Return rowTrucksRow
@@ -1210,8 +1246,9 @@ Partial Public Class DataSet1
             Me.columnNeeds_fixing = MyBase.Columns("Needs fixing")
             Me.columnLast_MOT = MyBase.Columns("Last MOT")
             Me.columnNext_MOT = MyBase.Columns("Next MOT")
-            Me.columnBrand = MyBase.Columns("Brand")
+            Me.columnMake = MyBase.Columns("Make")
             Me.columnModel = MyBase.Columns("Model")
+            Me.columnLicense_Plate = MyBase.Columns("License Plate")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1227,18 +1264,21 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnLast_MOT)
             Me.columnNext_MOT = New Global.System.Data.DataColumn("Next MOT", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNext_MOT)
-            Me.columnBrand = New Global.System.Data.DataColumn("Brand", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnBrand)
+            Me.columnMake = New Global.System.Data.DataColumn("Make", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMake)
             Me.columnModel = New Global.System.Data.DataColumn("Model", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnModel)
+            Me.columnLicense_Plate = New Global.System.Data.DataColumn("License Plate", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLicense_Plate)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AutoIncrementSeed = -1
             Me.columnID.AutoIncrementStep = -1
             Me.columnID.AllowDBNull = false
             Me.columnID.Unique = true
-            Me.columnBrand.MaxLength = 255
+            Me.columnMake.MaxLength = 255
             Me.columnModel.MaxLength = 255
+            Me.columnLicense_Plate.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1411,16 +1451,16 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Profit() As Integer
+        Public Property Money() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableMain.ProfitColumn),Integer)
+                    Return CType(Me(Me.tableMain.MoneyColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Profit' in table 'Main' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Money' in table 'Main' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableMain.ProfitColumn) = value
+                Me(Me.tableMain.MoneyColumn) = value
             End Set
         End Property
         
@@ -1436,21 +1476,6 @@ Partial Public Class DataSet1
             End Get
             Set
                 Me(Me.tableMain.UserColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Profit1() As Byte()
-            Get
-                Try 
-                    Return CType(Me(Me.tableMain.Profit1Column),Byte())
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Profit1' in table 'Main' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableMain.Profit1Column) = value
             End Set
         End Property
         
@@ -1490,14 +1515,14 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsProfitNull() As Boolean
-            Return Me.IsNull(Me.tableMain.ProfitColumn)
+        Public Function IsMoneyNull() As Boolean
+            Return Me.IsNull(Me.tableMain.MoneyColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetProfitNull()
-            Me(Me.tableMain.ProfitColumn) = Global.System.Convert.DBNull
+        Public Sub SetMoneyNull()
+            Me(Me.tableMain.MoneyColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1510,18 +1535,6 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetUserNull()
             Me(Me.tableMain.UserColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsProfit1Null() As Boolean
-            Return Me.IsNull(Me.tableMain.Profit1Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetProfit1Null()
-            Me(Me.tableMain.Profit1Column) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1643,6 +1656,51 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property First_Name() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableUsers.First_NameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'First Name' in table 'Users' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUsers.First_NameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Last_Name() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableUsers.Last_NameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Last Name' in table 'Users' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUsers.Last_NameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Authneticated() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableUsers.AuthneticatedColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Authneticated' in table 'Users' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUsers.AuthneticatedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsUsernameNull() As Boolean
             Return Me.IsNull(Me.tableUsers.UsernameColumn)
         End Function
@@ -1711,6 +1769,42 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetAdminNull()
             Me(Me.tableUsers.AdminColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsFirst_NameNull() As Boolean
+            Return Me.IsNull(Me.tableUsers.First_NameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetFirst_NameNull()
+            Me(Me.tableUsers.First_NameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsLast_NameNull() As Boolean
+            Return Me.IsNull(Me.tableUsers.Last_NameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetLast_NameNull()
+            Me(Me.tableUsers.Last_NameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsAuthneticatedNull() As Boolean
+            Return Me.IsNull(Me.tableUsers.AuthneticatedColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetAuthneticatedNull()
+            Me(Me.tableUsers.AuthneticatedColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1812,16 +1906,16 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Brand() As String
+        Public Property Make() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableTrucks.BrandColumn),String)
+                    Return CType(Me(Me.tableTrucks.MakeColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Brand' in table 'Trucks' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Make' in table 'Trucks' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableTrucks.BrandColumn) = value
+                Me(Me.tableTrucks.MakeColumn) = value
             End Set
         End Property
         
@@ -1837,6 +1931,21 @@ Partial Public Class DataSet1
             End Get
             Set
                 Me(Me.tableTrucks.ModelColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property License_Plate() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableTrucks.License_PlateColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'License Plate' in table 'Trucks' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTrucks.License_PlateColumn) = value
             End Set
         End Property
         
@@ -1890,14 +1999,14 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsBrandNull() As Boolean
-            Return Me.IsNull(Me.tableTrucks.BrandColumn)
+        Public Function IsMakeNull() As Boolean
+            Return Me.IsNull(Me.tableTrucks.MakeColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetBrandNull()
-            Me(Me.tableTrucks.BrandColumn) = Global.System.Convert.DBNull
+        Public Sub SetMakeNull()
+            Me(Me.tableTrucks.MakeColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1910,6 +2019,18 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetModelNull()
             Me(Me.tableTrucks.ModelColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsLicense_PlateNull() As Boolean
+            Return Me.IsNull(Me.tableTrucks.License_PlateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetLicense_PlateNull()
+            Me(Me.tableTrucks.License_PlateColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2163,8 +2284,8 @@ Namespace DataSet1TableAdapters
             tableMapping.DataSetTable = "Main"
             tableMapping.ColumnMappings.Add("ID", "ID")
             tableMapping.ColumnMappings.Add("Truck", "Truck")
+            tableMapping.ColumnMappings.Add("Money", "Money")
             tableMapping.ColumnMappings.Add("User", "User")
-            tableMapping.ColumnMappings.Add("Profit", "Profit1")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -2173,15 +2294,17 @@ Namespace DataSet1TableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Main` (`Truck`, `User`) VALUES (?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Main` (`Truck`, `Money`, `User`) VALUES (?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Truck", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Truck", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Money", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Money", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("User", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "User", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `Main` SET `Truck` = ?, `User` = ? WHERE ((`ID` = ?))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `Main` SET `Truck` = ?, `Money` = ?, `User` = ? WHERE ((`ID` = ?))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Truck", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Truck", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Money", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Money", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("User", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "User", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
@@ -2190,7 +2313,7 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("Expenses_Money").ConnectionString
+            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("User_DetailsConnectionString").ConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2199,7 +2322,7 @@ Namespace DataSet1TableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, Truck, Profit, [User] FROM Main"
+            Me._commandCollection(0).CommandText = "SELECT ID, Truck, [Money], [User] FROM Main"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -2280,16 +2403,21 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Truck As Global.System.Nullable(Of Integer), ByVal User As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Insert(ByVal Truck As Global.System.Nullable(Of Integer), ByVal Money As Global.System.Nullable(Of Integer), ByVal User As Global.System.Nullable(Of Integer)) As Integer
             If (Truck.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(Truck.Value,Integer)
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (User.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(User.Value,Integer)
+            If (Money.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Money.Value,Integer)
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (User.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(User.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -2310,18 +2438,23 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Truck As Global.System.Nullable(Of Integer), ByVal User As Global.System.Nullable(Of Integer), ByVal Original_ID As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal Truck As Global.System.Nullable(Of Integer), ByVal Money As Global.System.Nullable(Of Integer), ByVal User As Global.System.Nullable(Of Integer), ByVal Original_ID As Integer) As Integer
             If (Truck.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Truck.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (User.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(User.Value,Integer)
+            If (Money.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Money.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_ID,Integer)
+            If (User.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(User.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_ID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -2472,6 +2605,9 @@ Namespace DataSet1TableAdapters
             tableMapping.ColumnMappings.Add("email", "email")
             tableMapping.ColumnMappings.Add("Hours operated this week", "Hours operated this week")
             tableMapping.ColumnMappings.Add("Admin", "Admin")
+            tableMapping.ColumnMappings.Add("First Name", "First Name")
+            tableMapping.ColumnMappings.Add("Last Name", "Last Name")
+            tableMapping.ColumnMappings.Add("Authneticated", "Authneticated")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -2481,7 +2617,8 @@ Namespace DataSet1TableAdapters
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `Users` (`Username`, `Password`, `Date of Employment`, `email`, `Hour"& _ 
-                "s operated this week`, `Admin`) VALUES (?, ?, ?, ?, ?, ?)"
+                "s operated this week`, `Admin`, `First Name`, `Last Name`, `Authneticated`) VALU"& _ 
+                "ES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Username", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Username", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Password", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Password", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -2489,10 +2626,14 @@ Namespace DataSet1TableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("email", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "email", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Hours_operated_this_week", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Hours operated this week", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Admin", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Admin", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("First_Name", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "First Name", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Last_Name", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Last Name", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Authneticated", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Authneticated", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `Users` SET `Username` = ?, `Password` = ?, `Date of Employment` = ?, `ema"& _ 
-                "il` = ?, `Hours operated this week` = ?, `Admin` = ? WHERE ((`ID` = ?))"
+                "il` = ?, `Hours operated this week` = ?, `Admin` = ?, `First Name` = ?, `Last Na"& _ 
+                "me` = ?, `Authneticated` = ? WHERE ((`ID` = ?))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Username", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Username", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Password", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Password", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -2500,6 +2641,9 @@ Namespace DataSet1TableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("email", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "email", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Hours_operated_this_week", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Hours operated this week", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Admin", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Admin", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("First_Name", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "First Name", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Last_Name", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Last Name", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Authneticated", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Authneticated", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
@@ -2507,7 +2651,7 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("Expenses_Money").ConnectionString
+            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("User_DetailsConnectionString").ConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2517,21 +2661,24 @@ Namespace DataSet1TableAdapters
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT ID, Username, [Password], [Date of Employment], email, [Hours operated thi"& _ 
-                "s week], Admin FROM Users"
+                "s week], Admin, [First Name], [Last Name], Authneticated FROM Users"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(1).Connection = New Global.System.Data.OleDb.OleDbConnection(System.Configuration.ConfigurationManager.ConnectionStrings("User_DetailsConnectionString").ConnectionString)
+            Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "INSERT INTO Users"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Username, [Password], email, [First "& _ 
-                "Name], [Last Name], [Date of Employment])"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (?, ?, ?, ?, ?, ?)"
+                "Name], [Last Name], [Date of Employment])"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (?, ?, ?, ?, ?, ?) ]"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Username", Global.System.Data.OleDb.OleDbType.WChar, 255, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Username", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Password", Global.System.Data.OleDb.OleDbType.WChar, 255, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Password", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("email", Global.System.Data.OleDb.OleDbType.WChar, 255, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "email", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("First_Name", Global.System.Data.OleDb.OleDbType.WChar, 255, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "First Name", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Last_Name", Global.System.Data.OleDb.OleDbType.WChar, 255, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Last Name", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Username", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Username", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Password", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Password", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Date_of_Employment", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Date of Employment", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("email", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "email", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Hours_operated_this_week", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Hours operated this week", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Admin", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Admin", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("First_Name", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "First Name", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Last_Name", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Last Name", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Authneticated", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Authneticated", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(2).Connection = New Global.System.Data.OleDb.OleDbConnection(System.Configuration.ConfigurationManager.ConnectionStrings("User_DetailsConnectionString").ConnectionString)
+            Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT        COUNT(*) AS Expr1, Username, email"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Users"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY"& _ 
                 " Username, email"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (Username = ?) AND (email = ?)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
@@ -2546,11 +2693,10 @@ Namespace DataSet1TableAdapters
             Me._commandCollection(4) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(4).Connection = Me.Connection
             Me._commandCollection(4).CommandText = "SELECT        COUNT(*) AS Expr1, Username"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Users"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY Userna"& _ 
-                "me"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (Username = ?)"
+                "me"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Username", Global.System.Data.OleDb.OleDbType.WChar, 255, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Username", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(5) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(5).Connection = New Global.System.Data.OleDb.OleDbConnection(System.Configuration.ConfigurationManager.ConnectionStrings("User_DetailsConnectionString").ConnectionString)
+            Me._commandCollection(5).Connection = Me.Connection
             Me._commandCollection(5).CommandText = "SELECT        COUNT(*) AS result, Username, [Password]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Users"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GR"& _ 
                 "OUP BY Username, [Password]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (COUNT(*) = 1) AND (Username = ?) AND"& _ 
                 " ([Password] = ?)"
@@ -2636,7 +2782,7 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Username As String, ByVal Password As String, ByVal Date_of_Employment As Global.System.Nullable(Of Date), ByVal email As String, ByVal Hours_operated_this_week As Global.System.Nullable(Of Integer), ByVal Admin As Boolean) As Integer
+        Public Overloads Overridable Function Insert(ByVal Username As String, ByVal Password As String, ByVal Date_of_Employment As Global.System.Nullable(Of Date), ByVal email As String, ByVal Hours_operated_this_week As Global.System.Nullable(Of Integer), ByVal Admin As Boolean, ByVal First_Name As String, ByVal Last_Name As String, ByVal Authneticated As Boolean) As Integer
             If (Username Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -2663,6 +2809,17 @@ Namespace DataSet1TableAdapters
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
             Me.Adapter.InsertCommand.Parameters(5).Value = CType(Admin,Boolean)
+            If (First_Name Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(First_Name,String)
+            End If
+            If (Last_Name Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(Last_Name,String)
+            End If
+            Me.Adapter.InsertCommand.Parameters(8).Value = CType(Authneticated,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -2682,7 +2839,7 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Username As String, ByVal Password As String, ByVal Date_of_Employment As Global.System.Nullable(Of Date), ByVal email As String, ByVal Hours_operated_this_week As Global.System.Nullable(Of Integer), ByVal Admin As Boolean, ByVal Original_ID As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal Username As String, ByVal Password As String, ByVal Date_of_Employment As Global.System.Nullable(Of Date), ByVal email As String, ByVal Hours_operated_this_week As Global.System.Nullable(Of Integer), ByVal Admin As Boolean, ByVal First_Name As String, ByVal Last_Name As String, ByVal Authneticated As Boolean, ByVal Original_ID As Integer) As Integer
             If (Username Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -2709,7 +2866,18 @@ Namespace DataSet1TableAdapters
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
             Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Admin,Boolean)
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_ID,Integer)
+            If (First_Name Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(First_Name,String)
+            End If
+            If (Last_Name Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Last_Name,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Authneticated,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_ID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -2729,7 +2897,7 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
-        Public Overloads Overridable Function addUserDetails(ByVal Username As String, ByVal Password As String, ByVal email As String, ByVal First_Name As String, ByVal Last_Name As String, ByVal Date_of_Employment As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function add_User_Details(ByVal Username As String, ByVal Password As String, ByVal Date_of_Employment As Global.System.Nullable(Of Date), ByVal email As String, ByVal Hours_operated_this_week As Global.System.Nullable(Of Integer), ByVal Admin As Boolean, ByVal First_Name As String, ByVal Last_Name As String, ByVal Authneticated As Boolean) As Integer
             Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(1)
             If (Username Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
@@ -2741,26 +2909,33 @@ Namespace DataSet1TableAdapters
             Else
                 command.Parameters(1).Value = CType(Password,String)
             End If
-            If (email Is Nothing) Then
-                command.Parameters(2).Value = Global.System.DBNull.Value
+            If (Date_of_Employment.HasValue = true) Then
+                command.Parameters(2).Value = CType(Date_of_Employment.Value,Date)
             Else
-                command.Parameters(2).Value = CType(email,String)
+                command.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (First_Name Is Nothing) Then
+            If (email Is Nothing) Then
                 command.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(3).Value = CType(First_Name,String)
+                command.Parameters(3).Value = CType(email,String)
+            End If
+            If (Hours_operated_this_week.HasValue = true) Then
+                command.Parameters(4).Value = CType(Hours_operated_this_week.Value,Integer)
+            Else
+                command.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            command.Parameters(5).Value = CType(Admin,Boolean)
+            If (First_Name Is Nothing) Then
+                command.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(6).Value = CType(First_Name,String)
             End If
             If (Last_Name Is Nothing) Then
-                command.Parameters(4).Value = Global.System.DBNull.Value
+                command.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(4).Value = CType(Last_Name,String)
+                command.Parameters(7).Value = CType(Last_Name,String)
             End If
-            If (Date_of_Employment.HasValue = true) Then
-                command.Parameters(5).Value = CType(Date_of_Employment.Value,Date)
-            Else
-                command.Parameters(5).Value = Global.System.DBNull.Value
-            End If
+            command.Parameters(8).Value = CType(Authneticated,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -2780,7 +2955,7 @@ Namespace DataSet1TableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function dupeCheck(ByVal Username As String, ByVal email As String) As Global.System.Nullable(Of Integer)
+        Public Overloads Overridable Function dupe_Check(ByVal Username As String, ByVal email As String) As Global.System.Nullable(Of Integer)
             Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(2)
             If (Username Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
@@ -2816,7 +2991,7 @@ Namespace DataSet1TableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function dupeEmail(ByVal email As String) As Object
+        Public Overloads Overridable Function dupe_Email(ByVal email As String) As Global.System.Nullable(Of Integer)
             Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(3)
             If (email Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
@@ -2838,22 +3013,17 @@ Namespace DataSet1TableAdapters
             End Try
             If ((returnValue Is Nothing)  _
                         OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
-                Return Nothing
+                Return New Global.System.Nullable(Of Integer)()
             Else
-                Return CType(returnValue,Object)
+                Return New Global.System.Nullable(Of Integer)(CType(returnValue,Integer))
             End If
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function dupeUsername(ByVal Username As String) As Global.System.Nullable(Of Integer)
+        Public Overloads Overridable Function dupe_Username() As Object
             Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(4)
-            If (Username Is Nothing) Then
-                command.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                command.Parameters(0).Value = CType(Username,String)
-            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -2869,9 +3039,9 @@ Namespace DataSet1TableAdapters
             End Try
             If ((returnValue Is Nothing)  _
                         OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
-                Return New Global.System.Nullable(Of Integer)()
+                Return Nothing
             Else
-                Return New Global.System.Nullable(Of Integer)(CType(returnValue,Integer))
+                Return CType(returnValue,Object)
             End If
         End Function
         
@@ -3044,8 +3214,9 @@ Namespace DataSet1TableAdapters
             tableMapping.ColumnMappings.Add("Needs fixing", "Needs fixing")
             tableMapping.ColumnMappings.Add("Last MOT", "Last MOT")
             tableMapping.ColumnMappings.Add("Next MOT", "Next MOT")
-            tableMapping.ColumnMappings.Add("Brand", "Brand")
+            tableMapping.ColumnMappings.Add("Make", "Make")
             tableMapping.ColumnMappings.Add("Model", "Model")
+            tableMapping.ColumnMappings.Add("License Plate", "License Plate")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -3054,26 +3225,28 @@ Namespace DataSet1TableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Trucks` (`Age`, `Needs fixing`, `Last MOT`, `Next MOT`, `Brand`, `Mo"& _ 
-                "del`) VALUES (?, ?, ?, ?, ?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Trucks` (`Age`, `Needs fixing`, `Last MOT`, `Next MOT`, `Make`, `Mod"& _ 
+                "el`, `License Plate`) VALUES (?, ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Age", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Age", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Needs_fixing", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Needs fixing", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Last_MOT", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Last MOT", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Next_MOT", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Next MOT", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Brand", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Brand", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Make", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Make", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Model", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Model", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("License_Plate", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "License Plate", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `Trucks` SET `Age` = ?, `Needs fixing` = ?, `Last MOT` = ?, `Next MOT` = ?"& _ 
-                ", `Brand` = ?, `Model` = ? WHERE ((`ID` = ?))"
+                ", `Make` = ?, `Model` = ?, `License Plate` = ? WHERE ((`ID` = ?))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Age", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Age", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Needs_fixing", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Needs fixing", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Last_MOT", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Last MOT", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Next_MOT", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Next MOT", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Brand", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Brand", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Make", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Make", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Model", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Model", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("License_Plate", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "License Plate", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
@@ -3090,7 +3263,8 @@ Namespace DataSet1TableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, Age, [Needs fixing], [Last MOT], [Next MOT], Brand, Model FROM Trucks"
+            Me._commandCollection(0).CommandText = "SELECT ID, Age, [Needs fixing], [Last MOT], [Next MOT], Make, Model, [License Pla"& _ 
+                "te] FROM Trucks"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = Me.Connection
@@ -3100,7 +3274,7 @@ Namespace DataSet1TableAdapters
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Age", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Age", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Last_MOT", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Last MOT", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Next_MOT", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Next MOT", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Brand", Global.System.Data.OleDb.OleDbType.WChar, 255, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Brand", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Brand", Global.System.Data.OleDb.OleDbType.[Variant], 1024, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Brand", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Model", Global.System.Data.OleDb.OleDbType.WChar, 255, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Model", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
@@ -3181,7 +3355,7 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Age As Global.System.Nullable(Of Integer), ByVal Needs_fixing As Boolean, ByVal Last_MOT As Global.System.Nullable(Of Date), ByVal Next_MOT As Global.System.Nullable(Of Date), ByVal Brand As String, ByVal Model As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal Age As Global.System.Nullable(Of Integer), ByVal Needs_fixing As Boolean, ByVal Last_MOT As Global.System.Nullable(Of Date), ByVal Next_MOT As Global.System.Nullable(Of Date), ByVal Make As String, ByVal Model As String, ByVal License_Plate As String) As Integer
             If (Age.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(Age.Value,Integer)
             Else
@@ -3198,15 +3372,20 @@ Namespace DataSet1TableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            If (Brand Is Nothing) Then
+            If (Make Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Brand,String)
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Make,String)
             End If
             If (Model Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.InsertCommand.Parameters(5).Value = CType(Model,String)
+            End If
+            If (License_Plate Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(License_Plate,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -3227,7 +3406,7 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Age As Global.System.Nullable(Of Integer), ByVal Needs_fixing As Boolean, ByVal Last_MOT As Global.System.Nullable(Of Date), ByVal Next_MOT As Global.System.Nullable(Of Date), ByVal Brand As String, ByVal Model As String, ByVal Original_ID As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal Age As Global.System.Nullable(Of Integer), ByVal Needs_fixing As Boolean, ByVal Last_MOT As Global.System.Nullable(Of Date), ByVal Next_MOT As Global.System.Nullable(Of Date), ByVal Make As String, ByVal Model As String, ByVal License_Plate As String, ByVal Original_ID As Integer) As Integer
             If (Age.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Age.Value,Integer)
             Else
@@ -3244,17 +3423,22 @@ Namespace DataSet1TableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            If (Brand Is Nothing) Then
+            If (Make Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Brand,String)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Make,String)
             End If
             If (Model Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Model,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_ID,Integer)
+            If (License_Plate Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(License_Plate,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_ID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -3274,7 +3458,7 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
-        Public Overloads Overridable Function addTruckDetails(ByVal Age As Global.System.Nullable(Of Integer), ByVal Last_MOT As Global.System.Nullable(Of Date), ByVal Next_MOT As Global.System.Nullable(Of Date), ByVal Brand As String, ByVal Model As String) As Integer
+        Public Overloads Overridable Function add_truck_details(ByVal Age As Global.System.Nullable(Of Integer), ByVal Last_MOT As Global.System.Nullable(Of Date), ByVal Next_MOT As Global.System.Nullable(Of Date), ByVal Brand As Object, ByVal Model As String) As Integer
             Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(1)
             If (Age.HasValue = true) Then
                 command.Parameters(0).Value = CType(Age.Value,Integer)
@@ -3292,9 +3476,9 @@ Namespace DataSet1TableAdapters
                 command.Parameters(2).Value = Global.System.DBNull.Value
             End If
             If (Brand Is Nothing) Then
-                command.Parameters(3).Value = Global.System.DBNull.Value
+                Throw New Global.System.ArgumentNullException("Brand")
             Else
-                command.Parameters(3).Value = CType(Brand,String)
+                command.Parameters(3).Value = CType(Brand,Object)
             End If
             If (Model Is Nothing) Then
                 command.Parameters(4).Value = Global.System.DBNull.Value

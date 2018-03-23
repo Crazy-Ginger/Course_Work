@@ -10,13 +10,9 @@ Public Class Shorter
     Public nodes As New List(Of Integer)
 End Class
 
-Public Class Destinations
-    Public numb As Integer
-End Class
 
 Public Class Map
     Inherits System.Web.UI.Page
-    Dim boxes As New Destinations
     Public shortest As New Shorter
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -25,28 +21,31 @@ Public Class Map
         '    boxes.numb = 20
         '    lb_toomany.Visible = True
         'End If
-        For i As Integer = 1 To boxes.numb
+        For i As Integer = 0 To Session("boxes")
             Dim tb_dest As New TextBox
             tb_dest.ID = "tb_dest_" & i
             tb_dest.AutoCompleteType = AutoCompleteType.HomeZipCode
             tb_dest.Width = 200
             p_Dest_cont.Controls.Add(tb_dest)
         Next
-        Distance.Text = boxes.numb
+        Distance.Text = Session("boxes")
     End Sub
 
 
     Protected Sub AddDestination_Click(sender As Object, e As EventArgs) Handles b_AddDestination.Click
-        boxes.numb += 1
+        Session("boxes") += 1
     End Sub
 
 
     Protected Sub RemoveDestination_Clicker(sender As Object, e As EventArgs) Handles b_RemoveDestination.Click
-        boxes.numb -= 1
+        Session("boxes") -= 1
     End Sub
 
 
     Protected Sub RouteCalc_Click(sender As Object, e As EventArgs) Handles b_RouteCalc.Click
+        If Session("logged_in") = False Then
+            Response.Redirect("Stopover.aspx")
+        End If
         If tb_Start.Text = "" Or tb_Start.Text = Nothing Or Session("boxes") = 0 Then   'if there is no start destination the algorithm doesn't run
             l_noStart.Visible = True
         Else

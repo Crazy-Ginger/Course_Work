@@ -5,11 +5,19 @@
     </div>
 
     <div class="login">
+<<<<<<< HEAD
         User Name:&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="tb_username" runat="server" Width="150px"></asp:TextBox>
         <br />
         Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="tb_password" runat="server" Width="150px"></asp:TextBox>
+=======
+        User Name:&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="tb_username" runat="server" Width="150px"></asp:TextBox>
+        <br />
+        Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="tb_password" runat="server" Width="150px" TextMode="Password"></asp:TextBox>
+>>>>>>> 44046c4ff4a78c5e89859c627c45eb7bebb924db
         <br />
 
         <asp:Button ID="b_Login" runat="server" Text="Login" />
@@ -21,7 +29,4 @@
         Dont have an account? 
         <asp:HyperLink ID="h_register" runat="server" href="Register_user.aspx">Click here</asp:HyperLink>
 &nbsp;to register</div>
-    <%-- This is to test git gui and I hope it recognises this change --%>
-    <asp:TextBox ID="TEst" runat="server">To really test if this is working</asp:TextBox>
-
 </asp:Content>
