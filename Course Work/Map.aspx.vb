@@ -8,6 +8,7 @@ Public Class Shorter
     Public distance As Integer
     Public duration As Integer
     Public nodes As New List(Of Integer)
+    Public url As String
 End Class
 
 
@@ -72,7 +73,7 @@ Public Class Map
                 nodes.Item(i) = nodes.Item(i).Replace(" ", "")
             Next
 
-            Permute(nodes.Count, nodes, last)
+            Dim shortest As Shorter = Permute(nodes.Count, nodes, last)
         End If
     End Sub
 

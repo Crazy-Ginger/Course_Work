@@ -3,8 +3,8 @@ Imports System.Net
 
 Module Routing
     Public shortest As New Shorter
-
-    Public Sub Permute(ByVal length As Integer, ByRef nodes As List(Of String), ByVal End_dest As Boolean)
+    Public request_url As String
+    Public Function Permute(ByVal length As Integer, ByRef nodes As List(Of String), ByVal End_dest As Boolean)
         shortest.distance = 2147483646
         'Creates the variables to be used in the algorithm
         Dim P(length - 1) As Integer
@@ -31,7 +31,7 @@ Module Routing
 
         Do While Not Last
             'outputs the pointers and destinations in order
-            Sort_array(P, length, nodes, End_dest)
+            Comparator(P, length, nodes, End_dest)
             count += 1
             Last = True
             initial_comp = length - 2
@@ -71,11 +71,11 @@ Module Routing
         Loop
         watch.Stop()
         Console.WriteLine("Number of permutations: " & count & vbTab & "That was: " & watch.Elapsed.TotalMilliseconds & "ms, " & watch.ElapsedTicks & " ticks")
-        Return ()
-    End Sub
+        Return shortest
+    End Function
 
 
-    Public Sub Sort_array(ByRef array() As Integer, ByVal length As Integer, ByRef nodes As List(Of String), ByVal end_dest As Boolean)
+    Public Sub Comparator(ByRef array() As Integer, ByVal length As Integer, ByRef nodes As List(Of String), ByVal end_dest As Boolean)
         If end_dest = True Then 'if there was an end destination being used then the length must be increased so that it is printed
             length += 1
         End If
@@ -84,12 +84,13 @@ Module Routing
             Console.Write(array(t) & ": " & nodes.Item(array(t)) & ", ")
         Next
 
-        Dim dist_dura() As Integer = Waypointing(array, length, nodes)   'sends this to the function that should return the length/duration of the route
+        Dim dist_dura() As Integer = Datapull(array, length, nodes)   'sends this to the function that should return the length/duration of the route
         Dim retest As Integer = shortest.distance
 
         If dist_dura(0) < retest Then   'compares the existing shortest route with the current one
             shortest.distance = dist_dura(0)
             shortest.duration = dist_dura(1)
+            shortest.url = request_url
             For i As Integer = 0 To array.Length - 1
                 shortest.nodes.Item(i) = array(i)
             Next
@@ -101,16 +102,16 @@ Module Routing
     End Sub
 
 
-    Function Waypointing(ByRef array() As Integer, ByVal length As String, ByRef nodes As List(Of String)) As Integer()
+    Function Datapull(ByRef array() As Integer, ByVal length As String, ByRef nodes As List(Of String)) As Integer()
         'Builds request string
-        Dim waypointkey As String = "AIzaSyBqN-1pDwR8taEDQESDP5mnJjiJkIXmv-w"
-        Dim request_url As String = "https://maps.googleapis.com/maps/api/directions/json?origin="
+        'Dim waypointkey As String = "AIzaSyBqN-1pDwR8taEDQESDP5mnJjiJkIXmv-w"
+        request_url = "https://maps.googleapis.com/maps/api/directions/json?origin="
         request_url += nodes.Item(0)
         request_url += "&destination=" & nodes.Item(array(length - 1)) & "&waypoints="
         For t As Integer = 1 To length - 2
             request_url += "via:" & nodes.Item(array(t)) & "|"
         Next
-        request_url += "&key=" & waypointkey
+        request_url += "&key=" & "AIzaSyBqN-1pDwR8taEDQESDP5mnJjiJkIXmv-w" 'alternatively waypointkey
         'tb_URL.Text = request_url
 
         'pulls the GEOJSON data and puts it into a string
@@ -136,8 +137,8 @@ Module Routing
 
         'searches for a key phrase then retrieves the value associated with the key phrase
         'finds the physical length of the journey
-        Dim search_dist As String = "distance"
-        Dim dist_char As Integer = Server_JSON_str.IndexOf(search_dist)
+        'Dim search_dist As String = "distance"
+        Dim dist_char As Integer ' = Server_JSON_str.IndexOf(search_dist)
 
         dist_char = Server_JSON_str.IndexOf("value")
         dist_char += 9
@@ -152,12 +153,12 @@ Module Routing
         Console.WriteLine()
         Console.WriteLine("Dist converter: " & dist_converter)
 
-        Dim distance As Integer = CInt(dist_converter)
+        Dim distance As Integer = Integer.Parse(dist_converter)
 
         'finds the time length of the journey
         Dim damaged_JSON As String = Right(Server_JSON_str, Server_JSON_str.Length - dist_char)
-        Dim search_dura As String = "duration"
-        Dim dura_char As Integer = damaged_JSON.IndexOf(search_dura)
+        'Dim search_dura As String = "duration"
+        Dim dura_char As Integer ' = damaged_JSON.IndexOf(search_dura)
         'Console.WriteLine(dura_char)
         dura_char = damaged_JSON.IndexOf("value")
         dura_char += 9
@@ -176,7 +177,7 @@ Module Routing
 
         Console.WriteLine("Distance: " & distance & " (m)")
         Console.WriteLine("Duration: " & duration & " (s)" & vbTab & Math.Floor(duration / 3600) & " hours  " & Math.Round((duration Mod 3600) / 60) & " minutes")
-        Dim passed(1) As Integer
+        Dim passed(2) As Integer
         passed(0) = distance
         passed(1) = duration
         Return passed
