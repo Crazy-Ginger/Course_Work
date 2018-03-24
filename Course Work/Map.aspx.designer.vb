@@ -59,22 +59,13 @@ Partial Public Class Map
     Protected WithEvents b_RemoveDestination As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''p_Dest_cont control.
+    '''p_routenodes control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents p_Dest_cont As Global.System.Web.UI.WebControls.Panel
-    
-    '''<summary>
-    '''lb_toomany control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lb_toomany As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents p_routenodes As Global.System.Web.UI.WebControls.Panel
     
     '''<summary>
     '''b_RouteCalc control.
@@ -86,13 +77,13 @@ Partial Public Class Map
     Protected WithEvents b_RouteCalc As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''t_route_order control.
+    '''t_routeorder control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents t_route_order As Global.System.Web.UI.WebControls.Table
+    Protected WithEvents t_routeorder As Global.System.Web.UI.WebControls.Table
     
     '''<summary>
     '''tb_URL control.

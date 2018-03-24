@@ -6,23 +6,29 @@
         <br />
         <div class="reg_user">
 
-            <asp:TextBox ID="tb_fname" runat="server" placeholder="First Name"></asp:TextBox><br />
+            <asp:TextBox ID="tb_fname" runat="server" placeholder="First Name"></asp:TextBox>
             <br />
-            <asp:TextBox ID="tb_lname" runat="server" placeholder="Last Name"></asp:TextBox><br />
             <br />
-            <asp:TextBox ID="tb_uname" runat="server" placeholder="Username"></asp:TextBox><br />
-            <asp:Label ID="l_username" runat="server" ForeColor="Red" Text="Username must be unique" Visible="False"></asp:Label>
+            <asp:TextBox ID="tb_lname" runat="server" placeholder="Last Name"></asp:TextBox>
             <br />
-            <asp:TextBox ID="tb_password" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox><br />
             <br />
-            <asp:TextBox ID="tb_passwordcon" runat="server" TextMode="Password" placeholder="Confirm Password"></asp:TextBox><br />
+            <asp:TextBox ID="tb_uname" runat="server" placeholder="Username"></asp:TextBox>
+            <br />
+            <asp:Label ID="l_username" runat="server" ForeColor="Red" Text="Username must be unique. This one is taken" Visible="False"></asp:Label>
+            <br />
+            <asp:TextBox ID="tb_password" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
+            <br />
+            <asp:Label ID="l_passwordlength" runat="server" Text="Password must be 8 characters or more" ForeColor="Red" Visible="false"></asp:Label>
+            <br />
+            <asp:TextBox ID="tb_passwordcon" runat="server" TextMode="Password" placeholder="Confirm Password"></asp:TextBox>
+            <br />
             <asp:Label ID="l_passwordmatch" runat="server" ForeColor="Red" Text="Passwords don't match" Visible="False"></asp:Label>
             <br />
             <asp:TextBox ID="tb_email" runat="server" TextMode="Email" placeholder="Email"></asp:TextBox>
             <br />
             <asp:Label ID="l_email" runat="server" ForeColor="Red" Text="You need a unique email" Visible="False"></asp:Label>
             <br />
-        </div>  
+        </div>
 
         <div class="reg_vehicle">
             <asp:TextBox ID="tb_vehiclemake" runat="server" placeholder="Vehicle Make"></asp:TextBox>
@@ -31,11 +37,12 @@
             <asp:TextBox ID="tb_vehiclemodel" runat="server" placeholder="Vehicle Model"></asp:TextBox>
             <br />
             <br />
-            <asp:TextBox ID="tb_vehicleage" runat="server" placeholder="Age of vehicle"></asp:TextBox>
+            <asp:TextBox ID="tb_vehicleage" runat="server" placeholder="Age of vehicle" TextMode="Number"></asp:TextBox>
             <br />
             <br />
             <asp:TextBox ID="tb_license" runat="server" placeholder="License Plate"></asp:TextBox>
             <br />
+            <asp:label ID="l_license" runat="server" Text="This license plate is take" ForeColor="Red" visible="false"></asp:label>
             <br />
             Last MOT
             
@@ -44,6 +51,8 @@
             <br />
             Next MOT
             <asp:TextBox ID="tb_nextMOT" runat="server" TextMode="Date"></asp:TextBox><br />
+            <br />
+            <asp:Label ID="l_empty" runat="server" Text="All fields must contain data" ForeColor="Red" Visible="false"></asp:Label>
             <br />
             <asp:Button ID="b_Register" runat="server" Text="Next" />
         </div>

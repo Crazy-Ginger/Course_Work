@@ -59,6 +59,15 @@ Partial Public Class Register
     Protected WithEvents tb_password As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
+    '''l_passwordlength control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents l_passwordlength As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''tb_passwordcon control.
     '''</summary>
     '''<remarks>
@@ -131,6 +140,15 @@ Partial Public Class Register
     Protected WithEvents tb_license As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
+    '''l_license control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents l_license As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''tb_lastMOT control.
     '''</summary>
     '''<remarks>
@@ -147,6 +165,15 @@ Partial Public Class Register
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents tb_nextMOT As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''l_empty control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents l_empty As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''b_Register control.
