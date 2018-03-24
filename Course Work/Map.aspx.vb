@@ -73,6 +73,7 @@ Public Class Map
             Next
 
             Permute(nodes.Count, nodes, last)
+        End If
     End Sub
 
 
