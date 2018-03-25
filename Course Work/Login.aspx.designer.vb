@@ -23,6 +23,15 @@ Partial Public Class Login
     Protected WithEvents tb_username As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
+    '''l_noUsername control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents l_noUsername As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''tb_password control.
     '''</summary>
     '''<remarks>
@@ -30,6 +39,15 @@ Partial Public Class Login
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents tb_password As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''l_noPassword control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents l_noPassword As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''b_Login control.

@@ -70,7 +70,7 @@ Public Class Map
 
             'removes spaces from the addresses in the nodes
             For i As Integer = 0 To nodes.Count() - 1
-                nodes.Item(i) = nodes.Item(i).Replace(" ", "")
+                nodes.Item(i) = nodes.Item(i).Replace(" ", "+")
             Next
 
             Dim shortest As Shorter = Permute(nodes.Count, nodes, last)
