@@ -50,13 +50,13 @@ Partial Public Class Map
     Protected WithEvents b_AddDestination As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''b_RemoveDestination control.
+    '''ddl_Destinations control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents b_RemoveDestination As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents ddl_Destinations As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
     '''p_routenodes control.
@@ -75,15 +75,6 @@ Partial Public Class Map
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents b_RouteCalc As Global.System.Web.UI.WebControls.Button
-    
-    '''<summary>
-    '''t_routeorder control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents t_routeorder As Global.System.Web.UI.WebControls.Table
     
     '''<summary>
     '''tb_URL control.

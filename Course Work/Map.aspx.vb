@@ -16,28 +16,28 @@ Public Class Map
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        For i As Integer = 1 To 100
+            ddl_Destinations.Items.Add(i)
+        Next
         'If boxes.numb > 20 Then
         '    boxes.numb = 20
         '    lb_toomany.Visible = True
         'End If
-        For i As Integer = 0 To Session("boxes")
+        For i As Integer = 1 To Session("boxes")
             Dim tb_dest As New TextBox
             tb_dest.ID = "tb_dest_" & i
             tb_dest.AutoCompleteType = AutoCompleteType.HomeZipCode
             tb_dest.Width = 200
             p_routenodes.Controls.Add(tb_dest)
         Next
+        tb_Distance.Text = Session("boxes")
         'tb_Distance.Text = Session("boxes")
     End Sub
 
 
     Protected Sub AddDestination_Click(sender As Object, e As EventArgs) Handles b_AddDestination.Click
-        Session("boxes") += 1
-    End Sub
-
-
-    Protected Sub RemoveDestination_Clicker(sender As Object, e As EventArgs) Handles b_RemoveDestination.Click
-        Session("boxes") -= 1
+        ddl_Destinations.SelectedValue = Session("boxes")
+        tb_Distance.Text = Session("boxes")
     End Sub
 
 

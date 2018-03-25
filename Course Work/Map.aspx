@@ -15,18 +15,18 @@
             <br />
 
             <asp:Button ID="b_AddDestination" runat="server" Text="Add a Destination" Font-Size="Medium" Height="40px" />
-            <asp:Button ID="b_RemoveDestination" runat="server" Text="Remove a Destination" Font-Size="Medium" Height="40px" />
+            <asp:DropDownList ID="ddl_Destinations" runat="server"></asp:DropDownList>
             <asp:Panel ID="p_routenodes" runat="server"></asp:Panel>
         </div>
 
-        <br />
+        <br />s
 
         <%--<asp:Label ID="l_toomany" runat="server" ForeColor="Red" Text="Only 20 destinations are supported" Visible="False"></asp:Label>--%>
         <br />
         <asp:Button ID="b_RouteCalc" runat="server" Width="180px" Height="40px" Text="Calculate Route" Font-Size="Medium" />
         <br />
 
-        <asp:Table ID="t_routeorder" runat="server"></asp:Table>
+       <%-- <asp:Table ID="t_routeorder" runat="server"></asp:Table>--%>
         <asp:TextBox ID="tb_URL" runat="server"></asp:TextBox>
         <asp:TextBox ID="tb_Distance" runat="server"></asp:TextBox>
 
