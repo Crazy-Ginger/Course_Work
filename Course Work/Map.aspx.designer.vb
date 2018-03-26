@@ -23,13 +23,13 @@ Partial Public Class Map
     Protected WithEvents tb_Start As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''l_noStart control.
+    '''rfv_noStart control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents l_noStart As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents rfv_noStart As Global.System.Web.UI.WebControls.RequiredFieldValidator
     
     '''<summary>
     '''tb_End control.

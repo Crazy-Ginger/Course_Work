@@ -23,13 +23,13 @@ Partial Public Class Login
     Protected WithEvents tb_username As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''l_noUsername control.
+    '''rfv_noUsername control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents l_noUsername As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents rfv_noUsername As Global.System.Web.UI.WebControls.RequiredFieldValidator
     
     '''<summary>
     '''tb_password control.
@@ -41,13 +41,13 @@ Partial Public Class Login
     Protected WithEvents tb_password As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''l_noPassword control.
+    '''rfv_noPassword control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents l_noPassword As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents rfv_noPassword As Global.System.Web.UI.WebControls.RequiredFieldValidator
     
     '''<summary>
     '''b_Login control.

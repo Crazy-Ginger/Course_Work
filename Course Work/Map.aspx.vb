@@ -45,36 +45,32 @@ Public Class Map
         If Session("logged_in") = False Then
             Response.Redirect("Stopover.aspx")
         End If
-        If String.IsNullOrEmpty(tb_Start.Text) = True Or Session("boxes") = 0 Then   'if there is no start destination the algorithm doesn't run
-            l_noStart.Visible = True
-        Else
 
-            Dim last As Boolean = True
-            Dim nodes As New List(Of String)    'will contain the addresses so it can be passed between subs
-            nodes.Add(tb_Start.Text)    'adds the start
-            For Each tb As TextBox In p_routenodes.Controls.OfType(Of TextBox)()    'cycles through the text boxes created and adds their text to the node list
-                If String.IsNullOrEmpty(tb.Text) = True Or tb.Text = " " Then
-                    'stops a blank address being added and posisbly causing problem
-                Else
-                    nodes.Add(tb.Text)
-                End If
-            Next
-
-            'checks if there is a designated final destination
-            If String.IsNullOrEmpty(tb_End.Text) = True Or tb_End.Text = " " Then
-                last = False
+        Dim last As Boolean = True
+        Dim nodes As New List(Of String)    'will contain the addresses so it can be passed between subs
+        nodes.Add(tb_Start.Text)    'adds the start
+        For Each tb As TextBox In p_routenodes.Controls.OfType(Of TextBox)()    'cycles through the text boxes created and adds their text to the node list
+            If String.IsNullOrEmpty(tb.Text) = True Or tb.Text = " " Then
+                'stops a blank address being added and posisbly causing problem
             Else
-                last = True
-                nodes.Add(tb_End.Text)
+                nodes.Add(tb.Text)
             End If
+        Next
 
-            'removes spaces from the addresses in the nodes
-            For i As Integer = 0 To nodes.Count() - 1
-                nodes.Item(i) = nodes.Item(i).Replace(" ", "+")
-            Next
-
-            Dim shortest As Shorter = Permute(nodes.Count, nodes, last)
+        'checks if there is a designated final destination
+        If String.IsNullOrEmpty(tb_End.Text) = True Or tb_End.Text = " " Then
+            last = False
+        Else
+            last = True
+            nodes.Add(tb_End.Text)
         End If
+
+        'removes spaces from the addresses in the nodes
+        For i As Integer = 0 To nodes.Count() - 1
+            nodes.Item(i) = nodes.Item(i).Replace(" ", "+")
+        Next
+
+        Dim shortest As Shorter = Permute(nodes.Count, nodes, last)
     End Sub
 
 

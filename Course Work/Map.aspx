@@ -4,10 +4,10 @@
     <div class="jumbotron">
         <%--<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4855861.9722248465!2d-2.456570850324048!3d54.73551770561395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2suk!4v1508513543217" width="800" height="600" style="border:0"></iframe>--%>
         <div class="d_Boxes">
-            <div id="Left" class="Left">
+            <span id="Left" class="Left">
                 <asp:TextBox ID="tb_Start" runat="server" Width="200px" Placeholder="Start Location" AutoCompleteType="HomeZipCode"></asp:TextBox>
-                <asp:Label ID="l_noStart" runat="server" Width="200px" ForeColor="Red" Text="The route needs a Start" Visible="False"></asp:Label>
-            </div>
+                <asp:RequiredFieldValidator ID="rfv_noStart" ControlToValidate="tb_start" runat="server" ForeColor="Red" ErrorMessage="The route needs a Start"></asp:RequiredFieldValidator>
+            </span>
 
             <div id="ToRight" class="ToRight">
                 <asp:TextBox ID="tb_End" runat="server" Width="300px" Placeholder="Final Destination (optional)" AutoCompleteType="HomeZipCode"></asp:TextBox>
