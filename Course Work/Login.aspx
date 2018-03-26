@@ -6,12 +6,12 @@
         <span class="loginUsername">User Name:&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="tb_username" runat="server" Width="150px"></asp:TextBox>
         </span>
-       <%-- <asp:RequiredFieldValidator ID="rfv_noUsername" runat="server" ForeColor="Red" ControlToValidate="tb_username" ErrorMessage="Please enter a username"></asp:RequiredFieldValidator>--%>
+       <asp:RequiredFieldValidator ID="rfv_noUsername" runat="server" ForeColor="Red" ControlToValidate="tb_username" ErrorMessage="Please enter a username"></asp:RequiredFieldValidator>
         <br />
         <span class="loginPassword">Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="tb_password" runat="server" Width="150px" TextMode="Password"></asp:TextBox>
         </span>
-        <%--<asp:RequiredFieldValidator ID="rfv_noPassword" runat="server" ForeColor="Red" ControlToValidate="tb_username" ErrorMessage="Please enter a password"></asp:RequiredFieldValidator>--%>
+        -<asp:RequiredFieldValidator ID="rfv_noPassword" runat="server" ForeColor="Red" ControlToValidate="tb_username" ErrorMessage="Please enter a password"></asp:RequiredFieldValidator>
         
         <br />
         <span class="loginButton">
