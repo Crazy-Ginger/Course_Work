@@ -3,12 +3,6 @@
     Public User_reg As New DataSet1TableAdapters.UsersTableAdapter
     Public Vehicle_reg As New DataSet1TableAdapters.TrucksTableAdapter
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        If Session("logged_in") = True Then
-            Response.Redirect("Stopover.aspx")
-        End If
-    End Sub
-
     Protected Sub b_Register_Click(sender As Object, e As EventArgs) Handles b_Register.Click
         Dim today As DateTime = DateTime.Today
 
@@ -35,7 +29,8 @@
         Else
             User_reg.add_Userdata(tb_uname.Text, tb_password.Text, today.ToString("d"), tb_email.Text, False, tb_fname.Text, tb_lname.Text, False)
             Vehicle_reg.add_truck_details(tb_license.Text, tb_vehiclemodel.Text, Convert.ToDateTime(tb_nextMOT.Text), tb_vehiclemake.Text, False, Convert.ToDateTime(tb_lastMOT.Text), CInt(tb_vehicleage.Text))
-            Server.Transfer("Register_confirm.aspx", True)
+            MsgBox("Successfully registered. You will now have to await authentication")
+            Response.Redirect("https://google.co.uk", True)
         End If
     End Sub
 End Class

@@ -4,8 +4,10 @@ Public Class Login
     Public Connection As New DataSet1TableAdapters.UsersTableAdapter
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Dim logged_In As Boolean = Session("logged_in")
+
         If logged_In = True Then
-            Response.Redirect("Stopover.aspx") 'use response.readirect to remove this page from the memory
+            MsgBox("You are already logged in. Redirecting to Map")
+            Server.Transfer("Stopover.aspx") 'use response.readirect to remove this page from the memory
         End If
     End Sub
 
@@ -15,7 +17,8 @@ Public Class Login
             l_Incorrect.Visible = True
         Else
             Session("logged_in") = True
-            Response.Redirect("Map.aspx", True) 'used response.redirect as apposed to Server.transfer to minimise the size of the website in memory
+            MsgBox("You are now logged in")
+            Server.Transfer("Map.aspx", True) 'used response.redirect as apposed to Server.transfer to minimise the size of the website in memory
         End If
     End Sub
 End Class

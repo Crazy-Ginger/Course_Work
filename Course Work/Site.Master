@@ -78,7 +78,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; Matthew Wardle <%: DateTime.Now.Year %></p>
+                <p>&copy; The Crossley Heath School <%: DateTime.Now.Year %></p>
             </footer>
         </div>
 

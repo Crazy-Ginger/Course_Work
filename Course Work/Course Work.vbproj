@@ -175,9 +175,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Map.aspx" />
-    <Content Include="Register_confirm.aspx" />
     <Content Include="Register_user.aspx" />
-    <Content Include="Stopover.aspx" />
     <Content Include="Weekly Summary.aspx" />
     <Content Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
@@ -276,13 +274,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Register_confirm.aspx.designer.vb">
-      <DependentUpon>Register_confirm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Register_confirm.aspx.vb">
-      <DependentUpon>Register_confirm.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
     <Compile Include="Register_user.aspx.designer.vb">
       <DependentUpon>Register_user.aspx</DependentUpon>
     </Compile>
@@ -311,13 +302,6 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.vb">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Stopover.aspx.designer.vb">
-      <DependentUpon>Stopover.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Stopover.aspx.vb">
-      <DependentUpon>Stopover.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Weekly Summary.aspx.designer.vb">
       <DependentUpon>Weekly Summary.aspx</DependentUpon>

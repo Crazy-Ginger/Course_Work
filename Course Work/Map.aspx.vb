@@ -43,7 +43,8 @@ Public Class Map
 
     Protected Sub RouteCalc_Click(sender As Object, e As EventArgs) Handles b_RouteCalc.Click
         If Session("logged_in") = False Then
-            Response.Redirect("Stopover.aspx")
+            MsgBox("You need to login to access this feature")
+            Server.Transfer("Login.aspx")
         End If
 
         Dim last As Boolean = True
