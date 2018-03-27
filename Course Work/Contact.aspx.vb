@@ -2,12 +2,20 @@
     Inherits Page
     Public usertable As New DataSet1TableAdapters.UsersTableAdapter
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
-        Dim var_email As New StringBuilder
-        var_email.Append("mailto:ADMIN@CROSSLEYHEATH.ORG.UK")
+        Dim email As New StringBuilder
+        testbox1.Text = Session("username")
+
+        email.Append("mailto:ADMIN@CROSSLEYHEATH.ORG.UK")
         If Session("logged_in") = True Then
-            var_email.Append("?Cc=")
-            var_email.Append((usertable.get_email_return(Session("username"))).ToString)
+            email.Append("?Cc=")
+
+            TestBox2.Text = usertable.get_email_return(Session("username")).ToString
+
+            email.Append((usertable.get_email_return(Session("username"))).ToString)
+
+
         End If
-        h_email.ResolveUrl(var_email.ToString)
+        TestBox3.Text = email.ToString
+        h_email.ResolveUrl(email.ToString)
     End Sub
 End Class

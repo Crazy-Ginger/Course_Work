@@ -18,14 +18,15 @@
         <p>Savile Park</p>
         <p>Halifax</p>
         <p>HX3 0HG </p>
+        <asp:TextBox ID="testbox1" runat="server"></asp:TextBox>
+         <asp:TextBox ID="TestBox2" runat="server"></asp:TextBox>
+         <asp:TextBox ID="TestBox3" runat="server"></asp:TextBox>
         <br />
         <br />
         <br />
     </div>
     <div id="Contact" style="position: fixed; bottom: 0;">
         <pre>
-            <abbr title="Phone">Phone: 01422 360272</abbr>      
-            <asp:hyperlink ID="h_email" runat="server" href="mailto:ADMIN@CROSSLEYHEATH.ORG.UK?Cc=">email</asp:hyperlink>
-        </pre>
+            <abbr title="Phone">Phone: 01422 360272</abbr>      <asp:hyperlink ID="h_email" runat="server" href="mailto:ADMIN@CROSSLEYHEATH.ORG.UK?Cc=">email</asp:hyperlink></pre>
     </div>
 </asp:Content>
