@@ -22,6 +22,10 @@
         <br />
         <br />
     </div>
-    <div ID="Contact" style="position:fixed; bottom:0;"><pre><abbr title="Phone">Phone: 01422 360272</abbr>      <a title="email" href="mailto:ADMIN@CROSSLEYHEATH.ORG.UKk">email</a></pre></div>
-    
+    <div id="Contact" style="position: fixed; bottom: 0;">
+        <pre>
+            <abbr title="Phone">Phone: 01422 360272</abbr>      
+            <asp:hyperlink ID="h_email" runat="server" href="mailto:ADMIN@CROSSLEYHEATH.ORG.UK?Cc=">email</asp:hyperlink>
+        </pre>
+    </div>
 </asp:Content>

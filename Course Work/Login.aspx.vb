@@ -15,6 +15,7 @@
         If Login_Connection.Login(tb_username.Text, tb_password.Text) Is Nothing Or Login_Connection.Login(tb_username.Text, tb_password.Text) < 0 Then
             l_Incorrect.Visible = True
         Else
+            Session("username") = tb_username.Text
             Session("logged_in") = True
             MsgBox("You are now logged in")
             Server.Transfer("Map.aspx", True) 'used response.redirect as apposed to Server.transfer to minimise the size of the website in memory

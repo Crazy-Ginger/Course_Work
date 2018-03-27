@@ -12,4 +12,13 @@ Option Explicit On
 
 
 Partial Public Class Contact
+    
+    '''<summary>
+    '''h_email control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents h_email As Global.System.Web.UI.WebControls.HyperLink
 End Class
