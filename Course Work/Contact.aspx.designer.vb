@@ -14,47 +14,11 @@ Option Explicit On
 Partial Public Class Contact
     
     '''<summary>
-    '''TestBox1 control.
+    '''h_email control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TestBox1 As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''TestBox2 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents TestBox2 As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''TestBox3 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents TestBox3 As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''TestBox4 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents TestBox4 As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''A_email control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents A_email As Global.System.Web.UI.HtmlControls.HtmlAnchor
+    Protected WithEvents h_email As Global.System.Web.UI.WebControls.HyperLink
 End Class

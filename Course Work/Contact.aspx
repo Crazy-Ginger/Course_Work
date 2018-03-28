@@ -18,16 +18,10 @@
         <p>Savile Park</p>
         <p>Halifax</p>
         <p>HX3 0HG </p>
-        <asp:TextBox ID="TestBox1" runat="server"></asp:TextBox>
-         <asp:TextBox ID="TestBox2" runat="server"></asp:TextBox>
-         <asp:TextBox ID="TestBox3" runat="server"></asp:TextBox>
-         <asp:TextBox ID="TestBox4" runat="server"></asp:TextBox>
-        <br />
-        <br />
-        <br />
+        <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
     </div>
     <div id="Contact" style="position: fixed; bottom: 0;">
         <pre>
-            <abbr title="Phone">Phone: 01422 360272</abbr>      <a id="A_email" runat="server" href=" " >email</a></pre>
+            <abbr title="Phone">Phone: 01422 360272</abbr>      <asp:hyperlink ID="h_email" runat="server">email</asp:hyperlink></pre>
     </div>
 </asp:Content>
