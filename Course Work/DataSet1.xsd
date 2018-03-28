@@ -5,7 +5,7 @@
       <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="User_DetailsConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="User_DetailsConnectionString (Web.config)" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.User_DetailsConnectionString.ConnectionString" Provider="System.Data.OleDb" />
-          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="Expenses_Money" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Expenses_Money (Web.config)" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.Expenses_Money.ConnectionString" Provider="System.Data.OleDb" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="Expenses_Money" IsAppSettingsProperty="true" Modifier="Assembly" Name="Expenses_Money (Web.config)" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.Expenses_Money.ConnectionString" Provider="System.Data.OleDb" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MainTableAdapter" GeneratorDataComponentClassName="MainTableAdapter" Name="Main" UserDataComponentName="MainTableAdapter">
@@ -166,7 +166,7 @@ HAVING        (Username = ?)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="User_DetailsConnectionString (Web.config)" DbObjectName="Users" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="Get_email" Modifier="Public" Name="Get_email" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="Get_email">
+              <DbSource ConnectionRef="User_DetailsConnectionString (Web.config)" DbObjectName="Users" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="Get_email" Modifier="Public" Name="Get_email" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="Get_email">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        email
@@ -178,7 +178,7 @@ WHERE        (Username = ?)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="User_DetailsConnectionString (Web.config)" DbObjectName="Users" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="Login" Modifier="Public" Name="Login" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="Login">
+              <DbSource ConnectionRef="User_DetailsConnectionString (Web.config)" DbObjectName="Users" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="Login" Modifier="Public" Name="Login" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="Login">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        COUNT(*) AS result, Username, [Password]
@@ -294,7 +294,7 @@ HAVING        ([License Plate] = ?)</CommandText>
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Main" msprop:Generator_TableClassName="MainDataTable" msprop:Generator_TableVarName="tableMain" msprop:Generator_RowChangedName="MainRowChanged" msprop:Generator_TablePropName="Main" msprop:Generator_RowDeletingName="MainRowDeleting" msprop:Generator_RowChangingName="MainRowChanging" msprop:Generator_RowEvHandlerName="MainRowChangeEventHandler" msprop:Generator_RowDeletedName="MainRowDeleted" msprop:Generator_RowClassName="MainRow" msprop:Generator_UserTableName="Main" msprop:Generator_RowEvArgName="MainRowChangeEvent">
+        <xs:element name="Main" msprop:Generator_TableClassName="MainDataTable" msprop:Generator_TableVarName="tableMain" msprop:Generator_TablePropName="Main" msprop:Generator_RowDeletingName="MainRowDeleting" msprop:Generator_RowChangingName="MainRowChanging" msprop:Generator_RowEvHandlerName="MainRowChangeEventHandler" msprop:Generator_RowDeletedName="MainRowDeleted" msprop:Generator_UserTableName="Main" msprop:Generator_RowChangedName="MainRowChanged" msprop:Generator_RowEvArgName="MainRowChangeEvent" msprop:Generator_RowClassName="MainRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -304,7 +304,7 @@ HAVING        ([License Plate] = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Users" msprop:Generator_TableClassName="UsersDataTable" msprop:Generator_TableVarName="tableUsers" msprop:Generator_RowChangedName="UsersRowChanged" msprop:Generator_TablePropName="Users" msprop:Generator_RowDeletingName="UsersRowDeleting" msprop:Generator_RowChangingName="UsersRowChanging" msprop:Generator_RowEvHandlerName="UsersRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersRowDeleted" msprop:Generator_RowClassName="UsersRow" msprop:Generator_UserTableName="Users" msprop:Generator_RowEvArgName="UsersRowChangeEvent">
+        <xs:element name="Users" msprop:Generator_TableClassName="UsersDataTable" msprop:Generator_TableVarName="tableUsers" msprop:Generator_TablePropName="Users" msprop:Generator_RowDeletingName="UsersRowDeleting" msprop:Generator_RowChangingName="UsersRowChanging" msprop:Generator_RowEvHandlerName="UsersRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersRowDeleted" msprop:Generator_UserTableName="Users" msprop:Generator_RowChangedName="UsersRowChanged" msprop:Generator_RowEvArgName="UsersRowChangeEvent" msprop:Generator_RowClassName="UsersRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -350,7 +350,7 @@ HAVING        ([License Plate] = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Trucks" msprop:Generator_TableClassName="TrucksDataTable" msprop:Generator_TableVarName="tableTrucks" msprop:Generator_RowChangedName="TrucksRowChanged" msprop:Generator_TablePropName="Trucks" msprop:Generator_RowDeletingName="TrucksRowDeleting" msprop:Generator_RowChangingName="TrucksRowChanging" msprop:Generator_RowEvHandlerName="TrucksRowChangeEventHandler" msprop:Generator_RowDeletedName="TrucksRowDeleted" msprop:Generator_RowClassName="TrucksRow" msprop:Generator_UserTableName="Trucks" msprop:Generator_RowEvArgName="TrucksRowChangeEvent">
+        <xs:element name="Trucks" msprop:Generator_TableClassName="TrucksDataTable" msprop:Generator_TableVarName="tableTrucks" msprop:Generator_TablePropName="Trucks" msprop:Generator_RowDeletingName="TrucksRowDeleting" msprop:Generator_RowChangingName="TrucksRowChanging" msprop:Generator_RowEvHandlerName="TrucksRowChangeEventHandler" msprop:Generator_RowDeletedName="TrucksRowDeleted" msprop:Generator_UserTableName="Trucks" msprop:Generator_RowChangedName="TrucksRowChanged" msprop:Generator_RowEvArgName="TrucksRowChangeEvent" msprop:Generator_RowClassName="TrucksRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -399,8 +399,8 @@ HAVING        ([License Plate] = ?)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="TrucksMain" msdata:parent="Trucks" msdata:child="Main" msdata:parentkey="ID" msdata:childkey="Truck" msprop:Generator_UserChildTable="Main" msprop:Generator_ChildPropName="GetMainRows" msprop:Generator_UserRelationName="TrucksMain" msprop:Generator_ParentPropName="TrucksRow" msprop:Generator_RelationVarName="relationTrucksMain" msprop:Generator_UserParentTable="Trucks" />
-      <msdata:Relationship name="UsersMain" msdata:parent="Users" msdata:child="Main" msdata:parentkey="ID" msdata:childkey="User" msprop:Generator_UserChildTable="Main" msprop:Generator_ChildPropName="GetMainRows" msprop:Generator_UserRelationName="UsersMain" msprop:Generator_ParentPropName="UsersRow" msprop:Generator_RelationVarName="relationUsersMain" msprop:Generator_UserParentTable="Users" />
+      <msdata:Relationship name="TrucksMain" msdata:parent="Trucks" msdata:child="Main" msdata:parentkey="ID" msdata:childkey="Truck" msprop:Generator_UserChildTable="Main" msprop:Generator_ChildPropName="GetMainRows" msprop:Generator_UserRelationName="TrucksMain" msprop:Generator_RelationVarName="relationTrucksMain" msprop:Generator_UserParentTable="Trucks" msprop:Generator_ParentPropName="TrucksRow" />
+      <msdata:Relationship name="UsersMain" msdata:parent="Users" msdata:child="Main" msdata:parentkey="ID" msdata:childkey="User" msprop:Generator_UserChildTable="Main" msprop:Generator_ChildPropName="GetMainRows" msprop:Generator_UserRelationName="UsersMain" msprop:Generator_RelationVarName="relationUsersMain" msprop:Generator_UserParentTable="Users" msprop:Generator_ParentPropName="UsersRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

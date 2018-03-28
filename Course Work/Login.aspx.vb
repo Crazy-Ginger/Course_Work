@@ -18,7 +18,8 @@
             Session("username") = tb_username.Text
             Session("logged_in") = True
             MsgBox("You are now logged in")
-            Server.Transfer("Map.aspx", True) 'used response.redirect as apposed to Server.transfer to minimise the size of the website in memory
+            Server.Transfer("Map.aspx", True)
+
         End If
     End Sub
 End Class
