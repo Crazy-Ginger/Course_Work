@@ -18,9 +18,9 @@
         <p>Savile Park</p>
         <p>Halifax</p>
         <p>HX3 0HG </p>
-        <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+        <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /><br /><br /><br />
     </div>
-    <div id="Contact" style="position: fixed; bottom: 0;">
+    <div id="Contact">
         <pre>
             <abbr title="Phone">Phone: 01422 360272</abbr>      <asp:hyperlink ID="h_email" runat="server">email</asp:hyperlink></pre>
     </div>
