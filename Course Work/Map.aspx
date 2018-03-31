@@ -58,4 +58,7 @@
             //https://blog.mapbox.com/efficient-multi-stop-routes-with-the-optimization-api-60d2beb7c82 optimised multi point system?
         </script>
     </div>
+    <script>
+        var input = document.createElement
+    </script>
 </asp:Content>
