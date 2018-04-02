@@ -293,6 +293,7 @@
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Temp_JSONclass.vb" />
     <Compile Include="ViewSwitcher.ascx.vb">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -338,6 +339,7 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Temp_JSONfile.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -126,6 +126,7 @@ Module Routing
         '    Console.WriteLine("It did't work")
         'End Try
         Dim client As New WebClient()
+        client.DownloadFile(request_url, "Temp_JSONfile.json")
         Dim client_Stream As Stream = client.OpenRead(request_url)
         Dim streamreading As New StreamReader(client_Stream)
         Dim Server_JSON_str As String = streamreading.ReadToEnd()
