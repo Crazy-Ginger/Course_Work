@@ -3,7 +3,8 @@ Imports System.Net
 
 Module Routing
     Public shortest As New Shorter
-    Public request_url As String
+    Public Current_URL As StringBuilder
+
     Public Function Permute(ByVal length As Integer, ByRef nodes As List(Of String), ByVal End_dest As Boolean)
         shortest.distance = 2147483646
 
@@ -91,7 +92,7 @@ Module Routing
         If dist_dura(0) < retest Then   'compares the existing shortest route with the current one
             shortest.distance = dist_dura(0)
             shortest.duration = dist_dura(1)
-            shortest.url = request_url
+            shortest.url = Current_URL.ToString
             For i As Integer = 0 To array.Length - 1
                 shortest.nodes.Item(i) = array(i)
             Next
@@ -106,13 +107,13 @@ Module Routing
     Function Datapull(ByRef array() As Integer, ByVal length As String, ByRef nodes As List(Of String)) As Integer()
         'Builds request string
         'Dim waypointkey As String = "AIzaSyBqN-1pDwR8taEDQESDP5mnJjiJkIXmv-w"
-        request_url = "https://maps.googleapis.com/maps/api/directions/json?origin="
-        request_url += nodes.Item(0)
-        request_url += "&destination=" & nodes.Item(array(length - 1)) & "&waypoints="
+        Current_URL.Equals("https://maps.googleapis.com/maps/api/directions/json?origin=")
+        Current_URL.Append(nodes.Item(0))
+        Current_URL.Append("&destination=" & nodes.Item(array(length - 1)) & "&waypoints=")
         For t As Integer = 1 To length - 2
-            request_url += "via:" & nodes.Item(array(t)) & "|"
+            Current_URL.Append("via:" & nodes.Item(array(t)) & "|")
         Next
-        request_url += "&key=" & "AIzaSyBqN-1pDwR8taEDQESDP5mnJjiJkIXmv-w" 'alternatively waypointkey
+        Current_URL.Append("&key=" & "AIzaSyBqN-1pDwR8taEDQESDP5mnJjiJkIXmv-w")
         'tb_URL.Text = request_url
 
         'pulls the GEOJSON data and puts it into a string
@@ -127,8 +128,8 @@ Module Routing
         '    Console.WriteLine("It did't work")
         'End Try
         Dim client As New WebClient()
-        client.DownloadFile(request_url, "Temp_JSONfile.json")
-        Dim client_Stream As Stream = client.OpenRead(request_url)
+        client.DownloadFile(Current_URL.ToString, "Temp_JSONfile.json")
+        Dim client_Stream As Stream = client.OpenRead(Current_URL.ToString)
         Dim streamreading As New StreamReader(client_Stream)
         Dim Server_JSON_str As String = streamreading.ReadToEnd()
         streamreading.Close()
