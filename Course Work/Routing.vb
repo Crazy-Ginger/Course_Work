@@ -6,6 +6,7 @@ Module Routing
     Public request_url As String
     Public Function Permute(ByVal length As Integer, ByRef nodes As List(Of String), ByVal End_dest As Boolean)
         shortest.distance = 2147483646
+
         'Creates the variables to be used in the algorithm
         Dim P(length - 1) As Integer
         Dim swapper As Integer
