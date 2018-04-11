@@ -30,56 +30,65 @@ Module Routing
         'records the time it takes for all the permutations to be calculated (temp)
         Dim watch As Stopwatch = Stopwatch.StartNew()
 
-        Do While Not Last
-            'finds the length of the current route and sees if it is the shortest route currently created
-            Comparator(P, length, nodes, End_dest)
+        If Comparator(P, length, nodes, End_dest) = -1 Then
+            shortest.duration = -1
+        ElseIf Comparator(P, length, nodes, End_dest) = -2 Then
+            shortest.duration = -2
+        ElseIf Comparator(P, length, nodes, End_dest) = -3 Then
+            shortest.duration = -3
+        Else
+            Do While Not Last
+                'finds the length of the current route and sees if it is the shortest route currently created
+                Comparator(P, length, nodes, End_dest)
 
-            count += 1
-            Last = True
-            initial_comp = length - 2
+                count += 1
+                Last = True
+                initial_comp = length - 2
 
-            'finds the largest pointer out of place (from the back)
-            Do While initial_comp > 0
-                If P(initial_comp) < P(initial_comp + 1) Then
-                    Last = False
-                    Exit Do
-                End If
-                initial_comp = initial_comp - 1
-            Loop
+                'finds the largest pointer out of place (from the back)
+                Do While initial_comp > 0
+                    If P(initial_comp) < P(initial_comp + 1) Then
+                        Last = False
+                        Exit Do
+                    End If
+                    initial_comp = initial_comp - 1
+                Loop
 
-            rearrange = initial_comp + 1
-            asc_swapper = length - 1
+                rearrange = initial_comp + 1
+                asc_swapper = length - 1
 
-            'rearranges all the pointers behind the out of place pointer into ascending numerical order
-            While rearrange < asc_swapper
-                ' Swap p(j) and p(k)
-                swapper = P(rearrange)
-                P(rearrange) = P(asc_swapper)
-                P(asc_swapper) = swapper
+                'rearranges all the pointers behind the out of place pointer into ascending numerical order
+                While rearrange < asc_swapper
+                    ' Swap p(j) and p(k)
+                    swapper = P(rearrange)
+                    P(rearrange) = P(asc_swapper)
+                    P(asc_swapper) = swapper
+                    rearrange += 1
+                    asc_swapper -= 1
+                End While
+
+                rearrange = length - 1
+                'finds the pointer to be swapped with the out of place pointer
+                While P(rearrange) > P(initial_comp)
+                    rearrange -= 1
+                End While
+
                 rearrange += 1
-                asc_swapper -= 1
-            End While
 
-            rearrange = length - 1
-            'finds the pointer to be swapped with the out of place pointer
-            While P(rearrange) > P(initial_comp)
-                rearrange -= 1
-            End While
-
-            rearrange += 1
-
-            'makes the swap to place the large number in front
-            swapper = P(initial_comp)
-            P(initial_comp) = P(rearrange)
-            P(rearrange) = swapper
-        Loop
+                'makes the swap to place the large number in front
+                swapper = P(initial_comp)
+                P(initial_comp) = P(rearrange)
+                P(rearrange) = swapper
+            Loop
+        End If
         watch.Stop()
-        Console.WriteLine("Number of permutations: " & count & vbTab & "That was: " & watch.Elapsed.TotalMilliseconds & "ms, " & watch.ElapsedTicks & " ticks")
+
+        'Console.WriteLine("Number of permutations: " & count & vbTab & "That was: " & watch.Elapsed.TotalMilliseconds & "ms, " & watch.ElapsedTicks & " ticks")
         Return shortest
     End Function
 
 
-    Public Sub Comparator(ByRef array() As Integer, ByVal length As Integer, ByRef nodes As List(Of String), ByVal end_dest As Boolean)
+    Public Function Comparator(ByRef array() As Integer, ByVal length As Integer, ByRef nodes As List(Of String), ByVal end_dest As Boolean)
         'if there was an end destination being used then the length must be increased so that it is printed
         If end_dest = True Then
             length += 1
@@ -91,20 +100,29 @@ Module Routing
 
         'sends this to the function that should return the length/duration of the route
         Dim current_route() As Integer = Datapull(array, length, nodes)
-
         'Dim retest As Integer = shortest.distance
 
-        If current_route(0) < shortest.distance Then   'compares the existing shortest route with the current one
-            shortest.distance = current_route(0)
-            shortest.duration = current_route(1)
-            shortest.url = Current_URL.ToString
-            For i As Integer = 0 To array.Length - 1
-                shortest.nodes.Item(i) = nodes.Item(array(i))
-            Next
+        If current_route(0) = 2147483645 And current_route(1) = -1 Then
+            Return current_route(1)
+        ElseIf current_route(0) = 2147483645 And current_route(1) = -2 Then
+            Return current_route(1)
+        ElseIf current_route(0) = 2147483645 And current_route(1) = -3 Then
+            Return current_route(1)
+        Else
+            Return 0
+            'compares the existing shortest route with the current one
+            If current_route(0) < shortest.distance Then
+                shortest.distance = current_route(0)
+                shortest.duration = current_route(1)
+                shortest.url = Current_URL.ToString
+                For i As Integer = 0 To array.Length - 1
+                    shortest.nodes.Item(i) = nodes.Item(array(i))
+                Next
+            End If
         End If
         'Console.WriteLine("Shortest: " & shortest.distance)
         'Console.WriteLine()
-    End Sub
+    End Function
 
 
     Function Datapull(ByRef array() As Integer, ByVal length As String, ByRef nodes As List(Of String)) As Integer()
@@ -216,7 +234,8 @@ Module Routing
             Next
 
             'test if the status of the route is valid or not
-            If status = "OK" Or status = "ok" Or status = "Ok" Then
+            If status = "OK" Then
+
                 'find the distance of the route
                 Dim dist_char As Integer = JSON_str.IndexOf("value")
                 dist_char += 9
@@ -267,11 +286,36 @@ Module Routing
                 'Else
                 'Return Nothing
                 'End If
+            ElseIf status = "ZERO_RESULTS" Then
+                passed(0) = 2147483645
+                passed(1) = 2147483645
+                Exit While
+
+            ElseIf status = "NOT_FOUND" Then
+                passed(0) = 2147483645
+                passed(1) = -1
+                Exit While
+
+            ElseIf status = "OVER_QUERY_LIMIT" Then
+                passed(0) = 2147483645
+                passed(1) = -2
+                Exit While
+
+            ElseIf status = "MAX_WAYPOINTS_EXCEEDED" Then
+                passed(0) = 2147483645
+                passed(1) = -3
+                Exit While
+
+            ElseIf status = "MAX_ROUTE_LENGTH_EXCEEDED" Then
+                passed(0) = 2147483645
+                passed(1) = 2147483645
+                Exit While
+
+            Else
+                passed(0) = 2147483645
+                passed(1) = 2147483645
             End If
         End While
-
-        passed(0) = 2147483645
-        passed(1) = 2147483645
         Return passed
     End Function
 End Module

@@ -72,6 +72,15 @@ Public Class Map
         Next
 
         Dim shortest As Shorter = Permute(nodes.Count, nodes, last)
+        If shortest.duration = -1 Then
+            MsgBox("One or more of the addresses is invalid")
+        ElseIf shortest.duration = -2 Then
+            MsgBox("Contact your admin as reagards to query limit")
+        ElseIf shortest.duration = -3 Then
+            MsgBox("You have too many destinations. The limit is 23")
+        Else
+
+        End If
     End Sub
 
 
