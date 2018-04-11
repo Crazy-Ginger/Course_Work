@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Map" Language="VB" Masterpagefile="~/Site.Master" AutoEventWireup="true" CodeBehind="Map.aspx.vb" Inherits="Course_Work.Map"%>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent" EnableEventValidation="True">
-    <div class="jumbotron">
+    <div class="jumbotron" onload="setcount()">
         <%--<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4855861.9722248465!2d-2.456570850324048!3d54.73551770561395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2suk!4v1508513543217" width="800" height="600" style="border:0"></iframe>--%>
         <div class="d_Boxes">
             <span id="Left" class="Left">
@@ -59,6 +59,26 @@
             //https://www.mapbox.com/mapbox-gl-js/example/mapbox-gl-geocoder/ geocoder
             map.addControl(new MapboxDirections({ accessToken: mapboxgl.accessToken }), 'top-left');
             //https://blog.mapbox.com/efficient-multi-stop-routes-with-the-optimization-api-60d2beb7c82 optimised multi point system?
+        </script>
+        <script>
+            onload.apply(setcount)
+            function setcout() {
+                var count = 0;
+                return count
+            }
+            
+            function add(count) {
+                var textbox = document.createElement("input");
+                textbox.setAttribute("type", "text");
+                textbox.setAttribute("value", "");
+                textbox.setAttribute("name", "tb_dest" + count);
+                Textbox.setAttribute("style", "width:200px");
+                var panel = document.getElementById("p_routenodes");
+                panel.appendchild(textbox);
+                count += 1
+                return count
+            }
+
         </script>
     </div>
    </asp:Content>
