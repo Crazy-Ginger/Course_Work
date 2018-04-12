@@ -86,11 +86,11 @@ Partial Public Class Map
     Protected WithEvents tb_Distance As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''test control.
+    '''tb_Duration control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents test As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents tb_Duration As Global.System.Web.UI.WebControls.TextBox
 End Class

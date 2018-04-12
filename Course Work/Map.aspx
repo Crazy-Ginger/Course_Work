@@ -14,7 +14,7 @@
             </div>
 
             <br />
-            <asp:Button ID="b_AddDestination" runat="server" Text="Add a Destination" Font-Size="Medium" Height="40px" OnClick="/Scripts/Scripts.js:add(count)" />
+            <asp:Button ID="b_AddDestination" runat="server" Text="Add a Destination" Font-Size="Medium" Height="40px" 0nClick="addBox()" />
             <%--<asp:DropDownList ID="ddl_Destinations" runat="server"></asp:DropDownList>--%>
             <asp:Panel ID="p_routenodes" runat="server"></asp:Panel>
         </div>
@@ -25,56 +25,68 @@
         <br />
         <asp:Button ID="b_RouteCalc" runat="server" Width="180px" Height="40px" Text="Calculate Route" Font-Size="Medium" />
         <br />
-
+        
 
         <%-- output details--%>
         <asp:TextBox ID="tb_URL" runat="server"></asp:TextBox>
         <asp:TextBox ID="tb_Distance" runat="server"></asp:TextBox>
-        <asp:Label ID="test" runat="server">Hi there</asp:Label>
+        <asp:TextBox ID="tb_Duration" runat="server"></asp:TextBox>
 
 
         <%-- Change --%>
         <div id='map' class="mainMap" style='position: relative; width: 1050px; height: 800px; align-content: center'>
         </div>
+
         <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.js'></script>
+
         <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.css' type='text/css' />
+        
         <script>
+            function AddElement(url, cFunction) {
+                var xhttp;
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        cFunction(this);
+                    }
+                };
+                xhttp.open("GET", url, true);
+                xhttp.send();
+            }
+
             //var bounds = [
             //    [20.434570, 36.949892], [-18.500977, 62.714462]   commented as it breaks the map, dont know why
             //]
-            mapboxgl.accessToken = 'pk.eyJ1IjoiY3JhenlnaW5nZXIiLCJhIjoiY2piMHUwZWl0MXJpdzJxczd5aHBrbWE0diJ9.rmrLoP64MNSp4ETaj53fPQ';
+            function map() {
+                mapboxgl.accessToken = 'pk.eyJ1IjoiY3JhenlnaW5nZXIiLCJhIjoiY2piMHUwZWl0MXJpdzJxczd5aHBrbWE0diJ9.rmrLoP64MNSp4ETaj53fPQ';
 
-            var map = new mapboxgl.Map({
-                container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v9',
-                //maxBounds: bounds,
-                //zoom: 13,
-                //center: [0, 54.098060]    this dont work for some reason
-                //https://api.mapbox.com base url for referencing
-            });
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/streets-v9',
+                    //maxBounds: bounds,
+                    //zoom: 13,
+                    //center: [0, 54.098060]    this dont work for some reason
+                    //https://api.mapbox.com base url for referencing
+                });
 
 
-            map.addControl(new mapboxgl.NavigationControl());
-            //https://www.mapbox.com/mapbox-gl-js/example/mapbox-gl-directions/ add this at a later date (driving directions)
-            //https://www.mapbox.com/mapbox-gl-js/example/mapbox-gl-geocoder/ geocoder
-            map.addControl(new MapboxDirections({ accessToken: mapboxgl.accessToken }), 'top-left');
-            //https://blog.mapbox.com/efficient-multi-stop-routes-with-the-optimization-api-60d2beb7c82 optimised multi point system?
-        </script>
-        <script>
-            onload.apply(setcount)
-            function setcout() {
-                var count = 0;
-                return count
+                map.addControl(new mapboxgl.NavigationControl());
+                //https://www.mapbox.com/mapbox-gl-js/example/mapbox-gl-directions/ add this at a later date (driving directions)
+                //https://www.mapbox.com/mapbox-gl-js/example/mapbox-gl-geocoder/ geocoder
+                map.addControl(new MapboxDirections({ accessToken: mapboxgl.accessToken }), 'top-left');
+                //https://blog.mapbox.com/efficient-multi-stop-routes-with-the-optimization-api-60d2beb7c82 optimised multi point system?
             }
-            
-            function add(count) {
+
+            function addBox() {
+                var count = 1
+                var xhttp = new XMLHttpRequest();
                 var textbox = document.createElement("input");
                 textbox.setAttribute("type", "text");
                 textbox.setAttribute("value", "");
                 textbox.setAttribute("name", "tb_dest" + count);
                 Textbox.setAttribute("style", "width:200px");
                 var panel = document.getElementById("p_routenodes");
-                panel.appendchild(textbox);
+                panel.addchild(textbox);
                 count += 1
                 return count
             }

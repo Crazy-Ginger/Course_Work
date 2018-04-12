@@ -23,20 +23,20 @@ Public Class Map
         '    boxes.numb = 20
         '    lb_toomany.Visible = True
         'End If
-        'For i As Integer = 1 To Session("boxes")
-        '    Dim tb_dest As New TextBox
-        '    tb_dest.ID = "tb_dest_" & i
-        '    tb_dest.AutoCompleteType = AutoCompleteType.HomeZipCode
-        '    tb_dest.Width = 200
-        '    p_routenodes.Controls.Add(tb_dest)
-        'Next
-        'tb_Distance.Text = Session("boxes")
+        For i As Integer = 1 To Session("boxes")
+            Dim tb_dest As New TextBox
+            tb_dest.ID = "tb_dest_" & i
+            tb_dest.AutoCompleteType = AutoCompleteType.HomeZipCode
+            tb_dest.Width = 200
+            p_routenodes.Controls.Add(tb_dest)
+        Next
+        tb_Distance.Text = Session("boxes")
     End Sub
 
 
     Protected Sub AddDestination_Click(sender As Object, e As EventArgs) Handles b_AddDestination.Click
         'ddl_Destinations.SelectedValue = Session("boxes")
-        'Session("boxes") += 1
+        Session("boxes") += 1
         count += 1
     End Sub
 
@@ -50,7 +50,9 @@ Public Class Map
         Dim last As Boolean = True
         Dim nodes As New List(Of String)    'will contain the addresses so it can be passed between subs
         nodes.Add(tb_Start.Text)    'adds the start
-        For Each tb As TextBox In p_routenodes.Controls.OfType(Of TextBox)()    'cycles through the text boxes created and adds their text to the node list
+
+        'cycles through the text boxes created and adds their text to the node list
+        For Each tb As TextBox In p_routenodes.Controls.OfType(Of TextBox)()
             If String.IsNullOrEmpty(tb.Text) = True Or tb.Text = " " Then
                 'stops a blank address being added and posisbly causing problem
             Else
@@ -67,7 +69,7 @@ Public Class Map
         End If
 
         'removes spaces from the addresses in the nodes
-        For i As Integer = 0 To nodes.Count() - 1
+        For i As Integer = 0 To nodes.Count - 1
             nodes.Item(i) = nodes.Item(i).Replace(" ", "+")
         Next
 
