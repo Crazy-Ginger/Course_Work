@@ -14,19 +14,22 @@
             </div>
 
             <br />
-            <input id="BAddDestination" type="button" runat="server" value="Add a Destination" OnClick="javascript:boxes()"/>
-            <asp:Label ID="l_destinations" runat="server" Text="You can only have 23 destinations" ForeColor="Red" Visible="false"></asp:Label>
-            <%--<asp:button ID="b_AddDestination" runat="server" Text="Add a Destination" Font-Size="Medium" Height="40px" OnClientClick="javascript:boxes()" />--%>
-            <%--<asp:DropDownList ID="ddl_Destinations" runat="server"></asp:DropDownList>--%>
-            <%-- <asp:Panel ID="p_routenodes" runat="server"></asp:Panel>--%>
-            <div id="p_routenodes"></div>
+            <%--<input id="B_adDestination" type="button" runat="server" value="Add a Destination" OnClick="javascript:boxes()"/>--%>
+            <%--<input id="B_removeDestination" type="button" runat="server" value="Add a Destination" OnClick="javascript:lessboxes()"/>--%>
+            
+            <asp:button ID="b_AddDestination" runat="server" Text="Add a Destination" Font-Size="Medium"  height="40px" OnClientClick="javascript:boxes(); return false;" />
+            <asp:button ID="b_LessDestination" runat="server" Text="Remove Destinations" Font-Size="Medium"  height="40px" />
+            
+            <asp:Label ID="l_destinations" runat="server" Text="You can only have 23 destinations" ForeColor ="Red" style="display:none;"></asp:Label>
+            <%--<div id="d_routenodes"></div>--%>
+             <asp:Panel ID="p_routenodes" runat="server"></asp:Panel>
         </div>
 
         <br />
         <%--<asp:Label ID="l_toomany" runat="server" ForeColor="Red" Text="Only 20 destinations are supported" Visible="False"></asp:Label>--%>
 
         <br />
-        <asp:Button ID="b_RouteCalc" runat="server" Width="180px" Height="40px" Text="Calculate Route" Font-Size="Medium" />
+        <asp:Button ID="b_RouteCalc" runat="server" Width="180px" Height="40px" Text="Calculate Route" Font-Size="Medium" OnClientClick="return false;"/>
         <br />
 
 
@@ -46,40 +49,40 @@
 
         <script>
             var count = 1
-            document.getElementById("BAddDestination").style.height = "80px";
             function boxes() {
                 if (count <= 21) {
-                    var parent = document.getElementById("p_routenodes");
+                    var parent = document.getElementById("<%=p_routenodes.ClientID%>");
                     var tb = document.createElement("input");
                     tb.setAttribute("Id", "tb_waypoints" + count);
                     tb.setAttribute("placeholder", "Waypoint address");
                     tb.setAttribute("max-width", "240px");
                     parent.appendChild(tb);
                     document.getElementById("tb_waypoints" + count).style.width = "210px";
-                    count += 1;
-                    return false;  
+                    count += 1;  
                 }
                 else {
-                    document.getElementById("l_destinations").style.visibility = True;
+                    document.getElementById("<%=l_destinations.ClientID%>").style.display = "inherit";
                 }
             }
+            <%--function lessboxes() {
+                var panel = document.getElementById("<%=p_routenodes.ClientID%>");
+                document.getElementById("tb_waypoints" + count).remove
+                count -= 1
+            }--%>
 
-            //var bounds = [
-            //    [20.434570, 36.949892], [-18.500977, 62.714462]   commented as it breaks the map, dont know why
-            //]
+
             function map() {
                 mapboxgl.accessToken = 'pk.eyJ1IjoiY3JhenlnaW5nZXIiLCJhIjoiY2piMHUwZWl0MXJpdzJxczd5aHBrbWE0diJ9.rmrLoP64MNSp4ETaj53fPQ';
 
-                var map = new mapboxgl.Map({
-                    container: 'map',
-                    style: 'mapbox://styles/mapbox/streets-v9',
+                var map = new mapboxgl.Map({container: 'map', style: 'mapbox://styles/mapbox/streets-v9',
                     //maxBounds: bounds,
                     //zoom: 13,
                     //center: [0, 54.098060]    this dont work for some reason
                     //https://api.mapbox.com base url for referencing
                 });
-
-
+                //var bounds = [
+                //    [20.434570, 36.949892], [-18.500977, 62.714462]   commented as it breaks the map, dont know why
+                //]
                 map.addControl(new mapboxgl.NavigationControl());
                 //https://www.mapbox.com/mapbox-gl-js/example/mapbox-gl-directions/ add this at a later date (driving directions)
                 //https://www.mapbox.com/mapbox-gl-js/example/mapbox-gl-geocoder/ geocoder
