@@ -16,9 +16,6 @@ Public Class Map
     Inherits System.Web.UI.Page
     Public count As Integer
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        'For i As Integer = 1 To 100
-        '    ddl_Destinations.Items.Add(i)
-        'Next
         'If boxes.numb > 20 Then
         '    boxes.numb = 20
         '    lb_toomany.Visible = True
@@ -53,10 +50,12 @@ Public Class Map
 
 
     Protected Sub RouteCalc_Click(sender As Object, e As EventArgs) Handles b_RouteCalc.Click
-        If Session("logged_in") = False Then
-            MsgBox("You need to login to access this feature")
-            Server.Transfer("Login.aspx")
-        End If
+        '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        'If Session("logged_in") = False Then
+        '    MsgBox("You need to login to access this feature")
+        '    Server.Transfer("Login.aspx")
+        'End If
+        '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         Dim last As Boolean = True
         Dim nodes As New List(Of String)    'will contain the addresses so it can be passed between subs
@@ -70,7 +69,15 @@ Public Class Map
                 nodes.Add(tb.Text)
             End If
         Next
-
+        If nodes.Count < 2 Then
+            l_destinations.Text = "2 addresses are required"
+            l_destinations.Visible = True
+        End If
+        Dim test As New StringBuilder
+        For i As Integer = 0 To nodes.Count - 1
+            test.Append(nodes.Item(i) & ", ")
+        Next
+        tb_URL.Text = test.ToString
         'checks if there is a designated final destination
         If String.IsNullOrEmpty(tb_End.Text) = True Or tb_End.Text = " " Then
             last = False
@@ -92,7 +99,9 @@ Public Class Map
         ElseIf shortest.duration = -3 Then
             MsgBox("You have too many destinations. The limit is 23")
         Else
-
+            l_Distance.Text = shortest.distance
+            l_Duration.Text = shortest.duration
+            tb_URL.Text = shortest.url
         End If
     End Sub
 

@@ -24,19 +24,19 @@
             <%--<div id="d_routenodes"></div>--%>
              <asp:Panel ID="p_routenodes" runat="server"></asp:Panel>
         </div>
-
+        
         <br />
         <%--<asp:Label ID="l_toomany" runat="server" ForeColor="Red" Text="Only 20 destinations are supported" Visible="False"></asp:Label>--%>
 
         <br />
-        <asp:Button ID="b_RouteCalc" runat="server" Width="180px" Height="40px" Text="Calculate Route" Font-Size="Medium" OnClientClick="return false;"/>
+        <asp:Button ID="b_RouteCalc" runat="server" Width="180px" Height="40px" Text="Calculate Route" Font-Size="Medium" autopostback="false"/>
         <br />
 
 
         <%-- output details--%>
         <asp:TextBox ID="tb_URL" runat="server"></asp:TextBox>
-        <asp:TextBox ID="tb_Distance" runat="server"></asp:TextBox>
-        <asp:TextBox ID="tb_Duration" runat="server"></asp:TextBox>
+        <asp:label ID="l_Distance" runat="server"></asp:label>
+        <asp:label ID="l_Duration" runat="server"></asp:label>
 
 
         <%-- Change --%>
@@ -47,6 +47,7 @@
 
         <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.css' type='text/css' />
 
+        <asp:Panel ID="p_bugtest" runat="server"></asp:Panel>
         <script>
             var count = 1
             function boxes() {
