@@ -41,22 +41,22 @@ Partial Public Class Map
     Protected WithEvents tb_End As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''b_AddDestination control.
+    '''BAddDestination control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents b_AddDestination As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents BAddDestination As Global.System.Web.UI.HtmlControls.HtmlInputButton
     
     '''<summary>
-    '''p_routenodes control.
+    '''l_destinations control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents p_routenodes As Global.System.Web.UI.WebControls.Panel
+    Protected WithEvents l_destinations As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''b_RouteCalc control.

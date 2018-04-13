@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Map" Language="VB" Masterpagefile="~/Site.Master" AutoEventWireup="true" CodeBehind="Map.aspx.vb" Inherits="Course_Work.Map"%>
+﻿<%@ Page Title="Map" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Map.aspx.vb" Inherits="Course_Work.Map" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent" EnableEventValidation="True">
     <div class="jumbotron" onload="setcount()">
@@ -10,13 +10,16 @@
             </span>
 
             <div id="ToRight" class="ToRight">
-                <asp:TextBox ID="tb_End" runat="server" Width="300px" Placeholder="Final Destination (optional)" AutoCompleteType="HomeZipCode"></asp:TextBox>
+                <asp:TextBox ID="tb_End" runat="server" Width="300px" Placeholder="Final Destination (optional)" AutoCompleteType="HomeZipCode" Height="40px"></asp:TextBox>
             </div>
 
             <br />
-            <asp:Button ID="b_AddDestination" runat="server" Text="Add a Destination" Font-Size="Medium" Height="40px" 0nClick="addBox()" />
+            <input id="BAddDestination" type="button" runat="server" value="Add a Destination" OnClick="javascript:boxes()"/>
+            <asp:Label ID="l_destinations" runat="server" Text="You can only have 23 destinations" ForeColor="Red" Visible="false"></asp:Label>
+            <%--<asp:button ID="b_AddDestination" runat="server" Text="Add a Destination" Font-Size="Medium" Height="40px" OnClientClick="javascript:boxes()" />--%>
             <%--<asp:DropDownList ID="ddl_Destinations" runat="server"></asp:DropDownList>--%>
-            <asp:Panel ID="p_routenodes" runat="server"></asp:Panel>
+            <%-- <asp:Panel ID="p_routenodes" runat="server"></asp:Panel>--%>
+            <div id="p_routenodes"></div>
         </div>
 
         <br />
@@ -25,7 +28,7 @@
         <br />
         <asp:Button ID="b_RouteCalc" runat="server" Width="180px" Height="40px" Text="Calculate Route" Font-Size="Medium" />
         <br />
-        
+
 
         <%-- output details--%>
         <asp:TextBox ID="tb_URL" runat="server"></asp:TextBox>
@@ -40,18 +43,25 @@
         <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.js'></script>
 
         <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.css' type='text/css' />
-        
+
         <script>
-            function AddElement(url, cFunction) {
-                var xhttp;
-                xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        cFunction(this);
-                    }
-                };
-                xhttp.open("GET", url, true);
-                xhttp.send();
+            var count = 1
+            document.getElementById("BAddDestination").style.height = "80px";
+            function boxes() {
+                if (count <= 21) {
+                    var parent = document.getElementById("p_routenodes");
+                    var tb = document.createElement("input");
+                    tb.setAttribute("Id", "tb_waypoints" + count);
+                    tb.setAttribute("placeholder", "Waypoint address");
+                    tb.setAttribute("max-width", "240px");
+                    parent.appendChild(tb);
+                    document.getElementById("tb_waypoints" + count).style.width = "210px";
+                    count += 1;
+                    return false;  
+                }
+                else {
+                    document.getElementById("l_destinations").style.visibility = True;
+                }
             }
 
             //var bounds = [
@@ -76,21 +86,6 @@
                 map.addControl(new MapboxDirections({ accessToken: mapboxgl.accessToken }), 'top-left');
                 //https://blog.mapbox.com/efficient-multi-stop-routes-with-the-optimization-api-60d2beb7c82 optimised multi point system?
             }
-
-            function addBox() {
-                var count = 1
-                var xhttp = new XMLHttpRequest();
-                var textbox = document.createElement("input");
-                textbox.setAttribute("type", "text");
-                textbox.setAttribute("value", "");
-                textbox.setAttribute("name", "tb_dest" + count);
-                Textbox.setAttribute("style", "width:200px");
-                var panel = document.getElementById("p_routenodes");
-                panel.addchild(textbox);
-                count += 1
-                return count
-            }
-
         </script>
     </div>
-   </asp:Content>
+</asp:Content>

@@ -176,6 +176,7 @@
     </Content>
     <Content Include="Map.aspx" />
     <Content Include="Register_user.aspx" />
+    <Content Include="Scripts\JavaScript.js" />
     <Content Include="Weekly Summary.aspx" />
     <Content Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>

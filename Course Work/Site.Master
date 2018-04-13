@@ -10,8 +10,6 @@
     <link href='//mapbox.com/base/latest/base.css' rel='stylesheet' /> <%--may add css for the maps--%>
 
     <%--this adds the style sheet and scripts for leaflet--%>
-    <link rel="stylesheet" href="leaflet/leaflet.css" />
-    <script src="leaflet/leaflet.js"></script>
     <%--This should be for leaflet with multiple directions--%>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
