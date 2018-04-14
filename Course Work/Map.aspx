@@ -16,27 +16,28 @@
             <br />
             <%--<input id="B_adDestination" type="button" runat="server" value="Add a Destination" OnClick="javascript:boxes()"/>--%>
             <%--<input id="B_removeDestination" type="button" runat="server" value="Add a Destination" OnClick="javascript:lessboxes()"/>--%>
-            
-            <asp:button ID="b_AddDestination" runat="server" Text="Add a Destination" Font-Size="Medium"  height="40px" OnClientClick="javascript:boxes(); return false;" />
-            <asp:button ID="b_LessDestination" runat="server" Text="Remove Destinations" Font-Size="Medium"  height="40px" />
-            
-            <asp:Label ID="l_destinations" runat="server" Text="You can only have 23 destinations" ForeColor ="Red" style="display:none;"></asp:Label>
+
+            <asp:Button ID="b_AddDestination" runat="server" Text="Add a Destination" Font-Size="Medium" Height="40px" OnClientClick="javascript:boxes(); return false;" />
+            <asp:Button ID="b_LessDestination" runat="server" Text="Remove Destinations" Font-Size="Medium" Height="40px" OnClientClick="reduceboxes(); return false;"/>
+            <%--<asp:Button ID="testcallback" runat="server" Text="Test ME" OnClientClick="reduceboxes(); return false;" />--%>
+
+            <asp:Label ID="l_destinations" runat="server" Text="You can only have 23 destinations" ForeColor="Red" Style="display: none;"></asp:Label>
             <%--<div id="d_routenodes"></div>--%>
-             <asp:Panel ID="p_routenodes" runat="server"></asp:Panel>
+            <asp:Panel ID="p_routenodes" runat="server"></asp:Panel>
         </div>
-        
+
         <br />
         <%--<asp:Label ID="l_toomany" runat="server" ForeColor="Red" Text="Only 20 destinations are supported" Visible="False"></asp:Label>--%>
 
         <br />
-        <asp:Button ID="b_RouteCalc" runat="server" Width="180px" Height="40px" Text="Calculate Route" Font-Size="Medium" autopostback="false"/>
+        <asp:Button ID="b_RouteCalc" runat="server" Width="180px" Height="40px" Text="Calculate Route" Font-Size="Medium" autopostback="false" />
         <br />
 
 
         <%-- output details--%>
         <asp:TextBox ID="tb_URL" runat="server"></asp:TextBox>
-        <asp:label ID="l_Distance" runat="server"></asp:label>
-        <asp:label ID="l_Duration" runat="server"></asp:label>
+        <asp:Label ID="l_Distance" runat="server"></asp:Label>
+        <asp:Label ID="l_Duration" runat="server"></asp:Label>
 
 
         <%-- Change --%>
@@ -50,32 +51,41 @@
         <asp:Panel ID="p_bugtest" runat="server"></asp:Panel>
         <script>
             var count = 1
+            var parent = document.getElementById("<%=p_routenodes.ClientID%>");
+            var current_ID=""
             function boxes() {
-                if (count <= 21) {
-                    var parent = document.getElementById("<%=p_routenodes.ClientID%>");
+                if (count <= 20) {
                     var tb = document.createElement("input");
-                    tb.setAttribute("Id", "tb_waypoints" + count);
+                    current_ID = "tb_waypoints" + count
+                    tb.setAttribute("Id", current_ID);
                     tb.setAttribute("placeholder", "Waypoint address");
-                    tb.setAttribute("max-width", "240px");
+                    //tb.setAttribute("max-width", "240px");
                     parent.appendChild(tb);
                     document.getElementById("tb_waypoints" + count).style.width = "210px";
-                    count += 1;  
+                    count += 1;
+                    console.log(count);
                 }
                 else {
                     document.getElementById("<%=l_destinations.ClientID%>").style.display = "inherit";
                 }
             }
-            <%--function lessboxes() {
-                var panel = document.getElementById("<%=p_routenodes.ClientID%>");
-                document.getElementById("tb_waypoints" + count).remove
-                count -= 1
-            }--%>
+
+            function reduceboxes() {
+                console.log(count);
+                if (count > 1) {
+                    console.log(count);
+                    document.getElementById(current_ID).remove;
+                    count -= 1;
+                    current_ID = "tb_waypoints" + count;
+                }
+            }
 
 
             function map() {
                 mapboxgl.accessToken = 'pk.eyJ1IjoiY3JhenlnaW5nZXIiLCJhIjoiY2piMHUwZWl0MXJpdzJxczd5aHBrbWE0diJ9.rmrLoP64MNSp4ETaj53fPQ';
 
-                var map = new mapboxgl.Map({container: 'map', style: 'mapbox://styles/mapbox/streets-v9',
+                var map = new mapboxgl.Map({
+                    container: 'map', style: 'mapbox://styles/mapbox/streets-v9',
                     //maxBounds: bounds,
                     //zoom: 13,
                     //center: [0, 54.098060]    this dont work for some reason
