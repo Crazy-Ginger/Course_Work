@@ -8,12 +8,6 @@
 
         If tb_password.Text <> tb_passwordmatch.Text Then
             l_passwordmatch.Visible = True
-        ElseIf Convert.ToDateTime(tb_lastMOT) > today Then
-            l_lastMOT.Visible = True
-
-        ElseIf Convert.ToDateTime(tb_nextMOT.Text) < today Then
-            l_nextMOT.Visible = True
-
         ElseIf (tb_password.Text).Length < 7 Then
             l_passwordlength.Visible = True
 
