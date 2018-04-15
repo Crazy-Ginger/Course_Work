@@ -3,7 +3,7 @@ Imports System.Net
 
 Module Routing
     Public shortest As New Shorter
-    Public Current_URL As StringBuilder
+    Public Current_URL As New StringBuilder
 
     Public Function Permute(ByVal length As Integer, ByRef nodes As List(Of String), ByVal End_dest As Boolean)
         shortest.distance = 2147483646
@@ -138,8 +138,8 @@ Module Routing
 
 
         Dim waypointkey As String = "AIzaSyBqN-1pDwR8taEDQESDP5mnJjiJkIXmv-w"
-
-        Current_URL.Equals("https://maps.googleapis.com/maps/api/directions/json?origin=")
+        Current_URL.Clear()
+        Current_URL.Append("https://maps.googleapis.com/maps/api/directions/json?origin=")
         Current_URL.Append(nodes.Item(0))
         Current_URL.Append("&destination=" & nodes.Item(array(length - 1)) & "&waypoints=")
         For t As Integer = 1 To length - 2
