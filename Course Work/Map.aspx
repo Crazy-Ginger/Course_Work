@@ -74,7 +74,7 @@
                 console.log(count);
                 if (count > 1) {
                     console.log(count);
-                    document.getElementById(current_ID).remove;
+                    document.getElementById("tb_waypoints" + count).remove;
                     count -= 1;
                     current_ID = "tb_waypoints" + count;
                 }

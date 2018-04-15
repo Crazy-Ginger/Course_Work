@@ -11,7 +11,7 @@
         <span class="loginPassword">Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="tb_password" runat="server" Width="150px" TextMode="Password"></asp:TextBox>
         </span>
-        <asp:RequiredFieldValidator ID="rfv_noPassword" runat="server" ForeColor="Red" ControlToValidate="tb_username" ErrorMessage="Please enter a password"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="rfv_noPassword" runat="server" ForeColor="Red" ControlToValidate="tb_password" ErrorMessage="Please enter a password"></asp:RequiredFieldValidator>
         
         <br />
         <span class="loginButton">
