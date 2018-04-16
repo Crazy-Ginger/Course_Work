@@ -86,15 +86,6 @@ Partial Public Class Map
     Protected WithEvents b_RouteCalc As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''tb_URL control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents tb_URL As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
     '''l_Distance control.
     '''</summary>
     '''<remarks>
@@ -111,6 +102,15 @@ Partial Public Class Map
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents l_Duration As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''bl_nodes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bl_nodes As Global.System.Web.UI.WebControls.BulletedList
     
     '''<summary>
     '''p_bugtest control.

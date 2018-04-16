@@ -160,8 +160,7 @@ Module Routing
         '    Console.WriteLine("It did't work")
         'End Try
         Dim passed(1) As Integer
-        Dim count As Integer = 1
-        While count < 11
+        For count As Integer = 1 To 4
 
 
             Dim client As New WebClient()
@@ -222,7 +221,7 @@ Module Routing
 
             Dim status_search As String = Chr(34) & "status" & Chr(34)
             Dim status_index As Integer = JSON_str.IndexOf(status_search)
-            status_index += 11
+            status_index += 12
             Dim status As String = ""
             For i As Integer = status_index To JSON_str.Length
                 If JSON_str.Substring(i, 1) = "" Then
@@ -289,33 +288,33 @@ Module Routing
             ElseIf status = "ZERO_RESULTS" Then
                 passed(0) = 2147483645
                 passed(1) = 2147483645
-                Exit While
+                Exit For
 
             ElseIf status = "NOT_FOUND" Then
                 passed(0) = 2147483645
                 passed(1) = -1
-                Exit While
+                Exit For
 
             ElseIf status = "OVER_QUERY_LIMIT" Then
                 passed(0) = 2147483645
                 passed(1) = -2
-                Exit While
+                Exit For
 
             ElseIf status = "MAX_WAYPOINTS_EXCEEDED" Then
                 passed(0) = 2147483645
                 passed(1) = -3
-                Exit While
+                Exit For
 
             ElseIf status = "MAX_ROUTE_LENGTH_EXCEEDED" Then
                 passed(0) = 2147483645
                 passed(1) = 2147483645
-                Exit While
+                Exit For
 
             Else
                 passed(0) = 2147483645
                 passed(1) = 2147483645
             End If
-        End While
+        Next
         Return passed
     End Function
 End Module

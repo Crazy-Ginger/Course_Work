@@ -7,7 +7,7 @@ Imports System.Threading
 Public Class Shorter
     Public distance As Integer
     Public duration As Integer
-    Public nodes As New List(Of Integer)
+    Public nodes As New List(Of String)
     Public url As String
 End Class
 
@@ -77,7 +77,7 @@ Public Class Map
         For i As Integer = 0 To nodes.Count - 1
             test.Append(nodes.Item(i) & ", ")
         Next
-        tb_URL.Text = test.ToString
+        'tb_URL.Text = test.ToString
         'checks if there is a designated final destination
         If String.IsNullOrEmpty(tb_End.Text) = True Or tb_End.Text = " " Then
             last = False
@@ -101,7 +101,10 @@ Public Class Map
         Else
             l_Distance.Text = shortest.distance
             l_Duration.Text = shortest.duration
-            tb_URL.Text = shortest.url
+            'tb_URL.Text = shortest.url
+            For i As Integer = 0 To shortest.nodes.Count - 1
+                bl_nodes.Items.Insert(i, shortest.nodes.Item(i))
+            Next
         End If
     End Sub
 

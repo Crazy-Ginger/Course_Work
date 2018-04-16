@@ -35,10 +35,10 @@
 
 
         <%-- output details--%>
-        <asp:TextBox ID="tb_URL" runat="server"></asp:TextBox>
+        <%--<asp:TextBox ID="tb_URL" runat="server"></asp:TextBox>--%>
         <asp:Label ID="l_Distance" runat="server"></asp:Label>
         <asp:Label ID="l_Duration" runat="server"></asp:Label>
-
+        <asp:BulletedList ID="bl_nodes" runat="server"></asp:BulletedList>
 
         <%-- Change --%>
         <div id='map' class="mainMap" style='position: relative; width: 1050px; height: 800px; align-content: center'>
