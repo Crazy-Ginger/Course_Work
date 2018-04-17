@@ -19,9 +19,12 @@
     <MyType>Custom</MyType>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
-    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
-    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <IISExpressAnonymousAuthentication>
+    </IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>
+    </IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>
+    </IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -160,6 +163,7 @@
   <ItemGroup>
     <Content Include="App_Data\mapbox-gl.css" />
     <Content Include="App_Data\mapbox-gl.js" />
+    <Content Include="App_Data\Towns.txt" />
     <Content Include="App_Data\User Details.accdb" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
