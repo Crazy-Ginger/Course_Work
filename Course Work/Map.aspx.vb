@@ -12,6 +12,10 @@ Public Class Shorter
 End Class
 
 
+Public Module Persistance
+
+End Module
+
 Public Class Map
     Inherits System.Web.UI.Page
     Public count As Integer
