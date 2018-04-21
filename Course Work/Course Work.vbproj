@@ -21,8 +21,7 @@
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
-    <IISExpressUseClassicPipelineMode>
-    </IISExpressUseClassicPipelineMode>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -181,7 +180,7 @@
     <Content Include="Map.aspx" />
     <Content Include="Register_user.aspx" />
     <Content Include="Scripts\JavaScript.js" />
-    <Content Include="Weekly Summary.aspx" />
+    <Content Include="Money Breakdown.aspx" />
     <Content Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Content>
@@ -312,11 +311,11 @@
     <Compile Include="Site.Mobile.Master.designer.vb">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="Weekly Summary.aspx.designer.vb">
-      <DependentUpon>Weekly Summary.aspx</DependentUpon>
+    <Compile Include="Money Breakdown.aspx.designer.vb">
+      <DependentUpon>Money Breakdown.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Weekly Summary.aspx.vb">
-      <DependentUpon>Weekly Summary.aspx</DependentUpon>
+    <Compile Include="Money Breakdown.aspx.vb">
+      <DependentUpon>Money Breakdown.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
