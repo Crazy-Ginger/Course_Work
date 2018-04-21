@@ -147,7 +147,7 @@ Module Routing
         Next
         Current_URL.Append("&key=" & waypointkey)
 
-
+        Dim passed() As Integer = Status_check(Current_URL.ToString)
         'pulls the GEOJSON data and puts it into a string
         'Console.WriteLine(request_url)
 
@@ -159,81 +159,284 @@ Module Routing
         '    sucess = False
         '    Console.WriteLine("It did't work")
         'End Try
-        Dim passed(1) As Integer
+
+        'For count As Integer = 1 To 4
+
+
+        '    Dim client As New WebClient()
+        '    'client.DownloadFile(request_url, "JSON_data.json")
+        '    'Dim client_Stream As Stream = client.OpenRead(request_url)
+        '    Dim client_Stream As Stream = client.OpenRead(Current_URL.ToString)     'Dim client_Stream As Stream = client.OpenRead(request_url)
+        '    Dim streamreading As New StreamReader(client_Stream)
+        '    Dim JSON_str As String = streamreading.ReadToEnd()
+
+
+
+        '    '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        '    'using the class system (that doesn't work yet)
+        '    'Dim JSON_token As JToken = JObject.Parse(JSON_str)
+        '    'Dim distance As Integer = JSON_token.SelectToken("value")
+        '    'Dim temp_json As DynamicObject = JsonConvert.DeserializeObject(Of ExpandoObject)(JSON_str)
+        '    'tried to make this convert the string from the website to a class to make getting data really easily
+        '    'above are the ones that I don't think will ever work
+
+
+        '    'promising ========================================================
+        '    'Dim temp_json As JSON_data.Rootobject = JsonConvert.DeserializeObject(Of JSON_data.Rootobject)(JSON_str)
+        '    'Dim temp_jsonlist As List(Of JSON_data.Rootobject) = JsonConvert.DeserializeObject(Of List(Of JSON_data.Rootobject))(JSON_str)
+        '    streamreading.Close()
+
+
+        '    'Dim distance As Integer
+        '    'Dim duration As Integer
+        '    'Console.WriteLine(temp_json.status)
+        '    ''Console.WriteLine(temp_jsonlist.Item(0).status)
+        '    'If temp_json.status = "OK" Then
+        '    '    'If temp_jsonlist.Item(0).status = "OK" Then
+
+        '    '    distance = temp_json.routes.legs.distance.value
+        '    '    duration = temp_json.routes.legs.duration.value
+
+        '    '    'distance = temp_jsonlist.Item(0).routes.legs.distance.value
+        '    '    'duration = temp_jsonlist.Item(0).routes.legs.duration.value
+        '    'Else
+        '    '    distance = 2147483646
+        '    '    duration = 2147483646
+        '    'End If
+        '    'Console.WriteLine("The distance is: " & distance)
+        '    'Console.WriteLine("The duration is: " & duration)
+        '    'Dim passed(1) As Integer
+        '    'passed(0) = distance    'distance
+        '    'passed(1) = duration   'duration
+        '    'Return passed
+        '    '----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+        '    'searches for a key phrase then retrieves the value associated with the key phrase
+        '    'finds the length and estimated duration of the journey
+        '    '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+        '    Dim status_search As String = Chr(34) & "status" & Chr(34)
+        '    Dim status_index As Integer = JSON_str.IndexOf(status_search)
+        '    status_index += 12
+        '    Dim status As String = ""
+        '    For i As Integer = status_index To JSON_str.Length
+        '        If JSON_str.Substring(i, 1) = "" Then
+        '            Exit For
+        '            count += 1
+        '        Else
+        '            status += JSON_str.Substring(i, 1)
+        '        End If
+        '    Next
+
+        '    'test if the status of the route is valid or not
+        '    If status = "OK" Then
+
+        '        'find the distance of the route
+        '        Dim dist_char As Integer = JSON_str.IndexOf("value")
+        '        dist_char += 9
+        '        Dim dist_converter As String = ""
+        '        For i As Integer = dist_char To JSON_str.Length
+        '            If JSON_str.Substring(i, 1) = " " Then
+        '                Exit For
+        '            Else
+        '                dist_converter += JSON_str.Substring(i, 1)
+        '            End If
+        '        Next
+        '        Dim distance As Integer = CInt(dist_converter)
+        '        'Console.WriteLine("Dist converter: " & dist_converter)
+
+
+        '        'finds the time length of the journey
+        '        Dim damaged_JSON As String = Right(JSON_str, JSON_str.Length - dist_char)
+
+        '        Dim dura_char As Integer
+
+        '        dura_char = damaged_JSON.IndexOf("value")
+        '        dura_char += 9
+        '        Dim dura_converter As String = ""
+        '        For i As Integer = dura_char To damaged_JSON.Length
+        '            If damaged_JSON.Substring(i, 1) = " " Then
+        '                Exit For
+        '            Else
+        '                dura_converter += damaged_JSON.Substring(i, 1)
+        '            End If
+        '        Next
+        '        Dim duration As Integer = CInt(dura_converter)
+
+        '        'Console.WriteLine("Dist converter: " & dura_converter)
+        '        '------------------------------------------------------------------------------------------------------------------------------------------------
+
+        '        'Console.WriteLine("Distance: " & distance & " (m)")
+        '        'Console.WriteLine("Duration: " & duration & " (s)" & vbTab & Math.Floor(duration / 3600) & " hours  " & Math.Round((duration Mod 3600) / 60) & " minutes")
+
+
+        '        'passed(0) = temp_json.routes.legs.distance.value    'distance using the class
+        '        'passed(1) = temp_json.routes.legs.duration.value    'duration using the class
+        '        passed(0) = distance                        'distance using string parser
+        '        passed(1) = duration                        'distance using string parser
+
+        '        Return passed
+        '        Exit Function
+
+        '        'Else
+        '        'Return Nothing
+        '        'End If
+        '    ElseIf status = "ZERO_RESULTS" Then
+        '        passed(0) = 2147483645
+        '        passed(1) = 2147483645
+        '        Exit For
+
+        '    ElseIf status = "NOT_FOUND" Then
+        '        passed(0) = 2147483645
+        '        passed(1) = -1
+        '        Exit For
+
+        '    ElseIf status = "OVER_QUERY_LIMIT" Then
+        '        passed(0) = 2147483645
+        '        passed(1) = -2
+        '        Exit For
+
+        '    ElseIf status = "MAX_WAYPOINTS_EXCEEDED" Then
+        '        passed(0) = 2147483645
+        '        passed(1) = -3
+        '        Exit For
+
+        '    ElseIf status = "MAX_ROUTE_LENGTH_EXCEEDED" Then
+        '        passed(0) = 2147483645
+        '        passed(1) = 2147483645
+        '        Exit For
+
+        '    Else
+        '        passed(0) = 2147483645
+        '        passed(1) = 2147483645
+        '    End If
+        'Next
+        Return passed
+    End Function
+
+
+    Public Function Approximation(ByVal nodes As List(Of String), ByVal last As Boolean)
+        'creates length that is the number of addresses being used
+        Dim length As Integer = nodes.Count - 1
+        'shortens length to ensure that if a last destination is chosen it remains the last address
+        If last = True Then
+            length -= 1
+        End If
+        'instantiating key variables
+        Dim using_URL As New StringBuilder
+        Dim next_nodes As List(Of String) = nodes
+        Dim final_route As New List(Of String)
+        Dim distance As Integer = 0
+        Dim comp_dist As Integer = Integer.MaxValue
+        Dim shortest_tree As New Integer
+
+        'add the starting address and remove it from next_nodes
+        final_route.Add(next_nodes.Item(0))
+        next_nodes.RemoveAt(0)
+        length -= 1
+
+        'List_print(next_nodes, False)
+        'Console.WriteLine("final_route:")
+        'List_print(final_route, False)
+
+        'run whilst there are still nodes within the copied list this will loop
+        'While next_nodes.Count > 0
+        While length > -1
+            distance = Integer.MaxValue
+            For current_index As Integer = 0 To length
+
+                'creates URL to query distance between last node and the current node
+                using_URL.Append("https://maps.googleapis.com/maps/api/directions/json?origin=")
+                using_URL.Append(final_route.Item(final_route.Count - 1))
+                using_URL.Append("&destination=" & next_nodes.Item(current_index) & "&key=AIzaSyBqN-1pDwR8taEDQESDP5mnJjiJkIXmv-w")
+
+                Dim passed() As String = Status_check(using_URL.ToString)
+
+                If passed(2) = -1 Then
+                    'Console.WriteLine("Well that didn't work")
+                ElseIf passed(2) = -2 Then
+                    'Return -2
+                    'Console.WriteLine("Well that didn't work: " & comp_dist)
+                    Exit While
+                ElseIf passed(2) = -3 Then
+                    'Return -3
+                    'Console.WriteLine("Well that didn't work: " & comp_dist)
+                    Exit While
+                ElseIf passed(2) = -4 Then
+                    'Return -4
+                    'Console.WriteLine("Well that didn't work: " & comp_dist)
+                    Exit While
+                ElseIf passed(0) < distance And comp_dist > 0 Then
+                    distance = passed(0)
+                    shortest_tree = current_index
+                End If
+                'Console.ReadLine()
+                'List_print(next_nodes, False)
+                'Console.WriteLine("final_route:")
+                'List_print(final_route, False)
+                using_URL.Clear()
+            Next
+            'adds the closest address to final_routes and removes it from the unvisited nodes list
+            final_route.Add(next_nodes.Item(shortest_tree))
+            next_nodes.RemoveAt(shortest_tree)
+            length -= 1
+        End While
+
+        'if there was a fixed final destination this is now added to the final route
+        If last = True Then
+            final_route.Add(nodes.Item(nodes.Count - 1))
+        End If
+        Current_URL.Clear()
+        'checks the approximate route is valid using the API
+        Current_URL.Append("https://maps.googleapis.com/maps/api/directions/json?origin=")
+        'adds the addresses to the URL
+        Current_URL.Append(final_route.Item(0) & "&destination=")
+        Current_URL.Append(final_route.Item(final_route.Count - 1) & "&waypoints=")
+        For t As Integer = 1 To final_route.Count - 2
+            Current_URL.Append("via:" & final_route.Item(t) & "|")
+        Next
+        Current_URL.Append("&key=AIzaSyBqN-1pDwR8taEDQESDP5mnJjiJkIXmv-w")
+
+        'Dim passed(1) As Integer
+
+        'tries 3 times to get a connection and the appropriate data unless 
+        Dim passed() As Integer = Status_check(Current_URL.ToString)
+        shortest.url = Current_URL.ToString
+        shortest.distance = passed(0)
+        shortest.duration = passed(1)
+        Return shortest
+    End Function
+
+    Function Status_check(ByVal URL As String)
+        Dim passed(2) As Integer
         For count As Integer = 1 To 4
 
-
             Dim client As New WebClient()
-            'client.DownloadFile(request_url, "JSON_data.json")
-            'Dim client_Stream As Stream = client.OpenRead(request_url)
-            Dim client_Stream As Stream = client.OpenRead(Current_URL.ToString)     'Dim client_Stream As Stream = client.OpenRead(request_url)
+            Dim client_Stream As Stream = client.OpenRead(URL)
             Dim streamreading As New StreamReader(client_Stream)
             Dim JSON_str As String = streamreading.ReadToEnd()
-
-
-
-            '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            'using the class system (that doesn't work yet)
-            'Dim JSON_token As JToken = JObject.Parse(JSON_str)
-            'Dim distance As Integer = JSON_token.SelectToken("value")
-            'Dim temp_json As DynamicObject = JsonConvert.DeserializeObject(Of ExpandoObject)(JSON_str)
-            'tried to make this convert the string from the website to a class to make getting data really easily
-            'above are the ones that I don't think will ever work
-
-
-            'promising ========================================================
-            'Dim temp_json As JSON_data.Rootobject = JsonConvert.DeserializeObject(Of JSON_data.Rootobject)(JSON_str)
-            'Dim temp_jsonlist As List(Of JSON_data.Rootobject) = JsonConvert.DeserializeObject(Of List(Of JSON_data.Rootobject))(JSON_str)
-            streamreading.Close()
-
-
-            'Dim distance As Integer
-            'Dim duration As Integer
-            'Console.WriteLine(temp_json.status)
-            ''Console.WriteLine(temp_jsonlist.Item(0).status)
-            'If temp_json.status = "OK" Then
-            '    'If temp_jsonlist.Item(0).status = "OK" Then
-
-            '    distance = temp_json.routes.legs.distance.value
-            '    duration = temp_json.routes.legs.duration.value
-
-            '    'distance = temp_jsonlist.Item(0).routes.legs.distance.value
-            '    'duration = temp_jsonlist.Item(0).routes.legs.duration.value
-            'Else
-            '    distance = 2147483646
-            '    duration = 2147483646
-            'End If
-            'Console.WriteLine("The distance is: " & distance)
-            'Console.WriteLine("The duration is: " & duration)
-            'Dim passed(1) As Integer
-            'passed(0) = distance    'distance
-            'passed(1) = duration   'duration
-            'Return passed
-            '----------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
-            'searches for a key phrase then retrieves the value associated with the key phrase
-            'finds the length and estimated duration of the journey
-            '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+            client_Stream.Close()
 
             Dim status_search As String = Chr(34) & "status" & Chr(34)
             Dim status_index As Integer = JSON_str.IndexOf(status_search)
             status_index += 12
-            Dim status As String = ""
+            Dim status As New StringBuilder
             For i As Integer = status_index To JSON_str.Length
                 If JSON_str.Substring(i, 1) = "" Then
                     Exit For
                     count += 1
                 Else
-                    status += JSON_str.Substring(i, 1)
+                    status.Append(JSON_str.Substring(i, 1))
                 End If
             Next
 
             'test if the status of the route is valid or not
-            If status = "OK" Then
+            If status.ToString = "OK" Then
+                passed(2) = 1
 
                 'find the distance of the route
                 Dim dist_char As Integer = JSON_str.IndexOf("value")
@@ -246,7 +449,7 @@ Module Routing
                         dist_converter += JSON_str.Substring(i, 1)
                     End If
                 Next
-                Dim distance As Integer = CInt(dist_converter)
+                passed(0) = CInt(dist_converter)
                 'Console.WriteLine("Dist converter: " & dist_converter)
 
 
@@ -265,54 +468,45 @@ Module Routing
                         dura_converter += damaged_JSON.Substring(i, 1)
                     End If
                 Next
-                Dim duration As Integer = CInt(dura_converter)
-
-                'Console.WriteLine("Dist converter: " & dura_converter)
-                '------------------------------------------------------------------------------------------------------------------------------------------------
-
-                'Console.WriteLine("Distance: " & distance & " (m)")
-                'Console.WriteLine("Duration: " & duration & " (s)" & vbTab & Math.Floor(duration / 3600) & " hours  " & Math.Round((duration Mod 3600) / 60) & " minutes")
-
-
-                'passed(0) = temp_json.routes.legs.distance.value    'distance using the class
-                'passed(1) = temp_json.routes.legs.duration.value    'duration using the class
-                passed(0) = distance                        'distance using string parser
-                passed(1) = duration                        'distance using string parser
+                passed(1) = CInt(dura_converter)
 
                 Return passed
                 Exit Function
 
-                'Else
-                'Return Nothing
-                'End If
-            ElseIf status = "ZERO_RESULTS" Then
+            ElseIf status.tostring = "ZERO_RESULTS" Then
                 passed(0) = 2147483645
                 passed(1) = 2147483645
+                passed(2) = 0
                 Exit For
 
-            ElseIf status = "NOT_FOUND" Then
+            ElseIf status.ToString = "NOT_FOUND" Then
                 passed(0) = 2147483645
                 passed(1) = -1
+                passed(2) = -1
                 Exit For
 
-            ElseIf status = "OVER_QUERY_LIMIT" Then
+            ElseIf status.ToString = "OVER_QUERY_LIMIT" Then
                 passed(0) = 2147483645
                 passed(1) = -2
+                passed(2) = -2
                 Exit For
 
-            ElseIf status = "MAX_WAYPOINTS_EXCEEDED" Then
+            ElseIf status.ToString = "MAX_WAYPOINTS_EXCEEDED" Then
                 passed(0) = 2147483645
                 passed(1) = -3
+                passed(2) = -3
                 Exit For
 
-            ElseIf status = "MAX_ROUTE_LENGTH_EXCEEDED" Then
+            ElseIf status.ToString = "MAX_ROUTE_LENGTH_EXCEEDED" Then
                 passed(0) = 2147483645
                 passed(1) = 2147483645
+                passed(0) = 0
                 Exit For
 
             Else
                 passed(0) = 2147483645
                 passed(1) = 2147483645
+                passed(2) = 0
             End If
         Next
         Return passed
