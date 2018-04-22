@@ -9,6 +9,7 @@ Public Class Shorter
     Public duration As Integer
     Public nodes As New List(Of String)
     Public url As String
+    Public status As Integer
 End Class
 
 
@@ -96,19 +97,23 @@ Public Class Map
         Next
 
         Dim shortest As Shorter = Permute(nodes.Count, nodes, last)
-        If shortest.duration = -1 Then
+        If shortest.status = -1 Then
             MsgBox("One or more of the addresses is invalid")
-        ElseIf shortest.duration = -2 Then
-            MsgBox("Contact your admin as reagards to query limit")
-        ElseIf shortest.duration = -3 Then
+        ElseIf shortest.status = -2 Then
+            MsgBox("Contact your admin in reagards to query limit")
+        ElseIf shortest.status = -3 Then
             MsgBox("You have too many destinations. The limit is 23")
-        Else
+        ElseIf shortest.status = 0 Then
+            MsgBox("There was an error, please retry")
+        ElseIf shortest.status = 1 Then
             l_Distance.Text = shortest.distance
             l_Duration.Text = shortest.duration
             'tb_URL.Text = shortest.url
             For i As Integer = 0 To shortest.nodes.Count - 1
                 bl_nodes.Items.Insert(i, shortest.nodes.Item(i))
             Next
+        Else
+            MsgBox("There was an error, please retry")
         End If
     End Sub
 
