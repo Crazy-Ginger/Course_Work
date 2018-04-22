@@ -65,17 +65,14 @@ Module Routing
                 'one or more of the addresses couldn't be found
                 shortest.status = -1
                 Return shortest
-                Exit Function
             ElseIf passed(2) = -2 Then
                 'over query limit
                 shortest.status = -2
                 Return shortest
-                Exit Function
             ElseIf passed(2) = -3 Then
                 'maxumum nmber of waypoints was exceeded
                 shortest.status = -3
                 Return shortest
-                Exit Function
 
                 'if the route was successfully returned route these will run
             ElseIf passed(2) = 1 And passed(0) < shortest.distance Then
@@ -197,17 +194,14 @@ Module Routing
                     'criticl error
                     shortest.status = -1
                     Return shortest
-                    Exit Function
                 ElseIf passed(2) = -2 Then
                     'critical error
                     shortest.status = -2
                     Return shortest
-                    Exit Function
                 ElseIf passed(2) = -3 Then
                     'critical error
                     shortest.status = -3
                     Return shortest
-                    Exit Function
                 ElseIf passed(2) = -4 Then
                     'general error but this route is invalid
                     shortest.status = -4
@@ -258,7 +252,7 @@ Module Routing
     End Function
 
 
-    Function Status_check(ByVal URL As String)
+    Private Function Status_check(ByVal URL As String)
         Dim passed(2) As Integer
         For count As Integer = 1 To 4
 
@@ -315,7 +309,6 @@ Module Routing
                 passed(1) = CInt(dura_converter)
 
                 Return passed
-                Exit Function
 
             ElseIf status.ToString = "ZERO_RESULTS" Then
                 passed(0) = 2147483645
