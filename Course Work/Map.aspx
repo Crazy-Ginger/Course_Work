@@ -18,8 +18,8 @@
             <%--<input id="B_adDestination" type="button" runat="server" value="Add a Destination" OnClick="javascript:boxes()"/>--%>
             <%--<input id="B_removeDestination" type="button" runat="server" value="Add a Destination" OnClick="javascript:lessboxes()"/>--%>
 
-            <asp:Button ID="b_AddDestination" runat="server" Text="Add a Destination" Font-Size="Medium" Height="40px" OnClientClick="javascript:addboxes()" />
-            <asp:Button ID="b_LessDestination" runat="server" Text="Remove Destinations" Font-Size="Medium" Height="40px" OnClientClick="reduceboxes(); return false"/>
+            <asp:Button ID="b_AddDestination" runat="server" Text="Add a Destination" Font-Size="Medium" Height="40px" />    <%--OnClientClick="javascript:addboxes()--%>
+            <asp:Button ID="b_LessDestination" runat="server" Text="Remove Destinations" Font-Size="Medium" Height="40px" />    <%--OnClientClick="reduceboxes(); return false"--%>
             <%--<asp:Button ID="testcallback" runat="server" Text="Test ME" OnClientClick="reduceboxes(); return false;" />--%>
 
             <asp:Label ID="l_destinations" runat="server" Text="You can only have 23 destinations" ForeColor="Red" Style="display: none;"></asp:Label>
@@ -52,7 +52,7 @@
         <asp:Panel ID="p_bugtest" runat="server"></asp:Panel>
         
         <script>
-            var count = 1
+            <%--var count = 1
             var parent = document.getElementById("<%=p_routenodes.ClientID%>");
             var current_ID=""
             function addboxes() {
@@ -82,7 +82,7 @@
                     count -= 1;
                     current_ID = "tb_waypoints" + count;
                 }
-            }
+            }--%>
 
 
             function map() {

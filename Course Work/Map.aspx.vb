@@ -14,13 +14,17 @@ End Class
 
 
 Public Module Persistance
-
+    Public Destinations As TextBox() = {New TextBox}
 End Module
 
 Public Class Map
     Inherits System.Web.UI.Page
     Public count As Integer
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        p_routenodes.Controls.Clear()
+        For Each tb As TextBox In Persistance.Destinations
+            p_routenodes.Controls.Add(tb)
+        Next
         'If boxes.numb > 20 Then
         '    boxes.numb = 20
         '    lb_toomany.Visible = True
@@ -35,23 +39,19 @@ Public Class Map
         'tb_Distance.Text = Session("boxes")
     End Sub
 
+    Protected Sub Page_Unload(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Unload
+        Dim tb_list As New List(Of TextBox)
+        For Each tb As TextBox In p_routenodes.Controls
+            tb_list.Add(tb)
+            Persistance.Destinations = tb_list.ToArray()
+        Next
+    End Sub
 
-    'Protected Sub AddDestination_Click(sender As Object, e As EventArgs) Handles b_AddDestination.Click
-    '    'ddl_Destinations.SelectedValue = Session("boxes")
-    '    'Session("boxes") += 1
-    '    'count += 1
-    '    '<script>
-    '    '        var count = 1
-    '    '        Function boxes() {
-    '    '            var Parent = document.getElementById("p_routenodes");
-    '    '            var tb = document.createElement("input");
-    '    '            tb.setAttribute("Id", "tb_waypoints" + count);
-    '    '            tb.setAttribute("placeholder", "Waypoint address");
-    '    '            Parent.appendChild(tb);
-    '    '            count += 1
-    '    '        }
-    '    '    </script>
-    'End Sub
+    Protected Sub AddDestination_Click(sender As Object, e As EventArgs) Handles b_AddDestination.Click
+        Dim tb As New TextBox()
+        tb.ID = "tb_waypoints" & Persistance.Destinations.Length
+        p_routenodes.Controls.Add(tb)
+    End Sub
 
 
     Protected Sub RouteCalc_Click(sender As Object, e As EventArgs) Handles b_RouteCalc.Click
