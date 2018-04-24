@@ -15,16 +15,20 @@ End Class
 
 Public Module Persistance
     Public Destinations As TextBox() = {New TextBox}
+    Public rfv As RequiredFieldValidator() = {New RequiredFieldValidator}
 End Module
 
 Public Class Map
     Inherits System.Web.UI.Page
-    Public count As Integer
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         p_routenodes.Controls.Clear()
         For Each tb As TextBox In Persistance.Destinations
             p_routenodes.Controls.Add(tb)
         Next
+        'For Each rfv As RequiredFieldValidator In Persistance.rfv
+        '    p_routenodes.Controls.Add(rfv)
+        'Next
+
         'If boxes.numb > 20 Then
         '    boxes.numb = 20
         '    lb_toomany.Visible = True
@@ -41,18 +45,34 @@ Public Class Map
 
     Protected Sub Page_Unload(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Unload
         Dim tb_list As New List(Of TextBox)
+        'Dim rfv_list As New List(Of RequiredFieldValidator)
         For Each tb As TextBox In p_routenodes.Controls
             tb_list.Add(tb)
             Persistance.Destinations = tb_list.ToArray()
         Next
+        'For Each rfv As RequiredFieldValidator In p_routenodes.Controls
+        '    rfv_list.Add(rfv)
+        '    Persistance.rfv = rfv_list.ToArray()
+        'Next
     End Sub
 
     Protected Sub AddDestination_Click(sender As Object, e As EventArgs) Handles b_AddDestination.Click
         Dim tb As New TextBox()
-        tb.ID = "tb_waypoints" & Persistance.Destinations.Length
+        'Dim rfv As New RequiredFieldValidator()
+        Dim id As String = "tb_waypoints" & Persistance.Destinations.Length
+        tb.ID = id
+        'rfv.ControlToValidate = id
+        'p_routenodes.Controls.Add(rfv)
         p_routenodes.Controls.Add(tb)
     End Sub
 
+    Protected Sub RemoveDestination_click(sender As Object, e As EventArgs) Handles b_LessDestination.Click
+        Dim tb As TextBox = Persistance.Destinations(Persistance.Destinations.Length - 1)
+        'tb.ID = "tb_wapoints" & Persistance.Destinations.Length
+        p_routenodes.Controls.Remove(tb)
+        'Dim rfv As RequiredFieldValidator = Persistance.rfv(Persistance.rfv.Length - 1)
+        'p_routenodes.Controls.Remove(rfv)
+    End Sub
 
     Protected Sub RouteCalc_Click(sender As Object, e As EventArgs) Handles b_RouteCalc.Click
         '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
