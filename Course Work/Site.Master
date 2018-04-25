@@ -8,7 +8,7 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.js'></script>            <%--~/App_Data/mapbox-gl.js--%>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css' rel='stylesheet' /> <%--../mapbox-gl.css ~/App_Data/mapbox-gl.css add this to the reference--%>
     <link href='//mapbox.com/base/latest/base.css' rel='stylesheet' /> <%--may add css for the maps--%>
-
+    
     <%--this adds the style sheet and scripts for leaflet--%>
     <%--This should be for leaflet with multiple directions--%>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
@@ -25,6 +25,7 @@
     </asp:PlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Scripts/js" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 

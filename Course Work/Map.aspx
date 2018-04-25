@@ -19,7 +19,7 @@
             <%--<input id="B_removeDestination" type="button" runat="server" value="Add a Destination" OnClick="javascript:lessboxes()"/>--%>
 
             <asp:Button ID="b_AddDestination" runat="server" Text="Add a Destination" Font-Size="Medium" Height="40px" />    <%--OnClientClick="javascript:addboxes()--%>
-            <asp:Button ID="b_LessDestination" runat="server" Text="Remove Destinations" Font-Size="Medium" Height="40px" />    <%--OnClientClick="reduceboxes(); return false"--%>
+            <asp:Button ID="b_LessDestination" runat="server" Text="Remove Destination" Font-Size="Medium" Height="40px" />    <%--OnClientClick="reduceboxes(); return false"--%>
             <%--<asp:Button ID="testcallback" runat="server" Text="Test ME" OnClientClick="reduceboxes(); return false;" />--%>
 
             <asp:Label ID="l_destinations" runat="server" Text="You can only have 23 destinations" ForeColor="Red" Style="display: none;"></asp:Label>
@@ -104,10 +104,11 @@
                 map.addControl(new MapboxDirections({ accessToken: mapboxgl.accessToken }), 'top-left');
                 //https://blog.mapbox.com/efficient-multi-stop-routes-with-the-optimization-api-60d2beb7c82 optimised multi point system?
             }
-            Map_Scripts.autocomplete(document.getElementById("<%=tb_Start.ClientID%>"), towns);
-            Callfunction
+
+
+
             <%--autocomplete(document.getElementById("<%=tb_Start.ClientID%>"), towns);
             autocomplete(document.getElementById("<%=tb_End.ClientID%>"), towns);--%>
-            </script>
+</script>
     </div>
 </asp:Content>

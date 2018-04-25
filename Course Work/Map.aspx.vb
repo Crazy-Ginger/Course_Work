@@ -22,9 +22,13 @@ Public Class Map
     Inherits System.Web.UI.Page
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         p_routenodes.Controls.Clear()
+        Dim script As String = ""
         For Each tb As TextBox In Persistance.Destinations
             p_routenodes.Controls.Add(tb)
+            script = "<script> </script>"
+
         Next
+        Page.ClientScript.RegisterClientScriptInclude("Map_Scripts.js", "~/Scripts/Map_Scripts.js")
         'For Each rfv As RequiredFieldValidator In Persistance.rfv
         '    p_routenodes.Controls.Add(rfv)
         'Next
