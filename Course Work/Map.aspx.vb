@@ -15,15 +15,22 @@ End Class
 
 Public Module Persistence
     Public Destinations As TextBox() = {New TextBox}
+
+    Public rfv As RequiredFieldValidator() = {New RequiredFieldValidator}
+    Sub onload()
+        Destinations(0).ID = "tb_waypoints" & Destinations.Length - 1
+        rfv(0).ControlToValidate = Destinations(0).ID
+    End Sub
 End Module
 
-'Public rfv As RequiredFieldValidator() = {New RequiredFieldValidator}
+
 Public Class Map
     Inherits System.Web.UI.Page
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         p_routenodes.Controls.Clear()
-
+        Persistence.onload()
         'adds the text boxes stored in "Persistence" to the panel
+
         For Each tb As TextBox In Persistence.Destinations
             p_routenodes.Controls.Add(tb)
         Next
@@ -33,9 +40,9 @@ Public Class Map
         Page.ClientScript.RegisterClientScriptInclude("Map_Scripts.js", "~/Scripts/Map_Scripts.js")
 
         'consider using GetType
-        'For Each rfv As RequiredFieldValidator In Persistance.rfv
-        '    p_routenodes.Controls.Add(rfv)
-        'Next
+        For Each rfv As RequiredFieldValidator In Persistence.rfv
+            p_routenodes.Controls.Add(rfv)
+        Next
 
         'If boxes.numb > 20 Then
         '    boxes.numb = 20
@@ -53,33 +60,42 @@ Public Class Map
 
     Protected Sub Page_Unload(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Unload
         Dim tb_list As New List(Of TextBox)
+        Dim rfv_list As New List(Of RequiredFieldValidator)
 
-        'Dim rfv_list As New List(Of RequiredFieldValidator)
+        '''adds the textboxes in the panel to the list
+        'For Each tb As TextBox In p_routenodes.Controls
+        '    tb_list.Add(tb)
+        'Next
 
-        'adds the textboxes in the panel to the list
-        For Each tb As TextBox In p_routenodes.Controls
-            tb_list.Add(tb)
+        For Each tb As Control In p_routenodes.Controls
+            If TypeOf tb Is TextBox Then
+                tb_list.Add(tb)
+            End If
         Next
-
         'sets the value of the remote variable so that the textboxes are preservered between page loads
         Persistence.Destinations = tb_list.ToArray()
 
-        'For Each rfv As RequiredFieldValidator In p_routenodes.Controls
-        '    rfv_list.Add(rfv)
-        '    Persistance.rfv = rfv_list.ToArray()
-        'Next
+        For Each rfv As Control In p_routenodes.Controls
+            If TypeOf rfv Is RequiredFieldValidator Then
+                rfv_list.Add(rfv)
+                Persistence.rfv = rfv_list.ToArray()
+            End If
+        Next
+        'sets the value of the remote variable so that the rfv's are preservered between page loads
+        Persistence.rfv = rfv_list.ToArray()
     End Sub
 
     Protected Sub AddDestination_Click(sender As Object, e As EventArgs) Handles b_AddDestination.Click
         Dim tb As New TextBox()
-
+        Dim rfv As New RequiredFieldValidator()
         'Dim rfv As New RequiredFieldValidator()
 
         Dim id As String = "tb_waypoints" & Persistence.Destinations.Length
         tb.ID = id
 
-        'rfv.ControlToValidate = id
-        'p_routenodes.Controls.Add(rfv)
+
+        rfv.ControlToValidate = id
+        p_routenodes.Controls.Add(rfv)
 
         p_routenodes.Controls.Add(tb)
     End Sub

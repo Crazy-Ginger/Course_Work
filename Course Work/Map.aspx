@@ -5,7 +5,6 @@
         <%--<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4855861.9722248465!2d-2.456570850324048!3d54.73551770561395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2suk!4v1508513543217" width="800" height="600" style="border:0"></iframe>--%>
         <div class="d_Boxes">
             <span id="Left" class="Left">
-                
                 <asp:TextBox ID="tb_Start" runat="server" Width="200px" Placeholder="Start Location" AutoCompleteType="HomeZipCode" ></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rfv_noStart" ControlToValidate="tb_start" Enabled="false" runat="server" ForeColor="Red" ErrorMessage="The route needs a Start"></asp:RequiredFieldValidator>
             </span>
@@ -15,19 +14,24 @@
             </div>
 
             <br />
+
             <%--<input id="B_adDestination" type="button" runat="server" value="Add a Destination" OnClick="javascript:boxes()"/>--%>
             <%--<input id="B_removeDestination" type="button" runat="server" value="Add a Destination" OnClick="javascript:lessboxes()"/>--%>
 
             <asp:Button ID="b_AddDestination" runat="server" Text="Add a Destination" Font-Size="Medium" Height="40px" />    <%--OnClientClick="javascript:addboxes()--%>
             <asp:Button ID="b_LessDestination" runat="server" Text="Remove Destination" Font-Size="Medium" Height="40px" />    <%--OnClientClick="reduceboxes(); return false"--%>
+           
             <%--<asp:Button ID="testcallback" runat="server" Text="Test ME" OnClientClick="reduceboxes(); return false;" />--%>
 
             <asp:Label ID="l_destinations" runat="server" Text="You can only have 23 destinations" ForeColor="Red" Style="display: none;"></asp:Label>
+            
             <%--<div id="d_routenodes"></div>--%>
+
             <asp:Panel ID="p_routenodes" runat="server"></asp:Panel>
         </div>
 
         <br />
+
         <%--<asp:Label ID="l_toomany" runat="server" ForeColor="Red" Text="Only 20 destinations are supported" Visible="False"></asp:Label>--%>
 
         <br />
