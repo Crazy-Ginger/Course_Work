@@ -96,7 +96,7 @@ Public Class Map
 
         rfv.ControlToValidate = id
         p_routenodes.Controls.Add(rfv)
-
+        'flubadub
         p_routenodes.Controls.Add(tb)
     End Sub
 
