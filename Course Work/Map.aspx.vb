@@ -86,8 +86,11 @@ Public Class Map
 
     Protected Sub RemoveDestination_click(sender As Object, e As EventArgs) Handles b_LessDestination.Click
         Dim tb As TextBox = Persistence.Destinations(Persistence.Destinations.Length - 1)
-        'tb.ID = "tb_wapoints" & Persistance.Destinations.Length
+
+
+
         p_routenodes.Controls.Remove(tb)
+
         'Dim rfv As RequiredFieldValidator = Persistance.rfv(Persistance.rfv.Length - 1)
         'p_routenodes.Controls.Remove(rfv)
     End Sub
