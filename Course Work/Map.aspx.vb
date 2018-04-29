@@ -14,12 +14,26 @@ End Class
 
 
 Public Module Persistence
-    Public Destinations As TextBox() = {New TextBox}
+    Public Destinations As New List(Of TextBox)
+    Public rfv As New List(Of RequiredFieldValidator)
 
-    Public rfv As RequiredFieldValidator() = {New RequiredFieldValidator}
-    Sub onload()
-        Destinations(0).ID = "tb_waypoints" & Destinations.Length - 1
-        rfv(0).ControlToValidate = Destinations(0).ID
+    Sub addrfvcontrols()
+        If Destinations.Count < 1 Then
+            Dim newtb As New TextBox
+            newtb.ID = "tb_waypoints" & Destinations.Count
+            Destinations.Add(newtb)
+        End If
+
+        'Destinations(0).ID = "tb_waypoints" & 1
+        For i As Integer = 0 To Destinations.Count - 1
+            Dim newrfv As New RequiredFieldValidator
+            newrfv.ControlToValidate = Destinations.Item(i).ID
+            rfv.Add(newrfv)
+        Next
+    End Sub
+
+    Sub clearrfv()
+        rfv.Clear()
     End Sub
 End Module
 
@@ -28,7 +42,7 @@ Public Class Map
     Inherits System.Web.UI.Page
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         p_routenodes.Controls.Clear()
-        Persistence.onload()
+        Persistence.addrfvcontrols()
         'adds the text boxes stored in "Persistence" to the panel
 
         For Each tb As TextBox In Persistence.Destinations
@@ -37,7 +51,7 @@ Public Class Map
 
         'Dim script As String = ""
         'script = "<script> </script>"
-        Page.ClientScript.RegisterClientScriptInclude("Map_Scripts.js", "~/Scripts/Map_Scripts.js")
+        'Page.ClientScript.RegisterClientScriptInclude("Map_Scripts.js", "~/Scripts/Map_Scripts.js")
 
         'consider using GetType
         For Each rfv As RequiredFieldValidator In Persistence.rfv
@@ -60,7 +74,7 @@ Public Class Map
 
     Protected Sub Page_Unload(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Unload
         Dim tb_list As New List(Of TextBox)
-        Dim rfv_list As New List(Of RequiredFieldValidator)
+        'Dim rfv_list As New List(Of RequiredFieldValidator)
 
         '''adds the textboxes in the panel to the list
         'For Each tb As TextBox In p_routenodes.Controls
@@ -73,38 +87,35 @@ Public Class Map
             End If
         Next
         'sets the value of the remote variable so that the textboxes are preservered between page loads
-        Persistence.Destinations = tb_list.ToArray()
+        Persistence.Destinations = tb_list
 
-        For Each rfv As Control In p_routenodes.Controls
-            If TypeOf rfv Is RequiredFieldValidator Then
-                rfv_list.Add(rfv)
-                Persistence.rfv = rfv_list.ToArray()
-            End If
-        Next
+        'For Each rfv As Control In p_routenodes.Controls
+        '    If TypeOf rfv Is RequiredFieldValidator Then
+        '        rfv_list.Add(rfv)
+
+        '    End If
+        'Next
         'sets the value of the remote variable so that the rfv's are preservered between page loads
-        Persistence.rfv = rfv_list.ToArray()
+        'Persistence.rfv = rfv_list
+        clearrfv()
     End Sub
 
     Protected Sub AddDestination_Click(sender As Object, e As EventArgs) Handles b_AddDestination.Click
         Dim tb As New TextBox()
-        Dim rfv As New RequiredFieldValidator()
         'Dim rfv As New RequiredFieldValidator()
 
-        Dim id As String = "tb_waypoints" & Persistence.Destinations.Length
+        Dim id As String = "tb_waypoints" & Persistence.Destinations.Count
         tb.ID = id
 
 
-        rfv.ControlToValidate = id
-        p_routenodes.Controls.Add(rfv)
+        'rfv.ControlToValidate = id
+        'p_routenodes.Controls.Add(rfv)
         'flubadub
         p_routenodes.Controls.Add(tb)
     End Sub
 
     Protected Sub RemoveDestination_click(sender As Object, e As EventArgs) Handles b_LessDestination.Click
-        Dim tb As TextBox = Persistence.Destinations(Persistence.Destinations.Length - 1)
-
-
-
+        Dim tb As TextBox = Persistence.Destinations(Persistence.Destinations.Count - 1)
         p_routenodes.Controls.Remove(tb)
 
         'Dim rfv As RequiredFieldValidator = Persistance.rfv(Persistance.rfv.Length - 1)
