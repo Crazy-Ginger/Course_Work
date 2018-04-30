@@ -28,8 +28,12 @@ Public Module Persistence
         For i As Integer = 0 To Destinations.Count - 1
             Dim newrfv As New RequiredFieldValidator
             newrfv.ControlToValidate = Destinations.Item(i).ID
+            newrfv.ForeColor = Drawing.Color.Red
+            newrfv.ErrorMessage = "This is a required field"
             rfv.Add(newrfv)
+            MsgBox("validated: " & Destinations.Item(i).ID)
         Next
+
     End Sub
 
     Sub clearrfv()
@@ -42,13 +46,13 @@ Public Class Map
     Inherits System.Web.UI.Page
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         p_routenodes.Controls.Clear()
-        Persistence.addrfvcontrols()
+
         'adds the text boxes stored in "Persistence" to the panel
 
         For Each tb As TextBox In Persistence.Destinations
             p_routenodes.Controls.Add(tb)
         Next
-
+        Persistence.addrfvcontrols()
         'Dim script As String = ""
         'script = "<script> </script>"
         'Page.ClientScript.RegisterClientScriptInclude("Map_Scripts.js", "~/Scripts/Map_Scripts.js")

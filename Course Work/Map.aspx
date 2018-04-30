@@ -6,7 +6,7 @@
         <div class="d_Boxes">
             <span id="Left" class="Left">
                 <asp:TextBox ID="tb_Start" runat="server" Width="200px" Placeholder="Start Location" AutoCompleteType="HomeZipCode" ></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfv_noStart" ControlToValidate="tb_start" Enabled="false" runat="server" ForeColor="Red" ErrorMessage="The route needs a Start"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="rfv_noStart" ControlToValidate="tb_start" Enabled="true" runat="server" ForeColor="Red" ErrorMessage="The route needs a Start" ValidationGroup="routing"></asp:RequiredFieldValidator>
             </span>
 
             <div id="ToRight" class="ToRight">
@@ -18,8 +18,8 @@
             <%--<input id="B_adDestination" type="button" runat="server" value="Add a Destination" OnClick="javascript:boxes()"/>--%>
             <%--<input id="B_removeDestination" type="button" runat="server" value="Add a Destination" OnClick="javascript:lessboxes()"/>--%>
 
-            <asp:Button ID="b_AddDestination" runat="server" Text="Add a Destination" Font-Size="Medium" Height="40px" />    <%--OnClientClick="javascript:addboxes()--%>
-            <asp:Button ID="b_LessDestination" runat="server" Text="Remove Destination" Font-Size="Medium" Height="40px" />    <%--OnClientClick="reduceboxes(); return false"--%>
+            <asp:Button ID="b_AddDestination" runat="server" Text="Add a Destination" CausesValidation="false" Font-Size="Medium" Height="40px"/>    <%--OnClientClick="javascript:addboxes()--%>
+            <asp:Button ID="b_LessDestination" runat="server" Text="Remove Destination" CausesValidation="false" Font-Size="Medium" Height="40px" />    <%--OnClientClick="reduceboxes(); return false"--%>
            
             <%--<asp:Button ID="testcallback" runat="server" Text="Test ME" OnClientClick="reduceboxes(); return false;" />--%>
 
@@ -35,7 +35,7 @@
         <%--<asp:Label ID="l_toomany" runat="server" ForeColor="Red" Text="Only 20 destinations are supported" Visible="False"></asp:Label>--%>
 
         <br />
-        <asp:Button ID="b_RouteCalc" runat="server" Width="180px" Height="40px" Text="Calculate Route" Font-Size="Medium"/>
+        <asp:Button ID="b_RouteCalc" runat="server" Width="180px" Height="40px" Text="Calculate Route" Font-Size="Medium" ValidationGroup="routing" CausesValidation="true"/>
         <br />
 
 
