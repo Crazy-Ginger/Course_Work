@@ -33,7 +33,6 @@ Public Module Persistence
             rfv.Add(newrfv)
             MsgBox("validated: " & Destinations.Item(i).ID)
         Next
-
     End Sub
 
     Sub clearrfv()
@@ -48,9 +47,11 @@ Public Class Map
         p_routenodes.Controls.Clear()
 
         'adds the text boxes stored in "Persistence" to the panel
-
+        Dim count As Integer = 0
         For Each tb As TextBox In Persistence.Destinations
             p_routenodes.Controls.Add(tb)
+            p_routenodes.Controls.Add(Persistence.rfv.Item(count))
+            count += 1
         Next
         Persistence.addrfvcontrols()
         'Dim script As String = ""
