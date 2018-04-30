@@ -24,7 +24,6 @@ Public Module Persistence
             Destinations.Add(newtb)
         End If
 
-        'Destinations(0).ID = "tb_waypoints" & 1
         For i As Integer = 0 To Destinations.Count - 1
             Dim newrfv As New RequiredFieldValidator
             newrfv.ControlToValidate = Destinations.Item(i).ID
@@ -45,7 +44,7 @@ Public Class Map
     Inherits System.Web.UI.Page
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         p_routenodes.Controls.Clear()
-
+        Persistence.addrfvcontrols()
         'adds the text boxes stored in "Persistence" to the panel
         Dim count As Integer = 0
         For Each tb As TextBox In Persistence.Destinations
@@ -53,7 +52,7 @@ Public Class Map
             p_routenodes.Controls.Add(Persistence.rfv.Item(count))
             count += 1
         Next
-        Persistence.addrfvcontrols()
+
         'Dim script As String = ""
         'script = "<script> </script>"
         'Page.ClientScript.RegisterClientScriptInclude("Map_Scripts.js", "~/Scripts/Map_Scripts.js")
