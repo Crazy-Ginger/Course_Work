@@ -3,7 +3,6 @@ Imports System.Net
 Imports System.Text
 Imports System.Data
 Imports System.Threading
-
 Public Class Shorter
     Public distance As Integer
     Public duration As Integer
@@ -29,9 +28,17 @@ Public Module Persistence
             newrfv.ControlToValidate = Destinations.Item(i).ID
             newrfv.ForeColor = Drawing.Color.Red
             newrfv.ErrorMessage = "This is a required field"
+            newrfv.ValidationGroup = "routing"
             rfv.Add(newrfv)
-            MsgBox("validated: " & Destinations.Item(i).ID)
+            'MsgBox("validated: " & Destinations.Item(i).ID)
         Next
+
+        Dim lastrfv As New RequiredFieldValidator
+        lastrfv.ControlToValidate = Destinations.Item(Destinations.Count - 1).ID
+        lastrfv.ForeColor = Drawing.Color.Red
+        lastrfv.ErrorMessage = "This is a required field"
+        lastrfv.ValidationGroup = "routing"
+        rfv.Add(lastrfv)
     End Sub
 
     Sub clearrfv()
@@ -43,7 +50,8 @@ End Module
 Public Class Map
     Inherits System.Web.UI.Page
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        p_routenodes.Controls.Clear()
+        'p_routenodes.Controls.Clear()
+
         Persistence.addrfvcontrols()
         'adds the text boxes stored in "Persistence" to the panel
         Dim count As Integer = 0
@@ -51,16 +59,17 @@ Public Class Map
             p_routenodes.Controls.Add(tb)
             p_routenodes.Controls.Add(Persistence.rfv.Item(count))
             count += 1
+            Dim br As New HtmlGenericControl("br")
+            p_routenodes.Controls.Add(br)
         Next
-
         'Dim script As String = ""
         'script = "<script> </script>"
         'Page.ClientScript.RegisterClientScriptInclude("Map_Scripts.js", "~/Scripts/Map_Scripts.js")
 
         'consider using GetType
-        For Each rfv As RequiredFieldValidator In Persistence.rfv
-            p_routenodes.Controls.Add(rfv)
-        Next
+        'For Each rfv As RequiredFieldValidator In Persistence.rfv
+        '    p_routenodes.Controls.Add(rfv)
+        'Next
 
         'If boxes.numb > 20 Then
         '    boxes.numb = 20

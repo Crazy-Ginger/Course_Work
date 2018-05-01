@@ -6,7 +6,7 @@
         <div class="d_Boxes">
             <span id="Left" class="Left">
                 <asp:TextBox ID="tb_Start" runat="server" Width="200px" Placeholder="Start Location" AutoCompleteType="HomeZipCode" ></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfv_noStart"  Enabled="true" runat="server" ForeColor="Red" ErrorMessage="The route needs a Start" ValidationGroup="routing"></asp:RequiredFieldValidator>  <%--ControlToValidate="tb_start"--%>
+                <asp:RequiredFieldValidator ID="rfv_noStart"  Enabled="true" runat="server" ForeColor="Red" ErrorMessage="The route needs a Start" ValidationGroup="routing" ControlToValidate="tb_start"></asp:RequiredFieldValidator>  <%--ControlToValidate="tb_start"--%>
             </span>
 
             <div id="ToRight" class="ToRight">
