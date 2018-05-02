@@ -158,11 +158,14 @@ Public Class Map
 
         'cycles through the text boxes created and adds their text to the node list
         For Each tb As TextBox In p_routenodes.Controls.OfType(Of TextBox)()
-            If String.IsNullOrEmpty(tb.Text) = True Or tb.Text = " " Then
+            'If String.IsNullOrEmpty(tb.Text) = True Or tb.text=" " Then
+            'checks the textboxes contain valid data
+            If String.IsNullOrEmpty(tb.Text) = True Or String.IsNullOrWhiteSpace(tb.Text) = True Then
                 'stops a blank address being added and posisbly causing problem
             Else
                 nodes.Add(tb.Text)
             End If
+
         Next
         If nodes.Count < 2 Then
             l_destinations.Text = "2 addresses are required"
