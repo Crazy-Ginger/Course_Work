@@ -53,12 +53,15 @@ Public Class Map
         p_routenodes.Controls.Clear()
         clearrfv()
         Persistence.addrfvcontrols()
+        MsgBox("created rfv's")
         'adds the text boxes stored in "Persistence" to the panel
         Dim count As Integer = 0
         For Each tb As TextBox In Persistence.Destinations
             p_routenodes.Controls.Add(tb)
+            MsgBox("added textbox")
             p_routenodes.Controls.Add(Persistence.rfv.Item(count))
-            Console.WriteLine("tb id: " & tb.ID & vbTab & "rfv ctv: " & Persistence.rfv.Item(count).ControlToValidate)
+            MsgBox("added rfv's")
+            'Console.WriteLine("tb id: " & tb.ID & vbTab & "rfv ctv: " & Persistence.rfv.Item(count).ControlToValidate)
             count += 1
             'Dim br As New HtmlGenericControl("br")
             'p_routenodes.Controls.Add(br)
@@ -114,7 +117,6 @@ Public Class Map
         'sets the value of the remote variable so that the rfv's are preservered between page loads
         'Persistence.rfv = rfv_list
         'p_routenodes.Controls.Clear()
-        clearrfv()
     End Sub
 
     Protected Sub AddDestination_Click(sender As Object, e As EventArgs) Handles b_AddDestination.Click
@@ -133,10 +135,9 @@ Public Class Map
 
     Protected Sub RemoveDestination_click(sender As Object, e As EventArgs) Handles b_LessDestination.Click
         Dim tb As TextBox = Persistence.Destinations.Last
-        Dim rfv As RequiredFieldValidator = Persistence.rfv.Last
-        MsgBox(tb.ID)
-        p_routenodes.Controls.Remove(rfv)
-        Persistence.rfv.Remove(Persistence.rfv.Last)
+        'Dim rfv As RequiredFieldValidator = Persistence.rfv.Last
+        'MsgBox("textbox: " & tb.ID)
+        Persistence.clearrfv()
         p_routenodes.Controls.Remove(tb)
 
         'Dim rfv As RequiredFieldValidator = Persistance.rfv(Persistance.rfv.Length - 1)
@@ -195,12 +196,11 @@ Public Class Map
         ElseIf shortest.status = 0 Then
             MsgBox("There was an error, please retry")
         ElseIf shortest.status = 1 Then
-            l_Distance.Text = shortest.distance
-            l_Duration.Text = shortest.duration
+            ' l_Distance.Text = shortest.distance
+            'l_Duration.Text = shortest.duration
             'tb_URL.Text = shortest.url
-            For i As Integer = 0 To shortest.nodes.Count - 1
-                bl_nodes.Items.Insert(i, shortest.nodes.Item(i))
-            Next
+            MsgBox("Success")
+            Server.Transfer("Money Breakdown.asp")
         Else
             MsgBox("There was an error, please retry")
         End If
