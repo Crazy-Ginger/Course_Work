@@ -111,13 +111,4 @@ Partial Public Class Map
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents bl_nodes As Global.System.Web.UI.WebControls.BulletedList
-    
-    '''<summary>
-    '''p_bugtest control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents p_bugtest As Global.System.Web.UI.WebControls.Panel
 End Class

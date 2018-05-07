@@ -53,14 +53,14 @@ Public Class Map
         p_routenodes.Controls.Clear()
         clearrfv()
         Persistence.addrfvcontrols()
-        MsgBox("created rfv's")
+
         'adds the text boxes stored in "Persistence" to the panel
         Dim count As Integer = 0
         For Each tb As TextBox In Persistence.Destinations
             p_routenodes.Controls.Add(tb)
-            MsgBox("added textbox")
+
             p_routenodes.Controls.Add(Persistence.rfv.Item(count))
-            MsgBox("added rfv's")
+
             'Console.WriteLine("tb id: " & tb.ID & vbTab & "rfv ctv: " & Persistence.rfv.Item(count).ControlToValidate)
             count += 1
             'Dim br As New HtmlGenericControl("br")
@@ -169,6 +169,9 @@ Public Class Map
         Next
         If nodes.Count < 2 Then
             l_destinations.Text = "2 addresses are required"
+            l_destinations.Visible = True
+        ElseIf nodes.Count > 23 Then
+            l_destinations.Text = "Too many waypoints. A maximum of 21 are allowed"
             l_destinations.Visible = True
         End If
         Dim test As New StringBuilder
