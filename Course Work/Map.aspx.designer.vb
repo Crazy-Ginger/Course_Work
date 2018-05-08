@@ -104,6 +104,15 @@ Partial Public Class Map
     Protected WithEvents l_Duration As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''tb_routeURL control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tb_routeURL As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
     '''bl_nodes control.
     '''</summary>
     '''<remarks>

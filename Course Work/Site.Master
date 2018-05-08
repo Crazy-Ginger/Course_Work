@@ -4,18 +4,6 @@
 
 <html lang="en">
 <head runat="server">
-    <%--this adds the aspects for the mapbox--%>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.js'></script>            <%--~/App_Data/mapbox-gl.js--%>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css' rel='stylesheet' /> <%--../mapbox-gl.css ~/App_Data/mapbox-gl.css add this to the reference--%>
-    <link href='//mapbox.com/base/latest/base.css' rel='stylesheet' /> <%--may add css for the maps--%>
-    
-    <%--this adds the style sheet and scripts for leaflet--%>
-    <%--This should be for leaflet with multiple directions--%>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
-    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - Trucking Solutions</title>
@@ -23,13 +11,14 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
+    <asp:ContentPlaceHolder ID="stylesheets" runat="server">
+        <link rel="bootstrap" href="Content/bootstrap.css" type="text/css"/> 
+        <link rel="Site.css" href="Content/Site.css" type="text/css" />
+    </asp:ContentPlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <webopt:BundleReference runat="server" Path="~/Scripts/js" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
-
-    
 </head>
 <body>
     <form runat="server">
