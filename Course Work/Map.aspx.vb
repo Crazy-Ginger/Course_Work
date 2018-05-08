@@ -135,12 +135,12 @@ Public Class Map
     End Sub
 
     Protected Sub RouteCalc_Click(sender As Object, e As EventArgs) Handles b_RouteCalc.Click
-        '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        'If Session("logged_in") = False Then
-        '    MsgBox("You need to login to access this feature")
-        '    Server.Transfer("Login.aspx")
-        'End If
-        '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        If Session("logged_in") = False Then
+            MsgBox("You need to login to access this feature")
+            Server.Transfer("Login.aspx")
+        End If
+        bl_nodes.ClearSelection()
 
         'this will tell the extenral code if a final destination was added to the route
         Dim last As Boolean = False

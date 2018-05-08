@@ -18,25 +18,25 @@
             <asp:TextBox ID="tb_uname" runat="server" placeholder="Username"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfv_username" runat="server" ForeColor="Red" ControlToValidate="tb_uname" ErrorMessage="Please enter a username"></asp:RequiredFieldValidator>
             <br />
-            <asp:Label ID="l_username" runat="server" ForeColor="Red" Text="This username is taken" Visible="False"></asp:Label>
+            <asp:Label ID="l_username" runat="server" ForeColor="Red" Text="This username is taken" Visible="True"></asp:Label>
             <br />
 
             <asp:TextBox ID="tb_password" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfv_password" runat="server" ForeColor="Red" ControlToValidate="tb_password" ErrorMessage="Please enter a password"></asp:RequiredFieldValidator>
             <br />
-            <asp:Label ID="l_passwordlength" runat="server" Text="Password must be 8 characters or more" ForeColor="Red" Visible="false"></asp:Label>
+            <asp:Label ID="l_passwordlength" runat="server" Text="Password must be 8 characters or more" ForeColor="Red" Visible="true"></asp:Label>
             <br />
 
             <asp:TextBox ID="tb_passwordmatch" runat="server" TextMode="Password" placeholder="Confirm Password"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfv_passwordMatch" runat="server" ForeColor="Red" ControlToValidate="tb_passwordmatch" ErrorMessage="Please re-enter your password"></asp:RequiredFieldValidator>
             <br />
-            <asp:Label ID="l_passwordmatch" runat="server" ForeColor="Red" Text="Passwords don't match" Visible="False"></asp:Label>
+            <asp:Label ID="l_passwordmatch" runat="server" ForeColor="Red" Text="Passwords don't match" Visible="true"></asp:Label>
             <br />
 
             <asp:TextBox ID="tb_email" runat="server" TextMode="Email" placeholder="Email"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfv_email" runat="server" ForeColor="Red" ControlToValidate="tb_email" ErrorMessage="Please enter am email"></asp:RequiredFieldValidator>
             <br />
-            <asp:Label ID="l_email" runat="server" ForeColor="Red" Text="This email  is taken" Visible="False"></asp:Label>
+            <asp:Label ID="l_email" runat="server" ForeColor="Red" Text="This email  is taken" Visible="true"></asp:Label>
             <br />
         </div>
 
@@ -59,20 +59,18 @@
             <asp:TextBox ID="tb_license" runat="server" placeholder="License Plate"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfv_license" runat="server" ForeColor="Red" ControlToValidate="tb_uname" ErrorMessage="Please enter the license plate"></asp:RequiredFieldValidator>
             <br />
-            <asp:Label ID="l_license" runat="server" Text="The license plate should be unique" ForeColor="Red" Visible="false"></asp:Label>
+            <asp:Label ID="l_license" runat="server" Text="The license plate should be unique" ForeColor="Red" Visible="true"></asp:Label>
             <br />
 
             Last MOT
             <asp:TextBox ID="tb_lastMOT" runat="server" TextMode="Date"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfv_lastMOT" runat="server" ForeColor="Red" ControlToValidate="tb_lastMOT" ErrorMessage="This is a required field"></asp:RequiredFieldValidator>
-            <asp:Label ID="l_lastMOT" runat="server" ForeColor="Red" Text="Invalid date" Visible="false"></asp:Label>
             <br />
             <br />
 
             Next MOT
             <asp:TextBox ID="tb_nextMOT" runat="server" TextMode="Date"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfv_nextMOT" runat="server" ForeColor="Red" ControlToValidate="tb_nextMOT" ErrorMessage="This is a required field"></asp:RequiredFieldValidator>
-            <asp:Label ID="l_nextMOT" runat="server" ForeColor="Red" Text="Invalid date" Visible="false"></asp:Label>
+            <asp:RequiredFieldValidator ID="rfv_nextMOT" runat="server" ForeColor="Red" ControlToValidate="tb_nextMOT" ErrorMessage="This is a required field"></asp:RequiredFieldValidator>    
             <br />
             <br />
             <asp:Button ID="b_Register" runat="server" Text="Next" />

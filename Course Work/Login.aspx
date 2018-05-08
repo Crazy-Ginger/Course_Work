@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="LoginPage">
         <br />
-        <span class="loginUsername">User Name:&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="loginUsername">Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="tb_username" runat="server" Width="150px"></asp:TextBox>
         </span>
         <asp:RequiredFieldValidator ID="rfv_noUsername" runat="server" ForeColor="Red" ControlToValidate="tb_username" ErrorMessage="Please enter a username"></asp:RequiredFieldValidator>

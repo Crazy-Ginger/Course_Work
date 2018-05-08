@@ -257,15 +257,6 @@ Partial Public Class Register
     Protected WithEvents rfv_lastMOT As Global.System.Web.UI.WebControls.RequiredFieldValidator
     
     '''<summary>
-    '''l_lastMOT control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents l_lastMOT As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
     '''tb_nextMOT control.
     '''</summary>
     '''<remarks>
@@ -282,15 +273,6 @@ Partial Public Class Register
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfv_nextMOT As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
-    '''<summary>
-    '''l_nextMOT control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents l_nextMOT As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''b_Register control.

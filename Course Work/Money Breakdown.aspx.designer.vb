@@ -48,4 +48,67 @@ Partial Public Class Weekly_Summary
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents bl_nodes As Global.System.Web.UI.WebControls.BulletedList
+    
+    '''<summary>
+    '''ddl_Licenses control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddl_Licenses As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''SqlDataSource1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SqlDataSource1 As Global.System.Web.UI.WebControls.SqlDataSource
+    
+    '''<summary>
+    '''tb_grossProfit control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tb_grossProfit As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''tb_fuelConsumption control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tb_fuelConsumption As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''b_calculateNet control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents b_calculateNet As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''tb_netProfit control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tb_netProfit As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''b_submitRoute control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents b_submitRoute As Global.System.Web.UI.WebControls.Button
 End Class

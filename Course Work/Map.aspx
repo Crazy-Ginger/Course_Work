@@ -29,7 +29,7 @@
             <br />
             <asp:BulletedList ID="bl_nodes" runat="server" DisplayMode="text" BulletStyle="Numbered"></asp:BulletedList>
             <br />
-            <asp:Button ID="b_passdata" runat="server" Text="Submit Route" font-size="Medium" Height="40px"></asp:Button>
+            <asp:Button ID="b_passdata" runat="server" Text="Submit Route" font-size="Medium" Height="40px" />
 
         </div>
         <br />
