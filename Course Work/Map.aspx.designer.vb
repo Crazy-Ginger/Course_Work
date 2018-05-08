@@ -120,4 +120,13 @@ Partial Public Class Map
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents bl_nodes As Global.System.Web.UI.WebControls.BulletedList
+    
+    '''<summary>
+    '''b_passdata control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents b_passdata As Global.System.Web.UI.WebControls.Button
 End Class

@@ -267,7 +267,7 @@ Module Routing
             status_index += 12
             Dim status As New StringBuilder
             For i As Integer = status_index To JSON_str.Length
-                If JSON_str.Substring(i, 1) = "" Then
+                If JSON_str.Substring(i, 1) = Chr(34) Then
                     Exit For
                     count += 1
                 Else

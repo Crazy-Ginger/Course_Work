@@ -12,4 +12,40 @@ Option Explicit On
 
 
 Partial Public Class Weekly_Summary
+    
+    '''<summary>
+    '''tb_distance control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tb_distance As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''tb_duration control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tb_duration As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''tb_URL control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tb_URL As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''bl_nodes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bl_nodes As Global.System.Web.UI.WebControls.BulletedList
 End Class

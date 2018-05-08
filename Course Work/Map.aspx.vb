@@ -1,3 +1,4 @@
+Imports System
 Imports System.IO
 Imports System.Net
 Imports System.Text
@@ -5,7 +6,7 @@ Imports System.Data
 Imports System.Threading
 Public Class Shorter
     Public distance As Integer
-    Public duration As Integer
+    Public duration As Double
     Public nodes As New List(Of String)
     Public url As String
     Public status As Integer
@@ -77,18 +78,7 @@ Public Class Map
         '    p_routenodes.Controls.Add(rfv)
         'Next
 
-        'If boxes.numb > 20 Then
-        '    boxes.numb = 20
-        '    lb_toomany.Visible = True
-        'End If
-        'For i As Integer = 1 To Session("boxes")
-        '    Dim tb_dest As New TextBox
-        '    tb_dest.ID = "tb_dest_" & i
-        '    tb_dest.AutoCompleteType = AutoCompleteType.HomeZipCode
-        '    tb_dest.Width = 200
-        '    p_routenodes.Controls.Add(tb_dest)
-        'Next
-        'tb_Distance.Text = Session("boxes")
+
     End Sub
 
     Protected Sub Page_Unload(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Unload
@@ -206,9 +196,12 @@ Public Class Map
         ElseIf shortest.status = 0 Then
             MsgBox("There was an error, please retry")
         ElseIf shortest.status = 1 Then
-            l_Distance.Text = shortest.distance
-            l_Duration.Text = shortest.duration
-            tb_routeURL.Text = shortest.url
+            l_Distance.Text = (shortest.distance / 1000) & " km"
+            l_Distance.Visible = True
+            Dim rounded As Double = Math.Round((shortest.duration / 3600), 2)
+            l_Duration.Text = rounded & " hours"
+            l_Duration.Visible = True
+            tb_routeURL.Visible = True
             For Each node As String In shortest.nodes
                 bl_nodes.Items.Add(node)
             Next
@@ -216,6 +209,16 @@ Public Class Map
         Else
             MsgBox("There was an error, please retry")
         End If
+        tb_routeURL.Text = shortest.url
     End Sub
 
+
+    Protected Sub Datapass_Click(sender As Object, e As EventArgs) Handles b_passdata.Click
+        If shortest.status = 1 Then
+            Session("passed") = True
+        Else
+            Session("passed") = False
+        End If
+        Server.Transfer("Money Breakdown.aspx")
+    End Sub
 End Class

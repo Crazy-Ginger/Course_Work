@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Map" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Map.aspx.vb" Inherits="Course_Work.Map" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent" EnableEventValidation="True">
-    <div class="jumbotron" style="z-index:-1;">
+    <div class="jumbotron" style="z-index: -1;">
         <div class="d_Boxes">
             <span id="Left" class="Left">
                 <asp:TextBox ID="tb_Start" runat="server" Width="200px" Placeholder="Start Location" AutoComplete="Off"></asp:TextBox>
@@ -21,11 +21,18 @@
         <asp:Button ID="b_RouteCalc" runat="server" Width="180px" Height="40px" Text="Calculate Route" Font-Size="Medium" ValidationGroup="routing" CausesValidation="true" />
         <br />
         <div style="float: right;">
-            <asp:Label ID="l_Distance" runat="server"></asp:Label>
+            <asp:label ID="l_Distance" runat="server"></asp:label>
+            <br />
             <asp:Label ID="l_Duration" runat="server"></asp:Label>
-            <asp:TextBox ID="tb_routeURL" runat="server"></asp:TextBox>
+            <br />
+            <asp:TextBox ID="tb_routeURL" runat="server" Visible="false" Width="400px"></asp:TextBox>
+            <br />
             <asp:BulletedList ID="bl_nodes" runat="server" DisplayMode="text" BulletStyle="Numbered"></asp:BulletedList>
+            <br />
+            <asp:Button ID="b_passdata" runat="server" Text="Submit Route" font-size="Medium" Height="40px"></asp:Button>
+
         </div>
+        <br />
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4855861.9722248465!2d-2.456570850324048!3d54.73551770561395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2suk!4v1508513543217" width="700" height="600" style="border: hidden; position: absolute; float: left;"></iframe>
         <br />
         <br />
